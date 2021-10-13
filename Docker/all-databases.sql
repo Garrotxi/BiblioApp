@@ -135,10 +135,12 @@ CREATE TABLE `Usuaris` (
   `EMAIL` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `TELEFON` int(11) DEFAULT NULL,
   `DATA_REGISTRE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `STATUS` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `STATUS` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'STATUS - Camp per a definir el estat del usuari.\n1 = Actiu\n0 = Inactiu/Desactivat',
+  `ADMIN` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'ADMIN- Camp per a definir el rol del usuari.\n1 - Administrador\n0 - Usuari',
+  `CONTRASENYA` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +149,7 @@ CREATE TABLE `Usuaris` (
 
 LOCK TABLES `Usuaris` WRITE;
 /*!40000 ALTER TABLE `Usuaris` DISABLE KEYS */;
+INSERT INTO `Usuaris` VALUES (1,'Lluis Antoni','Roigé Higueras','lluis@mail.com',NULL,'2021-10-13 19:38:21',1,1,'root'),(2,'John','Doe','jdoe@mail.com',NULL,'2021-10-13 19:38:21',0,0,'user1');
 /*!40000 ALTER TABLE `Usuaris` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-10 21:26:56
+-- Dump completed on 2021-10-13 21:41:38
