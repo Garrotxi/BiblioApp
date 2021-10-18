@@ -122,6 +122,37 @@ LOCK TABLES `Llibres` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Prestec`
+--
+
+DROP TABLE IF EXISTS `Prestec`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Prestec` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_LLIBRE` int(11) NOT NULL,
+  `ID_USUARI` int(11) NOT NULL,
+  `DATA_PRESTEC` datetime DEFAULT NULL,
+  `DATA_RETORN` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID_UNIQUE` (`ID`),
+  KEY `ID_LLIBRE_idx` (`ID_LLIBRE`),
+  KEY `ID_USUARI_idx` (`ID_USUARI`),
+  CONSTRAINT `ID_LLIBRE` FOREIGN KEY (`ID_LLIBRE`) REFERENCES `Llibres` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `ID_USUARI` FOREIGN KEY (`ID_USUARI`) REFERENCES `Usuaris` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Prestec`
+--
+
+LOCK TABLES `Prestec` WRITE;
+/*!40000 ALTER TABLE `Prestec` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Prestec` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Usuaris`
 --
 
@@ -170,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-13 21:41:38
+-- Dump completed on 2021-10-18 22:05:27
