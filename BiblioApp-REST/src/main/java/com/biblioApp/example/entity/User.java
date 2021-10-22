@@ -5,29 +5,52 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 @Data
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "users")
+public class User {
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Size(max = 30)
     private String name;
 
-    @Column(name = "username", nullable = false)
+    @NotBlank
+    @Size(max = 30)
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @NotBlank
+    @Size(max = 30)
     private String password;
 
-    @Column(name = "email", nullable = false)
+    @Size(max = 50)
+    @Email
     private String email;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
