@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `BiblioApp` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
-USE `BiblioApp`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: BiblioApp
+-- Host: localhost    Database: BiblioApp
 -- ------------------------------------------------------
 -- Server version	5.6.51
 
@@ -105,6 +103,7 @@ CREATE TABLE `Llibres` (
   `ID_CATEGORIA` int(11) DEFAULT NULL,
   `DATA_PUBLICACIO` date DEFAULT NULL,
   `COPIES_DISPONIBLES` int(11) NOT NULL,
+  `FOTO` longblob,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   KEY `FK_ID_CATEGORIA_idx` (`ID_CATEGORIA`),
@@ -153,6 +152,56 @@ LOCK TABLES `Prestec` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ROLS_USUARI`
+--
+
+DROP TABLE IF EXISTS `ROLS_USUARI`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ROLS_USUARI` (
+  `ID_USUARI` int(11) NOT NULL,
+  `ID_ROL` int(11) NOT NULL,
+  KEY `FK_ID_USUARI_idx` (`ID_USUARI`),
+  KEY `FK_ID_ROL_idx` (`ID_ROL`,`ID_USUARI`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ROLS_USUARI`
+--
+
+LOCK TABLES `ROLS_USUARI` WRITE;
+/*!40000 ALTER TABLE `ROLS_USUARI` DISABLE KEYS */;
+INSERT INTO `ROLS_USUARI` VALUES (1,1),(4,1),(3,2);
+/*!40000 ALTER TABLE `ROLS_USUARI` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Rols`
+--
+
+DROP TABLE IF EXISTS `Rols`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Rols` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ROL` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID_UNIQUE` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Rols`
+--
+
+LOCK TABLES `Rols` WRITE;
+/*!40000 ALTER TABLE `Rols` DISABLE KEYS */;
+INSERT INTO `Rols` VALUES (1,'USER'),(2,'ADMIN');
+/*!40000 ALTER TABLE `Rols` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Usuaris`
 --
 
@@ -161,17 +210,21 @@ DROP TABLE IF EXISTS `Usuaris`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuaris` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_ROL` int(11) NOT NULL,
+  `NOM_USUARI` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `NOM` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `COGNOMS` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `EMAIL` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `TELEFON` int(11) DEFAULT NULL,
   `DATA_REGISTRE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `STATUS` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'STATUS - Camp per a definir el estat del usuari.\n1 = Actiu\n0 = Inactiu/Desactivat',
-  `ADMIN` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'ADMIN- Camp per a definir el rol del usuari.\n1 - Administrador\n0 - Usuari',
   `CONTRASENYA` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `FOTO` longblob,
+  `Usuariscol` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  UNIQUE KEY `ID_UNIQUE` (`ID`),
+  UNIQUE KEY `NOM_USUARI_UNIQUE` (`NOM_USUARI`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,9 +233,49 @@ CREATE TABLE `Usuaris` (
 
 LOCK TABLES `Usuaris` WRITE;
 /*!40000 ALTER TABLE `Usuaris` DISABLE KEYS */;
-INSERT INTO `Usuaris` VALUES (1,'Lluis Antoni','Roigé Higueras','lluis@mail.com',NULL,'2021-10-13 19:38:21',1,1,'root'),(2,'John','Doe','jdoe@mail.com',NULL,'2021-10-13 19:38:21',0,0,'user1');
+INSERT INTO `Usuaris` VALUES (3,2,'admin','',NULL,'',NULL,'2021-10-24 19:55:00',1,'admin',NULL,NULL),(4,1,'jdoe','John','Doe','j.doe@aol.com',NULL,'2021-10-24 19:55:00',1,'1234',NULL,NULL);
 /*!40000 ALTER TABLE `Usuaris` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 trigger T_USER_ROLE_ADD after insert on BiblioApp.Usuaris
+for each row
+begin
+  insert into BiblioApp.ROLS_USUARI (ID_USUARI, ID_ROL) values (new.ID, new.ID_ROL);
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 trigger T_USER_ROLE_MOD after update on BiblioApp.Usuaris
+for each row
+begin
+	if !(new.ID_ROL <=> old.ID_ROL) then
+		update BiblioApp.ROLS_USUARI set ID_ROL = new.ID_ROL where ID = old.ID;
+	end if;
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Dumping events for database 'BiblioApp'
@@ -201,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-18 22:05:27
+-- Dump completed on 2021-10-24 22:20:19

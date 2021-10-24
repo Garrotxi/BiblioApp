@@ -1,4 +1,4 @@
-package com.biblioApp.core.entity;
+package com.biblioApp.core.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

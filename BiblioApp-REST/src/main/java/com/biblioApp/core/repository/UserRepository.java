@@ -2,7 +2,7 @@ package com.biblioApp.core.repository;
 
 import java.util.Optional;
 
-import com.biblioApp.core.entity.User;
+import com.biblioApp.core.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
