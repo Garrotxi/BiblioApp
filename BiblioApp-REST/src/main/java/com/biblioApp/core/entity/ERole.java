@@ -1,4 +1,4 @@
-package com.biblioApp.example.entity;
+package com.biblioApp.core.entity;
 
 public enum ERole {
     ROLE_USER,

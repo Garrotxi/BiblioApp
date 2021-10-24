@@ -1,17 +1,18 @@
-package com.biblioApp.example.entity;
+package com.biblioApp.core.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "Rols")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Integer id;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 20)
+    @Column(name="ROL")
     private ERole name;
 
     public Role() {
