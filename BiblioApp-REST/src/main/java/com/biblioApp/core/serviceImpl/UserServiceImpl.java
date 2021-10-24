@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String inhabilitateUser(Long id) {
+        //TO DO
         return null;
     }
 
