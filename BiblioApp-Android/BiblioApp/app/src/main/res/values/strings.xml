@@ -2,8 +2,9 @@
     <string name="app_name">BiblioApp</string>
     <string name="shr_pista_nombre_usuario">Nombre de usuario</string>
     <string name="shr_pista_contraseña">Contraseña</string>
-    <string name="shr_boton_siguiente">Siguiente</string>
-    <string name="shr_boton_cancela">Cancela</string>
+    <string name="shr_boton_siguiente">Login</string>
+    <string name="shr_boton_cancela">Borra</string>
     <string name="nombre_usuario" />
     <string name="title_activity_splash">splash</string>
+    <string name="Login_incorrecto">Usuario o Contraseña incorrectos</string>
 </resources>
