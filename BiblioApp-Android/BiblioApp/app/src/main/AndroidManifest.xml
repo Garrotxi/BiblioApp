@@ -2,35 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ioc.android.biblioapp">
 
-    <!--    Permisos de la aplicacion-->
-    <!--    Acceso al estado de red-->
-    <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--    Acceso a la red-->
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BiblioApp"
-        android:fullBackupContent="true">
-        <activity
-            android:name=".Pantalla_Inicio_Usuario"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ioc.android.biblioapp.MainActivity" />
-        </activity>
-        <activity
-            android:name=".Pantalla_Inicio_Administrador"
-            android:exported="false" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ioc.android.biblioapp.MainActivity" />
-        </activity>
+        android:theme="@style/Theme.BiblioApp">
         <activity
             android:name=".Splash_Activity"
             android:exported="true"
@@ -51,8 +29,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
-
 
 </manifest>
