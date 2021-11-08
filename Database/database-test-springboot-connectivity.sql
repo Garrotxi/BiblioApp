@@ -62,7 +62,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,2),(3,2),(4,1),(5,2);
+INSERT INTO `user_roles` VALUES (1,1),(1,2),(2,1),(3,2),(4,1),(5,2),(6,1),(7,1);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +80,7 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cris@pmm.cat',NULL,'$2a$10$Q53BzLd8DUgfB7te3JFOYO4DcBgSHS99SjBYVIOKA2Q2R0j21ZqPq','yomismo'),(2,'maria@m.cat','maria','12345678','maria'),(3,'cristianpm@pm.com',NULL,'$2a$10$Oz2BtQqcyu4OxgFzlaOvjO0Tqrl9GrUP1e1pKiv5mzsadRdFLPVS6','cristianpm'),(4,'iocuser@ioc.com',NULL,'$2a$10$U37HR9VoVwbfwlcywzPsxei3UVeMhgRD9Bbeo6ETsvSzPgBTiyaQC','iocuser'),(5,'ejemplo@dd.com',NULL,'$2a$10$4T32cSyO/gK.nQGfxcHCpei2w7if7Y76Tb4KrSpYQtvFT2zsGwp0u','grupo');
+INSERT INTO `users` VALUES (1,'llu354s@mail.com',NULL,'$2a$10$jrU4bnJW4EqJhLKjcQKBMukqFaYxe7WNWkvE7xEfJj8NweyMRWYNu','34523456s'),(2,'asfgh@mail.com',NULL,'$2a$10$pYp6stFc73SpvPy8IIsAEeYavg4y2pw7q5vlMVxbKfovqSHDYjFLi','asdlkjfgg456s');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-25 23:57:10
+-- Dump completed on 2021-11-08 20:02:01
