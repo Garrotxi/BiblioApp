@@ -3,8 +3,6 @@ package com.biblioApp.example.entity;
 
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.constraints.Email;
@@ -20,10 +18,13 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String name, String lastName, int phoneNumber) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.name = name;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
     }
 
     @Id
@@ -38,7 +39,7 @@ public class User {
     private String username;
 
     @Column(name="cognoms")
-    private String lastname;
+    private String lastName;
 
     @NotBlank
     @Column(name="contrasenya")
@@ -106,12 +107,12 @@ public class User {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getPhoneNumber() {
