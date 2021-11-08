@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "usuaris")
 public class User {
 
     public User() {
@@ -30,19 +30,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(max = 30)
+    @Column(name="nom")
     private String name;
 
     @NotBlank
-    @Size(max = 30)
+    @Column(name="nom_usuari")
     private String username;
 
     @NotBlank
-    @Size(max = 30)
+    @Column(name="contrasenya")
     private String password;
 
     @Size(max = 50)
     @Email
+    @Column(name="email")
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY)

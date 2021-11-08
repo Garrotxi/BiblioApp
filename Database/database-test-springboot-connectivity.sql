@@ -62,7 +62,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,1),(1,2),(2,1),(3,2),(4,1),(5,2),(6,1),(7,1);
+INSERT INTO `user_roles` VALUES (1,1),(1,2),(2,1),(3,1),(3,2),(4,1),(5,1),(5,2),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,6 +94,33 @@ INSERT INTO `users` VALUES (1,'llu354s@mail.com',NULL,'$2a$10$jrU4bnJW4EqJhLKjcQ
 UNLOCK TABLES;
 
 --
+-- Table structure for table `usuaris`
+--
+
+DROP TABLE IF EXISTS `usuaris`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuaris` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `nom` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `contrasenya` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `nom_usuari` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuaris`
+--
+
+LOCK TABLES `usuaris` WRITE;
+/*!40000 ALTER TABLE `usuaris` DISABLE KEYS */;
+INSERT INTO `usuaris` VALUES (9,'123456@mail.com',NULL,'$2a$10$JJDwP0KQJHtmhSOmO8IFkes2xR.TOvHiUytRMWhHdP0GDC5bEHyHe','234567'),(10,'32467dcgv@mail.com',NULL,'$2a$10$lF0WCkVWiKi/7/cq4NvMWuEEOR96EAvUb6yXvH/VPPLFqvlfzFhVS','sdfsdfsdf'),(11,'asdcvhrt@mail.com',NULL,'$2a$10$7YQjDLBwjwi6rGJWdjTjNeQ9WatRXjQwyYYmisHeGLWAiY.HBhv0W','asdyy54'),(12,'ewrzxchw@mail.com',NULL,'$2a$10$7lMQdO3XUgJMmtUHqZqEeeCMN0wBeJS0bTgMKQJXYoesn1HViHkuS','asdtbs');
+/*!40000 ALTER TABLE `usuaris` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'biblioapp'
 --
 
@@ -110,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-08 20:02:01
+-- Dump completed on 2021-11-08 20:41:03
