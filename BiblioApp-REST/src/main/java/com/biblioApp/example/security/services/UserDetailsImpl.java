@@ -22,6 +22,12 @@ public class UserDetailsImpl implements UserDetails {
 
     private String email;
 
+    private String name;
+
+    private String lastName;
+
+    private int phoneNumber;
+
     @JsonIgnore
     private String password;
 

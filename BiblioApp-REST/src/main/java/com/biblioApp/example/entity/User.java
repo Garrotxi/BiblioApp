@@ -37,6 +37,9 @@ public class User {
     @Column(name="nom_usuari")
     private String username;
 
+    @Column(name="cognoms")
+    private String lastname;
+
     @NotBlank
     @Column(name="contrasenya")
     private String password;
@@ -45,6 +48,9 @@ public class User {
     @Email
     @Column(name="email")
     private String email;
+
+    @Column(name="telefon")
+    private int phoneNumber;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -92,4 +98,27 @@ public class User {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
