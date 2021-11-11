@@ -31,13 +31,13 @@ public class BookControllerImpl implements BookController {
     }
 
     @Override
-    @RequestMapping(value="/book/add",method=RequestMethod.GET,produces="application/json")
+    @RequestMapping(value="/book/add",method=RequestMethod.POST,produces="application/json")
     public Book addBook(Book book) {
         return bookService.saveBook(book);
     }
 
     @Override
-    @RequestMapping(value="/book/delete/{id}",method=RequestMethod.GET,produces="application/json")
+    @RequestMapping(value="/book/delete/{id}",method=RequestMethod.DELETE,produces="application/json")
     public String deleteCustomer(@PathVariable Long id) {
         return bookService.deleteBook(id);
     }
