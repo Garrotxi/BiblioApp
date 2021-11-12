@@ -1,4 +1,4 @@
-package ioc.android.biblioapp;
+package ioc.android.biblioapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.transition.Explode;
 import android.view.View;
+
+import ioc.android.biblioapp.R;
 
 public class Pantalla_Inicio_Usuario extends AppCompatActivity {
 

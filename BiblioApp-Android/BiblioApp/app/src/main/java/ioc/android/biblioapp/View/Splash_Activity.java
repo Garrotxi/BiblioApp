@@ -1,10 +1,11 @@
-package ioc.android.biblioapp;
+package ioc.android.biblioapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import ioc.android.biblioapp.R;
 
 public class Splash_Activity extends AppCompatActivity {
 

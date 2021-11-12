@@ -6,4 +6,6 @@
     <string name="shr_boton_cancela">Cancela</string>
     <string name="nombre_usuario" />
     <string name="title_activity_splash">splash</string>
+    <string name="Login_incorrecto">Usuario o Contraseña incorrectos</string>
+
 </resources>

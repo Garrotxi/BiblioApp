@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pantalla_Inicio_Administrador">
+    tools:context=".View.Pantalla_Inicio_Administrador">
 
     <TextView
         android:id="@+id/textView"
