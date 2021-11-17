@@ -10,9 +10,9 @@ public class JwtDto {
     private String nomUsuari;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtDto(String token, String nombreUsuario, Collection<? extends GrantedAuthority> authorities) {
+    public JwtDto(String token, String nomUsuari, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
-        this.nomUsuari = nombreUsuario;
+        this.nomUsuari = nomUsuari;
         this.authorities = authorities;
     }
 
