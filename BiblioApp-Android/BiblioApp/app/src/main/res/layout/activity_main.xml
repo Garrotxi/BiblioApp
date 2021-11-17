@@ -72,6 +72,7 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -99,9 +100,26 @@
                 android:layout_marginRight="12dp"
                 android:layout_toStartOf="@id/next_button"
                 android:layout_toLeftOf="@id/next_button"
-                android:onClick="Borra"
-                android:text="@string/shr_boton_cancela" />
+                android:text="@string/shr_boton_cancela"
+                android:onClick="Borra"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_irRegistro"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="60dp"
+                android:layout_marginRight="120dp"
+                android:layout_toStartOf="@id/cancel_button"
+                android:layout_toLeftOf="@id/cancel_button"
+                android:text="REGISTRO"
+                android:onClick="IrRegistro"
+                />
+
+
+
 
         </RelativeLayout>
+
 
     </LinearLayout>

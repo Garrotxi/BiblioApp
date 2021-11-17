@@ -1,5 +1,5 @@
-/*
-  Autor Saúl López
+/**
+ @Autor Saúl López Díez
   Clase Autor con datos de un Autor
  */
 

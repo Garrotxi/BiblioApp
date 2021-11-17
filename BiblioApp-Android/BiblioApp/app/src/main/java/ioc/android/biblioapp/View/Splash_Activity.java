@@ -1,3 +1,7 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Splash_Activity que genera una portada en la aplicacion
+ */
 package ioc.android.biblioapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;

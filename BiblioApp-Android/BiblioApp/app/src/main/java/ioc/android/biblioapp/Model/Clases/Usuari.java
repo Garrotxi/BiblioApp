@@ -1,5 +1,5 @@
-/*
-  autor Saúl López
+/**
+  @autor Saúl López Díez
   Clase Usuario con datos de usuario
  */
 
@@ -9,16 +9,17 @@ public class Usuari {
 
     private int id;
     private int idRol;
-    private String nomUsuari;
+    private String username;
     private String nom;
     private String cognoms;
     private String email;
-    private int telefon;
+    private String telefon;
     private String dataRegistre;
     private int status;
-    private String contraseña;
+    private String password;
     private String foto;
     private String accessToken;
+    private String [] roles;
 
     public Usuari() {
 
@@ -43,12 +44,12 @@ public class Usuari {
         this.idRol = idRol;
     }
 
-    public String getNomUsuari() {
-        return nomUsuari;
+    public String getusername() {
+        return username;
     }
 
-    public void setNomUsuari(String nomUsuari) {
-        this.nomUsuari = nomUsuari;
+    public void setusername(String username) {
+        this.username = username;
     }
 
     public String getNom() {
@@ -75,11 +76,11 @@ public class Usuari {
         this.email = email;
     }
 
-    public int getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(int telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
@@ -99,12 +100,12 @@ public class Usuari {
         this.status = status;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getpassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setpassword(String password) {
+        this.password = password;
     }
 
     public String getFoto() {
@@ -121,5 +122,27 @@ public class Usuari {
 
     public void setAccessToken(String loginKey) {
         this.accessToken = loginKey;
+    }
+
+    public String[] getRoles() { return roles; }
+
+   public void setRoles(String[] roles) { this.roles = roles; }
+
+    @Override
+    public String toString() {
+        return "Usuari: "+
+                "\n id: "+id+
+                "\n idRol: "+idRol+
+                "\n nom: "+nom+
+                "\n username: "+username+
+                "\n cognoms: "+cognoms+
+                "\n email: "+email+
+                "\n telefon: "+telefon+
+                "\n dataRegistre:"+dataRegistre+
+                "\n status: "+status+
+                "\n password:"+password+
+                "\n foto: "+foto+
+                "\n accessToken: "+accessToken+
+                "\n roles:"+roles;
     }
 }
