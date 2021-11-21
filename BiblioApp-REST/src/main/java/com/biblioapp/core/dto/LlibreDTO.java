@@ -2,6 +2,10 @@ package com.biblioapp.core.dto;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 public class LlibreDTO {
     @NotBlank
     private String titulLlibre;

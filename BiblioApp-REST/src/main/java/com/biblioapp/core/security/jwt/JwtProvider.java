@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Component
 public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);

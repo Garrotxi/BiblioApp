@@ -27,6 +27,10 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin

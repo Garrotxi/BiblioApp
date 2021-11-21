@@ -1,5 +1,9 @@
 package com.biblioapp.core.dto;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 public class Missatge {
     private String missatge;
 

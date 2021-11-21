@@ -1,4 +1,9 @@
 package com.biblioapp.core.util;
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ * Aquesta classe s'ha de descomentar el primer cop que s'executa l'aplicacio sense importar la BBDD per a que afegeixi els rols.
+ * En cas de iniciar l'aplicacio per primer cop amb una bbdd ja existent amb els rols ja implementats.
+ */
 
 /*
 @Component

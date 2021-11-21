@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
 
 @Service
 @Transactional

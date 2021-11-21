@@ -5,6 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Entity
 @Table(name = "usuari")
 public class Usuari {

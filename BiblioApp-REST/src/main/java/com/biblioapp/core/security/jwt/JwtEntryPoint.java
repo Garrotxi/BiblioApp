@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Component
 public class JwtEntryPoint implements AuthenticationEntryPoint {
     private final static Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);

@@ -5,6 +5,10 @@ import com.biblioapp.core.security.enums.RolNom;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Entity
 @Table(name = "rols")
 public class Rol {

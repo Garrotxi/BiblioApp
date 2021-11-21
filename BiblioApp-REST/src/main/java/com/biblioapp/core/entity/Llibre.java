@@ -2,6 +2,10 @@ package com.biblioapp.core.entity;
 
 import javax.persistence.*;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Entity
 @Table(name = "llibres", indexes = {@Index(name = "idx_llibre_idllibre", columnList = "idLlibre")})
 public class Llibre {

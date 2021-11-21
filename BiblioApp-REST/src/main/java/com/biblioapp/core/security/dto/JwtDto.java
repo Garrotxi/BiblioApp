@@ -4,6 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 public class JwtDto {
     private String token;
     private String bearer = "Bearer";

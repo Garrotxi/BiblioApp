@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @RestController
 @RequestMapping("/llibre")
 @CrossOrigin(origins = "*")

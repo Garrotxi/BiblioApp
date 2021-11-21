@@ -2,6 +2,10 @@ package com.biblioapp.core.security.dto;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 public class LoginUsuari {
     @NotBlank
     private String nomUsuari;

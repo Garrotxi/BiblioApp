@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * @Author: Lluis Antoni Roigé Higueras
+ */
+
 @Repository
 public interface LlibreRepository extends JpaRepository<Llibre, Integer> {
     Optional<Llibre> findByTitulLlibre(String titulLlibre);
