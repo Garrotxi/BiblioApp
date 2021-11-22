@@ -332,6 +332,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Modificar llibre",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYxODgyNywiZXhwIjoxNjM3NjYyMDI3fQ.ZXl87XOgZKAEAg5VH4FMjTdFN9T--zxIvR6-jKzJHdsApDU74PvsPYrTWKq7tsxugC3EpF_sIjhk_g0glqx5ww",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"titulLlibre\": \"TestBook3_Modificat\",\r\n        \"dataPublicacio\": \"2021-09-10\",\r\n        \"copiesDisponibles\": 7\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/llibre/actualizarLlibre/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"llibre",
+						"actualizarLlibre",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
