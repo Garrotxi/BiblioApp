@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Conte les interficies que s'extenen de JpaRepository
  */
 
 @Repository

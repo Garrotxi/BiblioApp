@@ -4,6 +4,9 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Clase que es limita a ser un objecte de transferencia
+ * entre client i el servidor per a l'entitat Llibre.
+ * DTO acronim de Data Transfer Object.
  */
 
 public class LlibreDTO {

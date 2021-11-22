@@ -17,6 +17,8 @@ import java.io.IOException;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Clase que utilitza JwtProvider per a validar que el token
+ * sigui valid i permetre el acces
  */
 
 public class JwtTokenFilter extends OncePerRequestFilter {
@@ -52,7 +54,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     }
 
 
-    //Obtenemos el token sin Bearer + el espacio
     private String getToken(HttpServletRequest request){
 
         String header = request.getHeader("Authorization");

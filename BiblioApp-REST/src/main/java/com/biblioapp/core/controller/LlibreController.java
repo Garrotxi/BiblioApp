@@ -15,6 +15,8 @@ import java.util.List;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Exposem els endpoints per a poder realitzar operacions sobre
+ * la entitat llibre
  */
 
 @RestController

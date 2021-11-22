@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Entitat rol, representa la taula rols
  */
 
 @Entity

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Implementacio de les interficies de repository
  */
 
 @Service

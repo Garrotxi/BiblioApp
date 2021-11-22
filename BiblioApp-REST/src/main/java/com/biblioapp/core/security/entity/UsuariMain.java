@@ -36,7 +36,7 @@ public class UsuariMain implements UserDetails {
      */
 
     public static UsuariMain build(Usuari usuari){
-        //Convertimos la clase Rol a la clase GrantedAuthority
+        //Convertim la clase Rol a la clase GrantedAuthority
         List<GrantedAuthority> authorities =
                 usuari.getRols()
                         .stream()

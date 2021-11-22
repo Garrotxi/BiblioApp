@@ -12,13 +12,15 @@ import java.util.Date;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Clase que genera el token, valida que estigui ben format i que
+ * no hagi expirat
  */
 
 @Component
 public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-    //Valores que tenemos en el aplicattion.properties
+    //Valors que tenemim en aplicattion.properties
     @Value("${jwt.secret}")
     private String secret;
 

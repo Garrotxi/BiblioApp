@@ -13,6 +13,8 @@ import java.io.IOException;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Clase que comproba la existencia d'un token.
+ * En cas contrari retorna error 401 no autoritzat
  */
 
 @Component

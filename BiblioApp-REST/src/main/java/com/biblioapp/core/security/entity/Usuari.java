@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Entitat usuari, representa la taula usuari
  */
 
 @Entity
@@ -34,6 +35,7 @@ public class Usuari {
 
     @NotNull
     @ManyToMany
+    //Anotacio generada per JPA Buddy
     @JoinTable(name = "usuari_rol", joinColumns = @JoinColumn(name = "id_usuari"),
             inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private List<Rol> rols = new ArrayList();

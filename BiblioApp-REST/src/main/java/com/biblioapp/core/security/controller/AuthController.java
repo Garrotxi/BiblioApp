@@ -29,6 +29,8 @@ import java.util.List;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Exposem els endpoints per a crear nous usuaris, realitzar-ne el login
+ * llistar-los, actualitzar-los i eliminar-los
  */
 
 @RestController

@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Implementacio de les interficies de repository
  */
 
 @Service

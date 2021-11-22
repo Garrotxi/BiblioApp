@@ -2,6 +2,7 @@ package com.biblioapp.core.dto;
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Classe per a mostrar missatges per pantalla en client
  */
 
 public class Missatge {

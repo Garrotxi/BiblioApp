@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Implementacio dels metodes de LlibreService
  */
 
 @Service

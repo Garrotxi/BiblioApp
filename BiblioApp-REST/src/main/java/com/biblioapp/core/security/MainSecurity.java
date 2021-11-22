@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * @Author: Lluis Antoni Roigé Higueras
+ * Clase encarregada de enllaçar tot i les configuracions necesaries.
  */
 
 @Configuration
@@ -38,9 +39,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Encripta el pasword
+     * Encripta la contrasenya
      *
-     * @return pasword ecriptado
+     * @return contrasenya ecriptada
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -65,8 +66,6 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //Desactivamos cookies ya que enviamos un token
-        // cada vez que hacemos una petición
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()

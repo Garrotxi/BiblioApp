@@ -7,6 +7,7 @@ import javax.persistence.*;
  */
 
 @Entity
+//Anotacio Index generada per JPA Buddy
 @Table(name = "llibres", indexes = {@Index(name = "idx_llibre_idllibre", columnList = "idLlibre")})
 public class Llibre {
     @Id
