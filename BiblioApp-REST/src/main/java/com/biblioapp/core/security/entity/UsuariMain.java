@@ -20,6 +20,12 @@ public class UsuariMain implements UserDetails {
     private String contrasenya;
     private String email;
     private String nom;
+    private String cognoms;
+    private String telefon;
+    /**
+     * Variable que ens dona la autorització
+     * Colecció de tipus generic que exte de GrantedAuthority de Spring Security
+     */
     private Collection<? extends GrantedAuthority> authorities;
 
     public UsuariMain(String nomUsuari, String contrasenya, String email, String nom,
@@ -31,10 +37,12 @@ public class UsuariMain implements UserDetails {
         this.authorities = authorities;
     }
 
-    /*
-     * Metode que asigna els privilegis
-     */
 
+    /**
+     *
+     * @param usuari
+     * @return Metode que asigna privilegis (autoritzacio)
+     */
     public static UsuariMain build(Usuari usuari){
         //Convertim la clase Rol a la clase GrantedAuthority
         List<GrantedAuthority> authorities =
@@ -87,5 +95,13 @@ public class UsuariMain implements UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCognoms() {
+        return cognoms;
+    }
+
+    public String getTelefon() {
+        return telefon;
     }
 }

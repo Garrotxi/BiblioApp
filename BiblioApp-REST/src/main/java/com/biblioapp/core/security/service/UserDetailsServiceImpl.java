@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 /**
  * @Author: Lluis Antoni Roigé Higueras
- * Implementacio de les interficies de repository
+ * Clase que converteix la clase usuari en un UsuariMain.
+ * UserDetailsService es propia de Spring Security
  */
-
 @Service
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {

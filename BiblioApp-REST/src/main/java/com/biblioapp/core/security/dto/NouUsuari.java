@@ -20,6 +20,9 @@ public class NouUsuari {
 
     @NotNull
     private String email;
+
+    private String cognoms;
+    private String telefon;
     private List<String> rols = new ArrayList();
 
     public String getNomUsuari() {
@@ -52,6 +55,22 @@ public class NouUsuari {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getCognoms() {
+        return cognoms;
+    }
+
+    public void setCognoms(String cognoms) {
+        this.cognoms = cognoms;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
 
     public List<String> getRols() {

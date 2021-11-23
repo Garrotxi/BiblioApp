@@ -30,7 +30,17 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     * El token esta format per:
+     * Capçalera --> Autoritzacio: Bearer Token
+     * Aquest metode es fa cada cop que es fa una peticio al servidor
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
@@ -48,7 +58,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
             }
         }catch (Exception e){
-            logger.error("Fail en el metode doFilter " + e.getMessage());
+            logger.error("Error en el metode doFilter " + e.getMessage());
         }
         filterChain.doFilter(request, response);
     }

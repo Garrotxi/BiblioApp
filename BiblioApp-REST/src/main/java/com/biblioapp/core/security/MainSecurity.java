@@ -20,8 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * @Author: Lluis Antoni Roigé Higueras
  * Clase encarregada de enllaçar tot i les configuracions necesaries.
+ * Amb el atribut prePostEnabled s'indica a quins metodes pot accedir un usuari amb el rol admin
  */
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

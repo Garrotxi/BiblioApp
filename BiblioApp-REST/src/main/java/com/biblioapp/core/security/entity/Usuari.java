@@ -33,6 +33,12 @@ public class Usuari {
     @Column(name="nom")
     private String nom;
 
+    @Column(name="cognoms")
+    private String cognoms;
+
+    @Column(name="telefon")
+    private String telefon;
+
     @NotNull
     @ManyToMany
     //Anotacio generada per JPA Buddy
@@ -45,11 +51,13 @@ public class Usuari {
     }
 
     public Usuari(@NotNull String nomUsuari, @NotNull String contrasenya, @NotNull String email,
-                  @NotNull String nom) {
+                  @NotNull String nom, String cognoms, String telefon) {
         this.nomUsuari = nomUsuari;
         this.contrasenya = contrasenya;
         this.email = email;
         this.nom = nom;
+        this.cognoms = cognoms;
+        this.telefon = telefon;
 
     }
 
@@ -92,6 +100,23 @@ public class Usuari {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public String getCognoms() {
+        return cognoms;
+    }
+
+    public void setCognoms(String cognoms) {
+        this.cognoms = cognoms;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
     public List<Rol> getRols() {
         return rols;
     }

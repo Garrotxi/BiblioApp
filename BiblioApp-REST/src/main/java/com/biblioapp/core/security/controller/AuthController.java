@@ -52,7 +52,9 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    //Espera un json i el converteix a tipus clase NouUsuari
+    /**
+     * Espera un json i el converteix a tipus clase NouUsuari
+     */
     @PostMapping("/registrarUsuari")
     public ResponseEntity<?> registrarUsuari(@Valid @RequestBody NouUsuari nouUsuari,
                                           BindingResult bindingResult){
@@ -70,7 +72,9 @@ public class AuthController {
                 nouUsuari.getNomUsuari(),
                 passwordEncoder.encode(nouUsuari.getContrasenya()),
                 nouUsuari.getEmail(),
-                nouUsuari.getNom()
+                nouUsuari.getNom(),
+                nouUsuari.getCognoms(),
+                nouUsuari.getTelefon()
         );
 
         List<Rol> rols = new ArrayList();
