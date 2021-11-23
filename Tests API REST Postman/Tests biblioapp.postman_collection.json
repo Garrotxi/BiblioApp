@@ -71,7 +71,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomUsuari\":\"admin\",\r\n    \"contrasenya\":\"1234\"\r\n}",
+							"raw": "{\r\n    \"nomUsuari\":\"test_admin1\",\r\n    \"contrasenya\":\"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -113,7 +113,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomUsuari\":\"usuari1\",\r\n    \"nom\":\"no_soc_admin\",\r\n    \"email\":\"aaaa@ioc.cat\",\r\n    \"contrasenya\":\"1234\"\r\n}",
+							"raw": "{\r\n    \"nomUsuari\":\"usuari1\",\r\n    \"nom\":\"no_soc_admin\",\r\n    \"email\":\"aaaa@ioc.cat\",\r\n    \"contrasenya\":\"1234\",\r\n    \"cognoms\":\"test_cognom\",\r\n    \"telefon\":\"+34 666 666 666\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -156,7 +156,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYxODgyNywiZXhwIjoxNjM3NjYyMDI3fQ.ZXl87XOgZKAEAg5VH4FMjTdFN9T--zxIvR6-jKzJHdsApDU74PvsPYrTWKq7tsxugC3EpF_sIjhk_g0glqx5ww",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -204,7 +204,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -270,13 +270,26 @@
 				},
 				{
 					"name": "Actualitzar Usuari",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmkxIiwiaWF0IjoxNjM3Njg5OTUwLCJleHAiOjE2Mzc3MzMxNTB9.kLk8V1Pbun_Drje8itNEr9XiCCAWFMFc_kmo1LZ3OO4L7hpdSUu03xMRPet5wwNdRwCdMEgApsqjD1EsISV1GQ",
 									"type": "string"
 								}
 							]
@@ -285,7 +298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idUsuari\":\"6\",\r\n    \"nomUsuari\":\"usuari12\",\r\n    \"nom\":\"croquetaman\",\r\n    \"email\":\"croquetaman@ioc.cat\",\r\n    \"contrasenya\":\"12345\"\r\n}",
+							"raw": "{\r\n    \"idUsuari\":\"2\",\r\n    \"nomUsuari\":\"usuari12\",\r\n    \"nom\":\"croquetaman\",\r\n    \"email\":\"croquetaman@ioc.cat\",\r\n    \"contrasenya\":\"12349\",\r\n    \"cognoms\":\"de jamon\",\r\n    \"telefon\":\"+55 555 5\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -379,7 +392,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -396,7 +409,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/detallLlibre/1",
+							"raw": "http://localhost:8080/llibre/detallLlibre/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -405,7 +418,7 @@
 							"path": [
 								"llibre",
 								"detallLlibre",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -476,7 +489,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -520,7 +533,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -572,7 +585,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYxODgyNywiZXhwIjoxNjM3NjYyMDI3fQ.ZXl87XOgZKAEAg5VH4FMjTdFN9T--zxIvR6-jKzJHdsApDU74PvsPYrTWKq7tsxugC3EpF_sIjhk_g0glqx5ww",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -589,7 +602,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/actualizarLlibre/1",
+							"raw": "http://localhost:8080/llibre/actualizarLlibre/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -598,7 +611,7 @@
 							"path": [
 								"llibre",
 								"actualizarLlibre",
-								"1"
+								"3"
 							]
 						}
 					},

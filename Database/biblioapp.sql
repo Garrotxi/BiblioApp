@@ -31,7 +31,7 @@ CREATE TABLE `llibres` (
   `titul` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id_llibre`),
   KEY `idx_llibre_idllibre` (`id_llibre`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,6 @@ CREATE TABLE `llibres` (
 
 LOCK TABLES `llibres` WRITE;
 /*!40000 ALTER TABLE `llibres` DISABLE KEYS */;
-INSERT INTO `llibres` VALUES (1,3,'2021-09-10','TestBook3');
 /*!40000 ALTER TABLE `llibres` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +54,7 @@ CREATE TABLE `rols` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rol_nom` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +63,6 @@ CREATE TABLE `rols` (
 
 LOCK TABLES `rols` WRITE;
 /*!40000 ALTER TABLE `rols` DISABLE KEYS */;
-INSERT INTO `rols` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
 /*!40000 ALTER TABLE `rols` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,8 +79,10 @@ CREATE TABLE `usuari` (
   `nom_usuari` varchar(255) COLLATE utf8_bin NOT NULL,
   `email` varchar(255) COLLATE utf8_bin NOT NULL,
   `contrasenya` varchar(255) COLLATE utf8_bin NOT NULL,
+  `cognoms` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `telefon` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id_usuari`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,6 @@ CREATE TABLE `usuari` (
 
 LOCK TABLES `usuari` WRITE;
 /*!40000 ALTER TABLE `usuari` DISABLE KEYS */;
-INSERT INTO `usuari` VALUES (1,'admin','admin','admin@ioc.cat','$2a$10$OQ2QcSpEZe5Z0.YCxQjVzu2mY6vDj1on2wLjePWE1nvIGAoaurL7m'),(2,'usuari_test','usuari1','croqueta.cat','$2a$10$bVcKgHqwkURBy9MIuv0Vbeaf7Bpdb72KoNwYXqCkgW5VZT8K/zUri');
 /*!40000 ALTER TABLE `usuari` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +115,6 @@ CREATE TABLE `usuari_rol` (
 
 LOCK TABLES `usuari_rol` WRITE;
 /*!40000 ALTER TABLE `usuari_rol` DISABLE KEYS */;
-INSERT INTO `usuari_rol` VALUES (1,1),(1,2);
 /*!40000 ALTER TABLE `usuari_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-17 22:04:39
+-- Dump completed on 2021-11-23 19:09:02
