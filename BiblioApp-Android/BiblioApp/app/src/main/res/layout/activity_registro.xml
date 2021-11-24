@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Registro">
+    tools:context=".View.Registro_Activity">
 
     <TextView
         android:id="@+id/textView_NomUsuari"
@@ -121,6 +121,18 @@
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/editText_Telefon"
         app:layout_constraintTop_toBottomOf="@+id/editText_Telefon" />
+
+    <TextView
+        android:id="@+id/textView_Mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/boton_Registro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Contraseña" />
 
     <Button
         android:id="@+id/boton_Registro"

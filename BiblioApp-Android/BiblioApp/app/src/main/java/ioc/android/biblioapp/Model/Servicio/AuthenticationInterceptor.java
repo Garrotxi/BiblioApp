@@ -13,7 +13,7 @@ import okhttp3.Response;
 /**
  * Clase AuthenticationInterceptor
  */
-public class AuthenticationInterceptor {
+public class AuthenticationInterceptor implements Interceptor {
     private String authToken;
 
     public AuthenticationInterceptor(String token) {
@@ -24,7 +24,7 @@ public class AuthenticationInterceptor {
         Request original = chain.request();
 
         Request.Builder builder = original.newBuilder()
-                .header("Authorization", authToken);
+                .header("Authorization", "Bearer "+authToken);
 
         Request request = builder.build();
         return chain.proceed(request);

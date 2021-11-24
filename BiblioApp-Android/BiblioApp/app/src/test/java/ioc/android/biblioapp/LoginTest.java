@@ -13,11 +13,11 @@ public class LoginTest {
     //public void addition_isCorrect() {
     // assertEquals(4, 2 + 2);
     // }
-   // private MainActivity prueba;
+   // private Login_Activity prueba;
 
     @Before
     public void setUp() {
-       // prueba = new MainActivity();
+       // prueba = new Login_Activity();
     }
 
 

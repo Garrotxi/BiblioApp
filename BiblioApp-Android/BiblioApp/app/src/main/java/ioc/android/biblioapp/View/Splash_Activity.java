@@ -20,7 +20,7 @@ public class Splash_Activity extends AppCompatActivity {
         setTheme(R.style.AppTheme_Splash);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login_Activity.class);
         // Dormimos el thread el tiempo definido para que se vea la pantalla de carga
         try {
             Thread.sleep(TIEMPO_CARGA_SPLASH);

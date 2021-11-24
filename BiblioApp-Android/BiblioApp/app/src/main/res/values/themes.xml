@@ -26,9 +26,11 @@
 
         <!-- transicion de elemento compartido -->
         <item name="android:windowSharedElementEnterTransition">
-            @transition/change_image_transform</item>
+            @transition/change_image_transform
+        </item>
         <item name="android:windowSharedElementExitTransition">
-            @transition/change_image_transform</item>
+            @transition/change_image_transform
+        </item>
     </style>
 
 
@@ -45,6 +47,7 @@
 
     <!-- Temas para sobreponer popup y action bar-->
     <style name="Theme.BiblioApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.BiblioApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

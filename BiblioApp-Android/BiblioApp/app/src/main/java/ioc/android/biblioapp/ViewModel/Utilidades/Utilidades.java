@@ -4,16 +4,12 @@
  */
 package ioc.android.biblioapp.ViewModel.Utilidades;
 
-import static android.content.Context.*;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-
-import androidx.core.content.ContextCompat;
 
 public class Utilidades {
 
@@ -54,4 +50,5 @@ public class Utilidades {
         }
         return conectividad;
     }
+
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_Admin_home">
+
+    <fragment
+        android:id="@+id/nav_Admin_home"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_administrador_home" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_Admin_usuarios"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionUsuariosFragment"
+        android:label="@string/menu_usuarios"
+        tools:layout="@layout/fragment_administrador_usuarios" />
+
+    <fragment
+        android:id="@+id/nav_Admin_libros"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionLibrosFragment"
+        android:label="@string/menu_libros"
+        tools:layout="@layout/fragment_administrador_libros" />
+
+</navigation>

@@ -1,17 +1,17 @@
 /**
  @Autor Saúl López Díez
- Clase Registro con datos del resultado del registro
+ Clase Registro_Activity con datos del resultado del registro
  */
 package ioc.android.biblioapp.Model.Clases;
 
 public class Registro {
-    private String message;
+    private String missatge;
 
-    public String getMessage() {
-        return message;
+    public String getMissatge() {
+        return missatge;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.missatge = message;
     }
 }

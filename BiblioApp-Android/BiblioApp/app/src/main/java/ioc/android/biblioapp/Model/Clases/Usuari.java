@@ -5,21 +5,24 @@
 
 package ioc.android.biblioapp.Model.Clases;
 
+import java.util.Collection;
+
 public class Usuari {
 
-    private int id;
+    private int idUsuari;
     private int idRol;
-    private String username;
+    private String nomUsuari;
     private String nom;
     private String cognoms;
     private String email;
     private String telefon;
     private String dataRegistre;
     private int status;
-    private String password;
+    private String contrasenya;
     private String foto;
-    private String accessToken;
-    private String [] roles;
+    private String token;
+    private Collection authorities;
+    private Collection rols;
 
     public Usuari() {
 
@@ -28,12 +31,12 @@ public class Usuari {
 
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuari() {
+        return idUsuari;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuari(int id) {
+        this.idUsuari = id;
     }
 
     public int getIdRol() {
@@ -44,12 +47,12 @@ public class Usuari {
         this.idRol = idRol;
     }
 
-    public String getusername() {
-        return username;
+    public String getNomUsuari() {
+        return nomUsuari;
     }
 
-    public void setusername(String username) {
-        this.username = username;
+    public void setNomUsuari(String nomUsuari) {
+        this.nomUsuari = nomUsuari;
     }
 
     public String getNom() {
@@ -100,12 +103,12 @@ public class Usuari {
         this.status = status;
     }
 
-    public String getpassword() {
-        return password;
+    public String getContrasenya() {
+        return contrasenya;
     }
 
-    public void setpassword(String password) {
-        this.password = password;
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
     }
 
     public String getFoto() {
@@ -116,33 +119,37 @@ public class Usuari {
         this.foto = foto;
     }
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getToken() {
+        return token;
     }
 
-    public void setAccessToken(String loginKey) {
-        this.accessToken = loginKey;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String[] getRoles() { return roles; }
+    public Collection getAuthorities() {
+        return authorities;
+    }
 
-   public void setRoles(String[] roles) { this.roles = roles; }
+    public void setAuthorities(Collection authorities) {
+        this.authorities = authorities;
+    }
 
     @Override
     public String toString() {
         return "Usuari: "+
-                "\n id: "+id+
+                "\n id: "+idUsuari+
                 "\n idRol: "+idRol+
                 "\n nom: "+nom+
-                "\n username: "+username+
+                "\n nom usuari: "+nomUsuari+
                 "\n cognoms: "+cognoms+
                 "\n email: "+email+
                 "\n telefon: "+telefon+
                 "\n dataRegistre:"+dataRegistre+
                 "\n status: "+status+
-                "\n password:"+password+
+                "\n contrasenya:"+contrasenya+
                 "\n foto: "+foto+
-                "\n accessToken: "+accessToken+
-                "\n roles:"+roles;
+                "\n Token: "+token+
+                "\n roles:"+authorities;
     }
 }

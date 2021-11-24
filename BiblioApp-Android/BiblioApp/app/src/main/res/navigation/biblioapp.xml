@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/biblioapp"
+    app:startDestination="@id/splash_Activity">
+
+    <activity
+        android:id="@+id/splash_Activity"
+        android:name="ioc.android.biblioapp.View.Splash_Activity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" />
+    <activity
+        android:id="@+id/login_Activity"
+        android:name="ioc.android.biblioapp.View.Login_Activity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registro_Activity"
+        android:name="ioc.android.biblioapp.View.Registro_Activity"
+        android:label="activity_registro"
+        tools:layout="@layout/activity_registro" />
+    <fragment
+        android:id="@+id/administrador_HomeFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_HomeFragment"
+        android:label="fragment_administrador_home"
+        tools:layout="@layout/fragment_administrador_home" >
+        <action
+            android:id="@+id/action_administrador_HomeFragment_to_administrador_GestionLibrosFragment"
+            app:destination="@id/administrador_GestionLibrosFragment" />
+        <action
+            android:id="@+id/action_administrador_HomeFragment_to_administrador_GestionUsuariosFragment"
+            app:destination="@id/administrador_GestionUsuariosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/administrador_GestionLibrosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionLibrosFragment"
+        android:label="fragment_administrador_libros"
+        tools:layout="@layout/fragment_administrador_libros" />
+    <fragment
+        android:id="@+id/administrador_GestionUsuariosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionUsuariosFragment"
+        android:label="fragment_administrador_usuarios"
+        tools:layout="@layout/fragment_administrador_usuarios" />
+    <activity
+        android:id="@+id/pantalla_Inicio_Administrador"
+        android:name="ioc.android.biblioapp.View.Administrador.Pantalla_Inicio_Administrador"
+        android:label="app_bar_administrador_drawer"
+        tools:layout="@layout/app_bar_administrador_drawer" />
+    <fragment
+        android:id="@+id/usuario_HomeFragment"
+        android:name="ioc.android.biblioapp.View.Usuario.Usuario_HomeFragment"
+        android:label="fragment_usuario_home"
+        tools:layout="@layout/fragment_usuario_home" >
+        <action
+            android:id="@+id/action_usuario_HomeFragment_to_usuario_GestionLibrosFragment"
+            app:destination="@id/usuario_GestionLibrosFragment" />
+        <action
+            android:id="@+id/action_usuario_HomeFragment_to_usuario_GestionUsuariosFragment"
+            app:destination="@id/usuario_GestionUsuariosFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/pantalla_Inicio_Usuario"
+        android:name="ioc.android.biblioapp.View.Usuario.Pantalla_Inicio_Usuario"
+        android:label="app_bar_usuario_drawer"
+        tools:layout="@layout/app_bar_usuario_drawer" />
+    <fragment
+        android:id="@+id/usuario_GestionLibrosFragment"
+        android:name="ioc.android.biblioapp.View.Usuario.Usuario_GestionLibrosFragment"
+        android:label="fragment_usuario_libros"
+        tools:layout="@layout/fragment_usuario_libros" />
+    <fragment
+        android:id="@+id/usuario_GestionUsuariosFragment"
+        android:name="ioc.android.biblioapp.View.Usuario.Usuario_GestionUsuariosFragment"
+        android:label="fragment_usuario_usuarios"
+        tools:layout="@layout/fragment_usuario_usuarios" />
+</navigation>

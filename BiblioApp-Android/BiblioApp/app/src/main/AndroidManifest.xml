@@ -16,25 +16,21 @@
         android:theme="@style/Theme.BiblioApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".View.Registro"
-            android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="ioc.android.biblioapp.View.MainActivity" />
-        </activity>
+            android:name=".View.Administrador.Pantalla_Inicio_Administrador"
+            android:exported="false"
+            android:label="@string/title_activity_inicio_Admin"
+            android:theme="@style/Theme.BiblioApp.NoActionBar" />
         <activity
-            android:name=".View.Pantalla_Inicio_Usuario"
+            android:name=".View.Usuario.Pantalla_Inicio_Usuario"
+            android:exported="false"
+            android:label="@string/title_activity_inicio_User"
+            android:theme="@style/Theme.BiblioApp.NoActionBar" />
+        <activity
+            android:name=".View.Registro_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ioc.android.biblioapp.View.MainActivity" />
-        </activity>
-        <activity
-            android:name=".View.Pantalla_Inicio_Administrador"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ioc.android.biblioapp.View.MainActivity" />
+                android:value="ioc.android.biblioapp.View.Login_Activity" />
         </activity>
         <activity
             android:name=".View.Splash_Activity"
@@ -47,13 +43,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.Login_Activity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
     </application>
 

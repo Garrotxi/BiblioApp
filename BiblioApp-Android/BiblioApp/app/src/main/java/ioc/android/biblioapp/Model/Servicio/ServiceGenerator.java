@@ -18,7 +18,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ServiceGenerator {
 
-    private static final String BASE_URL = "http://172.27.0.1:9090";//direccion IP y puerto del ordenador donde esta API escuchando
+
+    private static final String BASE_URL = "http://10.0.2.2:9090";//direccion IP y puerto del ordenador donde esta API escuchando
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// cliente http
 
@@ -58,6 +59,10 @@ public class ServiceGenerator {
 
             if (!httpClient.interceptors().contains(logging)) {
                 httpClient.addInterceptor(logging);
+            }
+
+            if (!httpClient.interceptors().contains(interceptor)) {
+                httpClient.addInterceptor(interceptor);
 
                 builder.client(httpClient.build());
                 retrofit = builder.build();
@@ -65,4 +70,6 @@ public class ServiceGenerator {
         }
         return retrofit.create(BiblioAppCliente);
     }
+
+
 }

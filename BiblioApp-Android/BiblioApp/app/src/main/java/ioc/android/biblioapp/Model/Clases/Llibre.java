@@ -7,28 +7,28 @@ package ioc.android.biblioapp.Model.Clases;
 
 public class Llibre {
 
-    private int id;
-    private String titol;
+    private int idLlibre;
+    private String titulLlibre;
     private int idCategoria;
     private String dataPublicació;
     private int copiesDisponibles;
     private String foto;
     private Autor autor;
 
-    public int getId() {
-        return id;
+    public int getIdLlibre() {
+        return idLlibre;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdLlibre(int idLlibre) {
+        this.idLlibre = idLlibre;
     }
 
-    public String getTitol() {
-        return titol;
+    public String getTitulLlibre() {
+        return titulLlibre;
     }
 
-    public void setTitol(String titol) {
-        this.titol = titol;
+    public void setTitulLlibre(String titulLlibre) {
+        this.titulLlibre = titulLlibre;
     }
 
     public int getIdCategoria() {
