@@ -4,6 +4,7 @@ import com.biblioapp.core.dto.Missatge;
 import com.biblioapp.core.security.dto.JwtDto;
 import com.biblioapp.core.security.dto.LoginUsuari;
 import com.biblioapp.core.security.dto.NouUsuari;
+import com.biblioapp.core.security.dto.UsuariDTO;
 import com.biblioapp.core.security.entity.Rol;
 import com.biblioapp.core.security.entity.Usuari;
 import com.biblioapp.core.security.enums.RolNom;
@@ -111,15 +112,60 @@ public class AuthController {
         return new ResponseEntity<>(usuaris, HttpStatus.OK);
     }
 
-    @PutMapping("/actualitzarUsuari")
-    public ResponseEntity<?> actualitzarUsuaris(@RequestBody Usuari usuari){
+    @PutMapping("/actualitzarUsuari/{idUsuari}")
+    public ResponseEntity<?> actualitzarUsuaris(@PathVariable("idUsuari") int idUsuari,
+                                                @RequestBody UsuariDTO usuariDTO){
+        if (!usuariService.existsByIdUsuari(idUsuari))
+            return new ResponseEntity(new Missatge("No existeix el usuari"), HttpStatus.NOT_FOUND);
+
+        Usuari usuari = usuariService.getUsuari(idUsuari).get();
+        String nomUsuariActual = usuari.getNomUsuari();
+        String nomActual = usuari.getNom();
+        String cognomsActual = usuari.getCognoms();
+        String emailActual = usuari.getEmail();
+        String telefonActual = usuari.getTelefon();
+        String contrasenyaActual = usuari.getContrasenya();
+
+        /**
+         * Comprobem quins camps venen informats, en cas de no venir informat
+         * es mantindran les dades
+         */
+        if (!usuariDTO.getNomUsuari().isEmpty()){
+            usuari.setNomUsuari(usuariDTO.getNomUsuari());
+        } else {
+            usuari.setNomUsuari(nomUsuariActual);
+        }
+        usuari.setNomUsuari(usuariDTO.getNomUsuari());
+        if (!usuariDTO.getNom().isEmpty()) {
+            usuari.setNom(usuariDTO.getNom());
+        } else {
+            usuari.setNom(nomActual);
+        }
+        if (!usuariDTO.getCognoms().isEmpty()) {
+            usuari.setCognoms(usuariDTO.getCognoms());
+        } else {
+            usuari.setCognoms(cognomsActual);
+        }
+        if (!usuariDTO.getEmail().isEmpty()) {
+            usuari.setEmail(usuariDTO.getEmail());
+        } else {
+            usuari.setEmail(emailActual);
+        }
+        if (!usuariDTO.getTelefon().isEmpty()) {
+            usuari.setTelefon(usuariDTO.getTelefon());
+        } else {
+            usuari.setTelefon(telefonActual);
+        }
+        if (!usuariDTO.getContrasenya().isEmpty()) {
+            usuari.setContrasenya(passwordEncoder.encode(usuariDTO.getContrasenya()));
+        } else {
+            usuari.setContrasenya(contrasenyaActual);
+        }
         //Operacio disenyada per a mantenir els rols del usuari al actualitzar-lo
-        List<Rol> rols = usuariService.getByUsuari(usuari.getNomUsuari()).get().getRols();
+        List<Rol> rols = usuariService.getUsuari(usuari.getIdUsuari()).get().getRols();
 
-        usuari.setContrasenya(passwordEncoder.encode(usuari.getContrasenya()));
         usuari.setRols(rols);
-        usuariService.update(usuari);
-
+        usuariService.save(usuari);
         return new ResponseEntity<>(usuari, HttpStatus.OK);
     }
 

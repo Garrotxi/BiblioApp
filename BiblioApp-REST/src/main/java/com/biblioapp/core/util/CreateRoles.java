@@ -1,4 +1,12 @@
 package com.biblioapp.core.util;
+
+import com.biblioapp.core.security.entity.Rol;
+import com.biblioapp.core.security.enums.RolNom;
+import com.biblioapp.core.security.service.RolService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
 /**
  * @Author: Lluis Antoni Roigé Higueras
  * Aquesta classe s'ha de descomentar el primer cop que s'executa l'aplicacio sense importar la BBDD per a que afegeixi els rols.

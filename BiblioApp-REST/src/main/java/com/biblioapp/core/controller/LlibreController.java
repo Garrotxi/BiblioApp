@@ -73,7 +73,8 @@ public class LlibreController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/actualizarLlibre/{idLlibre}")
-    public ResponseEntity<?> actualitzarLlibre(@PathVariable("idLlibre") int idLlibre, @RequestBody LlibreDTO llibreDTO){
+    public ResponseEntity<?> actualitzarLlibre(@PathVariable("idLlibre") int idLlibre,
+                                               @RequestBody LlibreDTO llibreDTO){
 
         if (!llibreService.existsByIdLlibre(idLlibre))
             return new ResponseEntity(new Missatge("No existeix el llibre"), HttpStatus.NOT_FOUND);
