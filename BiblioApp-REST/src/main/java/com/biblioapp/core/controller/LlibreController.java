@@ -52,10 +52,6 @@ public class LlibreController {
         return new ResponseEntity(llibre, HttpStatus.OK);
     }
 
-    //Con el ? le decimos que no devulve ningún tipo de dato
-    //El body va a ser un JSON
-    //Aqui se usa el apache commons lang
-    // El import de StringUtils es import org.apache.commons.lang3.StringUtils;
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crearLlibre")
     public ResponseEntity<?> crearLlibre(@RequestBody LlibreDTO llibreDTO){

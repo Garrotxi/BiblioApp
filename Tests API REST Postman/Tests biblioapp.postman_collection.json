@@ -289,7 +289,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmkxIiwiaWF0IjoxNjM3Njg5OTUwLCJleHAiOjE2Mzc3MzMxNTB9.kLk8V1Pbun_Drje8itNEr9XiCCAWFMFc_kmo1LZ3OO4L7hpdSUu03xMRPet5wwNdRwCdMEgApsqjD1EsISV1GQ",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzkyMjY5NywiZXhwIjoxNjM3OTY1ODk3fQ.SEv3gU1tyo8a3Zk73nSNAg-lmdsmYRtK8sOgQAzwIJmJ1fP_n2ycwwk5bZTeMb0qkz9z4Zjy1at4_iP7k1J1Rw",
 									"type": "string"
 								}
 							]
@@ -298,7 +298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idUsuari\":\"2\",\r\n    \"nomUsuari\":\"usuari12\",\r\n    \"nom\":\"croquetaman\",\r\n    \"email\":\"croquetaman@ioc.cat\",\r\n    \"contrasenya\":\"12349\",\r\n    \"cognoms\":\"de jamon\",\r\n    \"telefon\":\"+55 555 5\"\r\n}",
+							"raw": "{\r\n    \"nomUsuari\":\"usuari12\",\r\n    \"nom\":\"croquetaman\",\r\n    \"email\":\"mrcroquet@ioc.cat\",\r\n    \"contrasenya\":\"contrasenya\",\r\n    \"cognoms\":\"de cabrales\",\r\n    \"telefon\":\"5555555455\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -306,7 +306,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/actualitzarUsuari",
+							"raw": "http://localhost:8080/auth/actualitzarUsuari/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -314,7 +314,8 @@
 							"port": "8080",
 							"path": [
 								"auth",
-								"actualitzarUsuari"
+								"actualitzarUsuari",
+								"2"
 							]
 						}
 					},
@@ -346,7 +347,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -409,7 +410,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/detallLlibre/2",
+							"raw": "http://localhost:8080/llibre/detallLlibre/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -418,7 +419,7 @@
 							"path": [
 								"llibre",
 								"detallLlibre",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -445,7 +446,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNzYyNTE1NSwiZXhwIjoxNjM3NjY4MzU1fQ.EM2dmdp2BREqnyj8WYF_Sy3bDtLrhqRDApNNzGMDMFWzMlGjK8TObptp3bxROi49TQuoH5otJgoM9Ii-0h1k-A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
 									"type": "string"
 								}
 							]
@@ -453,7 +454,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/llibre/detallTitul/TestBook4",
+							"raw": "http://localhost:8080/llibre/detallTitul/TestBook2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -462,7 +463,7 @@
 							"path": [
 								"llibre",
 								"detallTitul",
-								"TestBook4"
+								"TestBook2"
 							]
 						}
 					},
@@ -533,7 +534,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzkyMjY5NywiZXhwIjoxNjM3OTY1ODk3fQ.SEv3gU1tyo8a3Zk73nSNAg-lmdsmYRtK8sOgQAzwIJmJ1fP_n2ycwwk5bZTeMb0qkz9z4Zjy1at4_iP7k1J1Rw",
 									"type": "string"
 								}
 							]
@@ -542,7 +543,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulLlibre\":\"TestBook5\",\r\n    \"dataPublicacio\":\"2021-09-10\",\r\n    \"copiesDisponibles\":\"4\"\r\n}\r\n",
+							"raw": "{\r\n    \"titulLlibre\":\"TestBook4\",\r\n    \"dataPublicacio\":\"2021-09-10\",\r\n    \"copiesDisponibles\":\"4\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
