@@ -62,7 +62,7 @@ public class LlibreController {
         if(llibreService.existsByTitulLlibre(llibreDTO.getTitulLlibre()))
             return new ResponseEntity(new Missatge("Ja existeix un llibre amb aquest titul"), HttpStatus.BAD_REQUEST);
 
-        Llibre llibre = new Llibre(llibreDTO.getTitulLlibre(), llibreDTO.getDataPublicacio(), llibreDTO.getCopiesDisponibles());
+        Llibre llibre = new Llibre(llibreDTO.getTitulLlibre(), llibreDTO.getDataPublicacio(), llibreDTO.getCopiesDisponibles(), llibreDTO.getIsbn(), llibreDTO.getDescripcio());
         llibreService.saveLlibre(llibre);
         return new ResponseEntity(new Missatge("Llibre enregistrat"), HttpStatus.OK);
     }

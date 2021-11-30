@@ -19,14 +19,20 @@ public class Llibre {
     private String dataPublicacio;
     @Column(name="copies_disponibles")
     private int copiesDisponibles;
+    @Column(name="ISBN")
+    private String isbn;
+    @Column(name="Descripcio")
+    private String descripcio;
 
     public Llibre() {
     }
 
-    public Llibre(String titulLlibre, String dataPublicacio, int copiesDisponibles){
+    public Llibre(String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
         this.titulLlibre = titulLlibre;
         this.dataPublicacio =dataPublicacio;
         this.copiesDisponibles = copiesDisponibles;
+        this.isbn = isbn;
+        this.descripcio = descripcio;
     }
 
     public int getIdLlibre() {
@@ -59,5 +65,21 @@ public class Llibre {
 
     public void setCopiesDisponibles(int copiesDisponibles) {
         this.copiesDisponibles = copiesDisponibles;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 }

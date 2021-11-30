@@ -289,7 +289,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzkyMjY5NywiZXhwIjoxNjM3OTY1ODk3fQ.SEv3gU1tyo8a3Zk73nSNAg-lmdsmYRtK8sOgQAzwIJmJ1fP_n2ycwwk5bZTeMb0qkz9z4Zjy1at4_iP7k1J1Rw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzk2MzA3MCwiZXhwIjoxNjM4MDA2MjcwfQ.Jv4R4LSL7_g9Svjtyuumwf_Bc83bgofBZ4Tr5AXeOYvWU1PR-MytEzU9kNKgp8M9hafzyTmU26FEwcCqjvI7Fw",
 									"type": "string"
 								}
 							]
@@ -298,7 +298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomUsuari\":\"usuari12\",\r\n    \"nom\":\"croquetaman\",\r\n    \"email\":\"mrcroquet@ioc.cat\",\r\n    \"contrasenya\":\"contrasenya\",\r\n    \"cognoms\":\"de cabrales\",\r\n    \"telefon\":\"5555555455\"\r\n}",
+							"raw": "{\r\n    \"nomUsuari\":\"lluis\",\r\n    \"nom\":\"lluis antoni\",\r\n    \"email\":\"lluis@mail.com\",\r\n    \"contrasenya\":\"9876\",\r\n    \"cognoms\":\"roige\",\r\n    \"telefon\":\"9399923467\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -347,7 +347,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMxMzMxMSwiZXhwIjoxNjM4MzU2NTExfQ.NB1MyssLBGZZjIuny8eDl4UXsSfHxlegzv6MYU77asjzF2ssya_ZZjXWp3W9ZeZkL0G_2zQL9Zc2TjRkDGKqtA",
 									"type": "string"
 								}
 							]
@@ -534,7 +534,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzkyMjY5NywiZXhwIjoxNjM3OTY1ODk3fQ.SEv3gU1tyo8a3Zk73nSNAg-lmdsmYRtK8sOgQAzwIJmJ1fP_n2ycwwk5bZTeMb0qkz9z4Zjy1at4_iP7k1J1Rw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMxMzMxMSwiZXhwIjoxNjM4MzU2NTExfQ.NB1MyssLBGZZjIuny8eDl4UXsSfHxlegzv6MYU77asjzF2ssya_ZZjXWp3W9ZeZkL0G_2zQL9Zc2TjRkDGKqtA",
 									"type": "string"
 								}
 							]
@@ -543,7 +543,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulLlibre\":\"TestBook4\",\r\n    \"dataPublicacio\":\"2021-09-10\",\r\n    \"copiesDisponibles\":\"4\"\r\n}\r\n",
+							"raw": "{\r\n    \"titulLlibre\":\"TestBook11\",\r\n    \"dataPublicacio\":\"10/09/21\",\r\n    \"copiesDisponibles\":\"4\",\r\n    \"isbn\":\"123456789isbn\",\r\n    \"descripcio\":\"descripcio testbook 11\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -619,6 +619,244 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Test Autors",
+			"item": [
+				{
+					"name": "Llistar autors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNDg1NSwiZXhwIjoxNjM4MzQ4MDU1fQ.053Szg_m3HBtGvL6Z6RL1uwimrZ29q_dnBgz2RYvH2OIT5c78Am4hFFRxlbDUia8JHOH3hy8WK2Eor2UeLDoFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/autor/llistaAutors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"llistaAutors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNTQ5MywiZXhwIjoxNjM4MzQ4NjkzfQ.aInR4Pk4lRlqUZc88A11lKhnCEiAl4FDQZA4PXPbfwuiRA81fakHL0q7C6-C-3ZeaLXw4-Shm51z4dunexoH2A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/crearAutor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"crearAutor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualitzar autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjAwNiwiZXhwIjoxNjM4MzQ5MjA2fQ.w379nVAFqMS_P3UTOcTj3FF4qupVWkgd_JfzU3jUh3CDkkowitSmCOVCwSwsw-fOt_HSc1E8QetlXFLVum8e0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/actualizarAutor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"actualizarAutor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjI2OCwiZXhwIjoxNjM4MzQ5NDY4fQ.UsQFrhi5_TPpCYVIafNyee8-7dpDD9ofXRF6IQkFAAKHaXpx-TZSL6O9v2kAYY6ipzppmJhhzQEXi2ufHcjByA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/eliminarAutor/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"eliminarAutor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detall Autor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjM2MCwiZXhwIjoxNjM4MzQ5NTYwfQ.yq-3geYvhwzAlWGEhKVv_NI3_2TMxMk0fru1iI091Hal_lBmfH6S3Vwkk9P9pF8PIrRlPs7v-_2V1iNVPl8Zdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/autor/detallAutor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"detallAutor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Token",
+			"value": "eyJhbGciOiJIUzUxMiJ9"
 		}
 	]
 }

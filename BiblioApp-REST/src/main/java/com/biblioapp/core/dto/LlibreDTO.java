@@ -14,14 +14,18 @@ public class LlibreDTO {
     private String titulLlibre;
     private String dataPublicacio;
     private int copiesDisponibles;
+    private String isbn;
+    private String descripcio;
 
     public LlibreDTO() {
     }
 
-    public LlibreDTO(String titulLlibre, String dataPublicacio, int copiesDisponibles){
+    public LlibreDTO(String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
         this.titulLlibre = titulLlibre;
         this.dataPublicacio =dataPublicacio;
         this.copiesDisponibles = copiesDisponibles;
+        this.isbn = isbn;
+        this.descripcio = descripcio;
     }
 
     public String getTitulLlibre() {
@@ -46,5 +50,21 @@ public class LlibreDTO {
 
     public void setCopiesDisponibles(int copiesDisponibles) {
         this.copiesDisponibles = copiesDisponibles;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 }
