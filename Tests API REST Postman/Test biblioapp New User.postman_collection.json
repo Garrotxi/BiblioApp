@@ -1,0 +1,862 @@
+{
+	"info": {
+		"_postman_id": "de2a7326-a843-4d8d-b123-dd6479af2f2e",
+		"name": "Test biblioapp New User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test usuaris",
+			"item": [
+				{
+					"name": "Creacio usuari admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuari\":\"test_admin1\",\r\n    \"nom\":\"test_admin1\",\r\n    \"email\":\"test_admin1@ioc.cat\",\r\n    \"contrasenya\":\"1234\",\r\n    \"cognoms\":\"test_cognom_admin1\",\r\n    \"telefon\":\"+34 666 666 666\",\r\n    \"rols\":[\"admin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/registrarUsuari",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"registrarUsuari"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuari\":\"test_admin1\",\r\n    \"contrasenya\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacio usuari no admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuari\":\"usuari1\",\r\n    \"nom\":\"no_soc_admin\",\r\n    \"email\":\"aaaa@ioc.cat\",\r\n    \"contrasenya\":\"1234\",\r\n    \"cognoms\":\"test_cognom\",\r\n    \"telefon\":\"+34 666 666 666\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/registrarUsuari",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"registrarUsuari"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuari by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/eliminarUsuari/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"eliminarUsuari",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Llista usuaris",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth/llistaUsuaris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"llistaUsuaris"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login usuari no admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuari\":\"usuari1\",\r\n    \"contrasenya\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualitzar Usuari",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzk2MzA3MCwiZXhwIjoxNjM4MDA2MjcwfQ.Jv4R4LSL7_g9Svjtyuumwf_Bc83bgofBZ4Tr5AXeOYvWU1PR-MytEzU9kNKgp8M9hafzyTmU26FEwcCqjvI7Fw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuari\":\"lluis\",\r\n    \"nom\":\"lluis antoni\",\r\n    \"email\":\"lluis@mail.com\",\r\n    \"contrasenya\":\"9876\",\r\n    \"cognoms\":\"roige\",\r\n    \"telefon\":\"9399923467\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/actualitzarUsuari/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"actualitzarUsuari",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Llibres",
+			"item": [
+				{
+					"name": "Llistat Llibres",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/llibre/llistaLlibres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"llistaLlibres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detall llibre by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/llibre/detallLlibre/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"detallLlibre",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detall llibre by titul",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/llibre/detallTitul/TestBook2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"detallTitul",
+								"TestBook2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar llibre by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/llibre/eliminarLlibre/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"eliminarLlibre",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Afegir Llibre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzkyMjY5NywiZXhwIjoxNjM3OTY1ODk3fQ.SEv3gU1tyo8a3Zk73nSNAg-lmdsmYRtK8sOgQAzwIJmJ1fP_n2ycwwk5bZTeMb0qkz9z4Zjy1at4_iP7k1J1Rw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulLlibre\":\"TestBook10\",\r\n    \"dataPublicacio\":\"10/09/21\",\r\n    \"copiesDisponibles\":\"4\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/llibre/crearLlibre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"crearLlibre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar llibre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"titulLlibre\": \"TestBook3_Modificat\",\r\n        \"dataPublicacio\": \"2021-09-10\",\r\n        \"copiesDisponibles\": 7\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/llibre/actualizarLlibre/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"llibre",
+								"actualizarLlibre",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test autors",
+			"item": [
+				{
+					"name": "Llistar autors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNDg1NSwiZXhwIjoxNjM4MzQ4MDU1fQ.053Szg_m3HBtGvL6Z6RL1uwimrZ29q_dnBgz2RYvH2OIT5c78Am4hFFRxlbDUia8JHOH3hy8WK2Eor2UeLDoFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/autor/llistaAutors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"llistaAutors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNTQ5MywiZXhwIjoxNjM4MzQ4NjkzfQ.aInR4Pk4lRlqUZc88A11lKhnCEiAl4FDQZA4PXPbfwuiRA81fakHL0q7C6-C-3ZeaLXw4-Shm51z4dunexoH2A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/crearAutor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"crearAutor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualitzar autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjAwNiwiZXhwIjoxNjM4MzQ5MjA2fQ.w379nVAFqMS_P3UTOcTj3FF4qupVWkgd_JfzU3jUh3CDkkowitSmCOVCwSwsw-fOt_HSc1E8QetlXFLVum8e0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/actualizarAutor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"actualizarAutor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjI2OCwiZXhwIjoxNjM4MzQ5NDY4fQ.UsQFrhi5_TPpCYVIafNyee8-7dpDD9ofXRF6IQkFAAKHaXpx-TZSL6O9v2kAYY6ipzppmJhhzQEXi2ufHcjByA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/autor/eliminarAutor/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"eliminarAutor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detall Autor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjM2MCwiZXhwIjoxNjM4MzQ5NTYwfQ.yq-3geYvhwzAlWGEhKVv_NI3_2TMxMk0fru1iI091Hal_lBmfH6S3Vwkk9P9pF8PIrRlPs7v-_2V1iNVPl8Zdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/autor/detallAutor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"detallAutor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Token",
+			"value": "eyJhbGciOiJIUzUxMiJ9"
+		}
+	]
+}
