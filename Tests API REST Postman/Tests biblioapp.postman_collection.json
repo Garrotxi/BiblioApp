@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "de2a7326-a843-4d8d-b123-dd6479af2f2e",
-		"name": "Test biblioapp New User",
+		"name": "Test biblioapp collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -844,6 +844,247 @@
 							"path": [
 								"autor",
 								"detallAutor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Prestec",
+			"item": [
+				{
+					"name": "Crear prestec",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuari\":\"2\",\r\n    \"idLlibre\":\"1\",\r\n    \"dataPrestec\":\"2/12/2021\",\r\n    \"dataDevolucioPrevista\":\"16/12/2021\",\r\n    \"dataDevolucio\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prestec/crearPrestec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prestec",
+								"crearPrestec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Llistar prestecs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prestec/llistaPrestecs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prestec",
+								"llistaPrestecs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detall prestec by ID prestec",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prestec/detallPrestecId/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prestec",
+								"detallPrestecId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualitzar prestec",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuari\": 2,\r\n    \"idLlibre\": 1,\r\n    \"dataPrestec\": \"3/12/2021\",\r\n    \"dataDevolucioPrevista\": \"17/12/2021\",\r\n    \"dataDevolucio\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prestec/actualizarPrestec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prestec",
+								"actualizarPrestec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar prestec",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prestec/eliminarPrestec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prestec",
+								"eliminarPrestec",
 								"1"
 							]
 						}
