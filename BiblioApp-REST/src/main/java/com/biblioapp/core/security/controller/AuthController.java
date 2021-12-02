@@ -135,32 +135,37 @@ public class AuthController {
         } else {
             usuari.setNomUsuari(nomUsuariActual);
         }
-        usuari.setNomUsuari(usuariDTO.getNomUsuari());
+
         if (!usuariDTO.getNom().isEmpty()) {
             usuari.setNom(usuariDTO.getNom());
         } else {
             usuari.setNom(nomActual);
         }
+
         if (!usuariDTO.getCognoms().isEmpty()) {
             usuari.setCognoms(usuariDTO.getCognoms());
         } else {
             usuari.setCognoms(cognomsActual);
         }
+
         if (!usuariDTO.getEmail().isEmpty()) {
             usuari.setEmail(usuariDTO.getEmail());
         } else {
             usuari.setEmail(emailActual);
         }
+
         if (!usuariDTO.getTelefon().isEmpty()) {
             usuari.setTelefon(usuariDTO.getTelefon());
         } else {
             usuari.setTelefon(telefonActual);
         }
+
         if (!usuariDTO.getContrasenya().isEmpty()) {
             usuari.setContrasenya(passwordEncoder.encode(usuariDTO.getContrasenya()));
         } else {
             usuari.setContrasenya(contrasenyaActual);
         }
+
         //Operacio disenyada per a mantenir els rols del usuari al actualitzar-lo
         List<Rol> rols = usuariService.getUsuari(usuari.getIdUsuari()).get().getRols();
 
