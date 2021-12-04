@@ -1092,6 +1092,247 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Test Categoria",
+			"item": [
+				{
+					"name": "Crear Categoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomCategoria\":\"Acció\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/categoria/crearCategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria",
+								"crearCategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Llista categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categoria/llistaCategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria",
+								"llistaCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detall categoria per ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categoria/detallCategoria/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria",
+								"detallCategoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar categoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomCategoria\":\"Sci-fi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/categoria/actualizarCategoria/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria",
+								"actualizarCategoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categoria/eliminarCategoria/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categoria",
+								"eliminarCategoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [
