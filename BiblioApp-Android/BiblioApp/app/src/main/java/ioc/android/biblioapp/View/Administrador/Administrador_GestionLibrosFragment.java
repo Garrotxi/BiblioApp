@@ -38,7 +38,7 @@ public class Administrador_GestionLibrosFragment extends Fragment {
     private AdaptadorListaLibros mAdaptador;
     private String token;
     private LinkedList<String> mListaLibros, mLista;
-    Button mOrdenarLibrosAsc, mOrdenarLibrosDesc;
+    private Button mOrdenarLibrosAsc, mOrdenarLibrosDesc;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -71,8 +71,8 @@ public class Administrador_GestionLibrosFragment extends Fragment {
                 Iterator it = libros.iterator();
                 while (it.hasNext()) {
                     Llibre l = (Llibre) it.next();
-                    mLista.add("Llibre: " + l.getTitulLlibre());
-                    mListaLibros.add("Llibre: " + l.getTitulLlibre());
+                    mLista.add( l.getTitulLlibre());
+                    mListaLibros.add(l.getTitulLlibre());
                 }
                 //gestionamos y actualizamos la vista cone el adapter del recycler view
                 mRecyclerView = binding.listViewLibros;
@@ -108,6 +108,10 @@ public class Administrador_GestionLibrosFragment extends Fragment {
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
         });
+
+
+
+
 
         return root;
     }

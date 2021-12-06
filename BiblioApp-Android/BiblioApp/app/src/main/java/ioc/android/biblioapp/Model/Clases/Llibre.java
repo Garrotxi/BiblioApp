@@ -10,8 +10,8 @@ public class Llibre {
     private int idLlibre;
     private String titulLlibre;
     private int idCategoria;
-    private String dataPublicació;
-    private int copiesDisponibles;
+    private String dataPublicacio;
+    private String copiesDisponibles;
     private String foto;
     private Autor autor;
 
@@ -39,19 +39,20 @@ public class Llibre {
         this.idCategoria = idCategoria;
     }
 
-    public String getDataPublicació() {
-        return dataPublicació;
+
+    public String getDataPublicacio() {
+        return dataPublicacio;
     }
 
-    public void setDataPublicació(String dataPublicació) {
-        this.dataPublicació = dataPublicació;
+    public void setDataPublicacio(String dataPublicació) {
+        this.dataPublicacio = dataPublicació;
     }
 
-    public int getCopiesDisponibles() {
+    public String getCopiesDisponibles() {
         return copiesDisponibles;
     }
 
-    public void setCopiesDisponibles(int copiesDisponibles) {
+    public void setCopiesDisponibles(String copiesDisponibles) {
         this.copiesDisponibles = copiesDisponibles;
     }
 

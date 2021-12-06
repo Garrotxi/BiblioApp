@@ -135,6 +135,14 @@ public class Usuari {
         this.authorities = authorities;
     }
 
+    public Collection getRols() {
+        return rols;
+    }
+
+    public void setRols(Collection rols) {
+        this.rols = rols;
+    }
+
     @Override
     public String toString() {
         return "Usuari: "+

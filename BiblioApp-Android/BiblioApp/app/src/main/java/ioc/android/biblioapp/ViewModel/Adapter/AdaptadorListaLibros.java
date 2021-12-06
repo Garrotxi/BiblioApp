@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 
 public class AdaptadorListaLibros extends
         RecyclerView.Adapter<AdaptadorListaLibros.LibrosViewHolder>{
@@ -50,7 +51,7 @@ public class AdaptadorListaLibros extends
         return mListaLibros.size();
     }
 
-    class LibrosViewHolder extends RecyclerView.ViewHolder {
+    class LibrosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public final TextView libroItemView;
         final AdaptadorListaLibros mAdaptador;
@@ -59,6 +60,16 @@ public class AdaptadorListaLibros extends
             super(itemView);
             libroItemView = itemView.findViewById(R.id.libro);
             this.mAdaptador = adapter;
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            // Get the position of the item that was clicked.
+            int mPosition = getLayoutPosition();
+            // Use that to access the affected item in mWordList.
+            String element = mListaLibros.get(mPosition);
+            Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);
+
         }
     }
 

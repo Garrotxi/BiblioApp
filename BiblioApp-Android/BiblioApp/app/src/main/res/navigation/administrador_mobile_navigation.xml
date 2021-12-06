@@ -23,5 +23,25 @@
         android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionLibrosFragment"
         android:label="@string/menu_libros"
         tools:layout="@layout/fragment_administrador_libros" />
+    <fragment
+        android:id="@+id/nav_Admin_registroUsuario"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_RegistroUsuarioFragment"
+        android:label="Nuevo Libro"
+        tools:layout="@layout/fragment_administrador__registro_usuario" />
+    <fragment
+        android:id="@+id/nav_Admin_nuevoLibro"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoLibroFragment"
+        android:label="Nuevo libro"
+        tools:layout="@layout/fragment_administrador_nuevo_libro" />
+    <fragment
+        android:id="@+id/nav_Admin_detalleUsuario"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_DetalleUsuarioFragment"
+        android:label="Detalle usuario"
+        tools:layout="@layout/fragment_administrador__detalle__usuario" />
+    <fragment
+        android:id="@+id/nav_Admin_detalleLibro"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_LibroFragment"
+        android:label="fragment_administrador__detalle_libro"
+        tools:layout="@layout/fragment_administrador__detalle_libro" />
 
 </navigation>

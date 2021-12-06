@@ -35,6 +35,11 @@ public interface BiblioAppCliente {
     @GET("/llibre/llistaLlibres")//llamada para conseguir lista de libros
     Call<Collection<Llibre>> ListadoLibros(@Header("Authorization") String token);
 
+    @POST("/llibre/crearLlibre")//llamada para crear un libro
+    Call<Registro> Registro(
+            @Body Llibre registro
+    );
+
 
 
 

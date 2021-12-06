@@ -193,5 +193,50 @@ public class BiblioAppRepo {
         return mutableLiveData;
     }
 
+    /**
+     *
+     * @param libro datos para realizar el registro
+     * @return registro objeto con el mensaje de la API
+     * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
+     * en caso contrario nos envia un mensaje de error
+     */
+    public MutableLiveData<Registro> añadeLibro(Llibre libro, String token) {
+        final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.Registro(libro).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
+            Registro registro = new Registro();
+
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) { //si es correcto conseguimos una respuesta satisactoria, con informacion en body
+                if (response.isSuccessful() && response.body() != null) {
+                    //Log.d(TAG, response.body().getMessage());
+                    registro = response.body();
+                    mutableLiveData.setValue(registro);
+                } else {//si la respuesta no es satisfactoria, conseguimos el error del errorBody y generamos un objeto Registro_Activity
+                    try {
+                        String json = response.errorBody().string();
+                        Gson gson = new Gson();
+                        registro = gson.fromJson(json, Registro.class);
+                        mutableLiveData.setValue(registro);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d(TAG, "Error al crear libro");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Añadir Libro incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
 }
 

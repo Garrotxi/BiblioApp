@@ -3,7 +3,43 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/PCTMoveData/Documents/GitHub/BiblioApp/BiblioApp-Android/BiblioApp/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/activity_login.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/activity_pantalla_inicio_administrador.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/activity_pantalla_inicio_usuario.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/activity_prueba_drawer.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/activity_registro.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/app_bar_administrador_drawer.xml" value="0.19435897435897437" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/app_bar_prueba_drawer.xml" value="0.33796296296296297" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/app_bar_usuario_drawer.xml" value="0.1" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/content_administrador_drawer.xml" value="0.11574074074074074" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/content_prueba_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/content_usuario_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_admininstrador_nuevo_libro.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador__detalle__usuario.xml" value="0.18854166666666666" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador__detalle_libro.xml" value="0.19791666666666666" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador__registro_usuario.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador_home.xml" value="0.19814814814814816" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador_libros.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador_nuevo_libro.xml" value="0.2078125" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_administrador_usuarios.xml" value="0.34923076923076923" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_gallery.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_home.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_slideshow.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_usuario_home.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_usuario_libros.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/fragment_usuario_usuarios.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/lista_libros.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/lista_usarios.xml" value="0.22592592592592592" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/lista_uusarios.xml" value="0.1" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/nav_header_administrador_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/nav_header_prueba_drawer.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/layout/nav_header_usuario_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/activity_main_drawer.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/administrador_activity_main_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/p_administrador_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/p_rueba_drawer.xml" value="0.19739583333333333" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/p_usuario_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/usuario_activity_main_drawer.xml" value="0.3546875" />
       </map>
     </option>
   </component>

@@ -13,8 +13,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Iterator;
 
 import ioc.android.biblioapp.Model.Clases.Llibre;
 import ioc.android.biblioapp.Model.Repositorio.BiblioAppRepo;
@@ -25,7 +26,7 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
     private MutableLiveData<Collection<Llibre>> mensaje;
     private BiblioAppRepo biblioAppRepo;
     private MutableLiveData<Collection<Llibre>> mutableLiveData;
-    private List<Llibre> llibres;
+    private Llibre [] llibres;
 
     public Administrador_GestionLibrosViewModel() {
         mText = new MutableLiveData<>();
@@ -45,7 +46,21 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
             @Override
             public void onChanged(Collection llibre) {//con la respuesta
                 if (llibre != null) {//si no es null
-                    mensaje.setValue(llibre);
+                    Collection<Llibre> u= new ArrayList<>();
+                    llibres= new Llibre[llibre.size()];
+                    Iterator it = llibre.iterator();
+
+                    int j=0;
+                    while (it.hasNext()){
+                        //usuaris.add((Usuari) it.next());
+
+                        llibres[j]= (Llibre) it.next();
+                        Llibre prueba= llibres[j];
+                        u.add(prueba);
+                        j= j+1;
+                    }
+
+                    mensaje.setValue(u);
 
 
                 }else{

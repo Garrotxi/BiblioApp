@@ -6,11 +6,11 @@
 package ioc.android.biblioapp.View.Administrador;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,20 +27,19 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.Model.Clases.Usuari;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 import ioc.android.biblioapp.ViewModel.Adapter.AdaptadorListaUsuarios;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 import ioc.android.biblioapp.databinding.FragmentAdministradorUsuariosBinding;
 
 public class Administrador_GestionUsuariosFragment extends Fragment {
 
     private Administrador_GestionUsuariosViewModel gestionUsuariosViewModel;
     private FragmentAdministradorUsuariosBinding binding;
-    private ListView listview;
     private RecyclerView mRecyclerView;
     private AdaptadorListaUsuarios mAdaptador;
     private String token;
-    LinkedList<String> mListaUsuarios,mLista;
-    Button mOrdenarUsuariosAsc, mOrdenarUsuariosDesc;
+    private LinkedList<String> mListaUsuarios, mLista;
+    private Button mOrdenarUsuariosAsc, mOrdenarUsuariosDesc;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
         Bundle b = getActivity().getIntent().getExtras();
         token = b.getString("token");
         mListaUsuarios = new LinkedList<>();
-        mLista=new LinkedList<>();
+        mLista = new LinkedList<>();
         //al iniciar el freagment, conseguimos un listado de usuarios
         gestionUsuariosViewModel.getListaUsuarios(gestionUsuariosViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Collection>() {
             @Override
@@ -72,9 +71,9 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
 
                 while (it.hasNext()) {
 
-                    Usuari u= (Usuari) it.next();
+                    Usuari u = (Usuari) it.next();
                     mLista.add(u.getNomUsuari());
-                    mListaUsuarios.add("Usuario: " +u.getNomUsuari());
+                    mListaUsuarios.add(u.getNomUsuari());
 
                 }
 
@@ -87,7 +86,7 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
         });
 
         //listener del boton ordenar ascendente
-        mOrdenarUsuariosAsc=binding.botonOrdenarUsuariosAsc;
+        mOrdenarUsuariosAsc = binding.botonOrdenarUsuariosAsc;
         mOrdenarUsuariosAsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,9 +101,9 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
             }
         });
 
-        //listener del boton ordenar desscendente
+        //listener del boton ordenar descendente
 
-        mOrdenarUsuariosDesc=binding.botonOrdenarUsuariosDesc;
+        mOrdenarUsuariosDesc = binding.botonOrdenarUsuariosDesc;
         mOrdenarUsuariosDesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +118,27 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
 
             }
         });
+
+
+        mRecyclerView = binding.listViewUsuaris;
+      //  mRecyclerView.getAdapter().p
+
+        //View v=mRecyclerView.getLayoutManager().findViewByPosition()
+                mRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.requestFocus();
+                int f=view.getId();
+
+                String nombre = mAdaptador.toString();
+                Log.d(getActivity().toString(), nombre);
+
+               // int mPosition = view.getSourceLayoutResId();
+                // Use that to access the affected item in mWordList.
+               // String element = mListaUsuarios.get(mPosition);
+            }
+        });
+
 
         return root;
     }

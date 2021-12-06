@@ -13,8 +13,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Iterator;
 
 import ioc.android.biblioapp.Model.Clases.Usuari;
 import ioc.android.biblioapp.Model.Repositorio.BiblioAppRepo;
@@ -25,7 +26,38 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
     private MutableLiveData<Collection<Usuari>> mensaje;
     private BiblioAppRepo biblioAppRepo;
     private MutableLiveData<Collection<Usuari>> mutableLiveData;
-    private List<Usuari> usuaris;
+    private static Usuari[] usuaris;
+    private static String nombreUsuarioDetalle;
+
+    public static void setNombreUsuarioDetalle(String nombreUsuarioDetalle1) {
+        nombreUsuarioDetalle = nombreUsuarioDetalle1;
+    }
+
+    public static String getNombreUsuarioDetalle() {
+        return nombreUsuarioDetalle;
+    }
+
+    public static Usuari[] getUsuaris() {
+        return usuaris;
+    }
+
+    public static Usuari conseguirUsuarioPorNombre () {
+       Usuari usuario = null;
+        Usuari[] listado= getUsuaris();
+        String nombre= getNombreUsuarioDetalle();
+       for (int i=0; i<=listado.length-1;i++){
+
+           if (listado[i].getNom().equalsIgnoreCase(nombre)){
+               usuario=listado[i];
+           }
+
+       }
+
+       return usuario;
+
+
+
+    }
 
     /**
      * Constructor de Administrador_GestionUsuariosViewModel
@@ -50,7 +82,21 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
             @Override
             public void onChanged(Collection usuari) {//con la respuesta
                 if (usuari != null) {//si no es null
-                    mensaje.setValue(usuari);
+                    Collection<Usuari> u= new ArrayList<>();
+                    usuaris= new Usuari[usuari.size()];
+                    Iterator it = usuari.iterator();
+
+                    int j=0;
+                    while (it.hasNext()){
+                        //usuaris.add((Usuari) it.next());
+
+                        usuaris[j]= (Usuari) it.next();
+                        Usuari prueba= usuaris[j];
+                        u.add(prueba);
+                        j= j+1;
+                    }
+
+                    mensaje.setValue(u);
 
                 }else {
                     mensaje.setValue(null);

@@ -17,12 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 
 public class AdaptadorListaUsuarios extends
-        RecyclerView.Adapter<AdaptadorListaUsuarios.UsuariosViewHolder>{
+        RecyclerView.Adapter<AdaptadorListaUsuarios.UsuariosViewHolder> {
 
     private final LinkedList<String> mListaUsuarios;
     private LayoutInflater mInflater;
+    private int posicionClick, posicionAnterior=-1;
+    String elementAnterior=null;
 
     public AdaptadorListaUsuarios(Context context,
                                   LinkedList<String> mListaUsuarios) {
@@ -50,7 +53,18 @@ public class AdaptadorListaUsuarios extends
         return mListaUsuarios.size();
     }
 
-    class UsuariosViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
+    public String getItemIdNombre () {
+        long i= getItemId(posicionClick);
+        String element = mListaUsuarios.get((int) i);
+        return element;
+    }
+
+    class UsuariosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TextView usuarioItemView;
         final AdaptadorListaUsuarios mAdaptador;
@@ -59,10 +73,45 @@ public class AdaptadorListaUsuarios extends
             super(itemView);
             usuarioItemView = itemView.findViewById(R.id.usuario);
             this.mAdaptador = adapter;
+            itemView.setOnClickListener(this);
+           // itemView.requestFocus();
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            // Get the position of the item that was clicked.
+            int mPosition = getLayoutPosition();
+
+            //posicionClick=getLayoutPosition();
+            // Use that to access the affected item in mWordList.
+
+            if(posicionAnterior==-1){
+                posicionAnterior=getLayoutPosition();
+                elementAnterior= mListaUsuarios.get(mPosition);
+            }else{
+                //elementAnterior= mListaUsuarios.get(posicionAnterior);
+                mListaUsuarios.set(posicionAnterior, elementAnterior);
+            }
+
+            String element = mListaUsuarios.get(mPosition);
+
+            Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);
+            elementAnterior=mListaUsuarios.get(mPosition);
+            mListaUsuarios.set(mPosition,"SELECCIONADO: "+element);
+
+          //  String elementAnterior= mListaUsuarios.get(posicionAnterior);
+           // mListaUsuarios.set(posicionAnterior, elementAnterior);
+
+            view.requestFocus();
+            posicionAnterior=mPosition;
+
+
+
+            mAdaptador.notifyDataSetChanged();
+
         }
     }
-
-
 
 
 }

@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/boton_nuevo_libro"
         android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Ordenar ↑"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/boton_nuevo_libro"
+        app:layout_constraintStart_toEndOf="@+id/boton_nuevo_libro" />
     <Button
         android:id="@+id/boton_ordenar_libros_desc"
         android:textSize="10dp"

@@ -31,7 +31,10 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPantallaInicioAdministradorBinding binding;
     private PantallaInicioAdministradorViewModel pantallaInicioAdministradorViewModel;
-    public String token;
+    private String token;
+    private NavController navController;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +62,20 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
                 .build();
 
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
         pantallaInicioAdministradorViewModel= new ViewModelProvider(this).get(PantallaInicioAdministradorViewModel.class);
         token= getIntent().getExtras().getString("token");
         pantallaInicioAdministradorViewModel.setToken(token);
+
+
+
+
+
+
+
     }
 
     @Override
@@ -82,10 +92,23 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+
     public void nuevoUsuario(View view) {
+       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
+        navController.navigate(R.id.nav_Admin_registroUsuario);
 
     }
 
     public void nuevoLibro(View view) {
+       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
+
+        navController.navigate(R.id.nav_Admin_nuevoLibro);
+    }
+
+
+
+    public  void detalleUsuario(View view) {
+        navController.navigate(R.id.nav_Admin_detalleUsuario);
+
     }
 }
