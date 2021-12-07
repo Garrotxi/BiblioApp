@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class Usuari {
 
-    private int idUsuari;
+    private String idUsuari;
     private int idRol;
     private String nomUsuari;
     private String nom;
@@ -31,11 +31,11 @@ public class Usuari {
 
     }
 
-    public int getIdUsuari() {
+    public String getIdUsuari() {
         return idUsuari;
     }
 
-    public void setIdUsuari(int id) {
+    public void setIdUsuari(String id) {
         this.idUsuari = id;
     }
 

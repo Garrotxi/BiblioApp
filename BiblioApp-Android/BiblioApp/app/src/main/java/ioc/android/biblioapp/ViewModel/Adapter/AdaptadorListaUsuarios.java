@@ -46,6 +46,8 @@ public class AdaptadorListaUsuarios extends
 
         String mCurrent = mListaUsuarios.get(position);
         holder.usuarioItemView.setText(mCurrent);
+
+
     }
 
     @Override
@@ -73,10 +75,14 @@ public class AdaptadorListaUsuarios extends
             super(itemView);
             usuarioItemView = itemView.findViewById(R.id.usuario);
             this.mAdaptador = adapter;
+
             itemView.setOnClickListener(this);
+
+
            // itemView.requestFocus();
 
         }
+
 
         @Override
         public void onClick(View view) {

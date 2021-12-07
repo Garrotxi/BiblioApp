@@ -24,4 +24,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Spinner busqueda libros -->
+
+    <string-array name="busqueda">
+        <item></item>
+        <item>Id</item>
+        <item>Titul</item>
+    </string-array>
 </resources>

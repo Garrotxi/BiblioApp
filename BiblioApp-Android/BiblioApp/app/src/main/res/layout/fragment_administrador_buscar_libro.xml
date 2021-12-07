@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Administrador.Administrador_BuscarLibroFragment">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_anchor="@+id/linearLayoutCompat"
+            app:layout_anchorGravity="bottom|center"
+            app:layout_constraintEnd_toEndOf="@id/linearLayoutCompat2"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_busqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="21dp"
+                android:text="Buscar por"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_busqueda"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextBusqueda"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/spinner_busqueda"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinner_busqueda" />
+
+            <Spinner
+                android:id="@+id/spinner_busqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginEnd="28dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextBusqueda"
+                app:layout_constraintEnd_toStartOf="@+id/editTextBusqueda"
+                app:layout_constraintStart_toEndOf="@+id/textView_busqueda"
+                app:layout_constraintTop_toTopOf="@+id/editTextBusqueda" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_anchor="@+id/linearLayoutCompat"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/botonBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Buscar" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/textView_Titul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="47dp"
+                android:text="Títul"
+                app:layout_constraintStart_toStartOf="@+id/textView_Data"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_Titul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView_Titul"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Titul" />
+
+            <TextView
+                android:id="@+id/textView_Data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="123dp"
+                android:text="Data"
+                app:layout_constraintStart_toStartOf="@+id/textView_Copies"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_Data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView_Data"
+                app:layout_constraintStart_toEndOf="@+id/textView_Data"
+                app:layout_constraintStart_toStartOf="@+id/editText_Titul" />
+
+            <TextView
+                android:id="@+id/textView_Copies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="Copies"
+                app:layout_constraintStart_toStartOf="@+id/textView_Isbn"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Data" />
+
+            <EditText
+                android:id="@+id/editText_Copies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView_Copies"
+                app:layout_constraintStart_toStartOf="@+id/editText_Data" />
+
+            <TextView
+                android:id="@+id/textView_Isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="ISBN"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Copies" />
+
+            <EditText
+                android:id="@+id/editText_Isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editText_Copies"
+                app:layout_constraintTop_toBottomOf="@+id/editText_Copies" />
+
+            <TextView
+                android:id="@+id/textView_Descripcio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripció"
+                app:layout_constraintBaseline_toBaselineOf="@+id/editText_Descripcio"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_Descripcio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editText_Isbn"
+                app:layout_constraintTop_toBottomOf="@+id/editText_Isbn" />
+
+        <TextView
+            android:id="@+id/textView_Mensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColorHighlight="@color/purple_200"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Descripcio" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

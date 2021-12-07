@@ -238,5 +238,202 @@ public class BiblioAppRepo {
         return mutableLiveData;
     }
 
+    public MutableLiveData<Usuari> modificarUsuario(Usuari usuari, String token) {
+        final MutableLiveData<Usuari> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ModificaUsuarios(token, usuari.getIdUsuari(), usuari).enqueue(new Callback<Usuari>() {
+            @Override
+            public void onResponse(Call<Usuari> call, Response<Usuari> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    //String respuesta= response.body();
+                    Usuari usuari1= response.body();
+                    mutableLiveData.setValue(usuari1);
+                }else{
+                   // String respuesta= response.errorBody().toString();
+                    //mutableLiveData.setValue(respuesta);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Usuari> call, Throwable t) {
+                Log.e(TAG, "Modificar usuario incorrecto");
+
+            }
+
+        });
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<String> borraUsuario(Usuari usuari, String token) {
+        final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BorraUsuario(token, usuari.getIdUsuari()).enqueue(new Callback<Registro>() {
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();
+                    mutableLiveData.setValue(respuesta);
+                }else{
+
+                     String respuesta= response.errorBody().toString();
+                    mutableLiveData.setValue(respuesta);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Borrar usuario incorrecto");
+
+            }
+
+        });
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<Llibre> modificarLlibre(Llibre llibre, String token) {
+        final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ModificaLibros(token, llibre.getIdLlibre(), llibre).enqueue(new Callback<Llibre>() {
+            @Override
+            public void onResponse(Call<Llibre> call, Response<Llibre> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    //String respuesta= response.body();
+                    Llibre llibre1= response.body();
+                    mutableLiveData.setValue(llibre1);
+                }else{
+                    // String respuesta= response.errorBody().toString();
+                    //mutableLiveData.setValue(respuesta);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Llibre> call, Throwable t) {
+                Log.e(TAG, "Modificar libro incorrecto");
+
+            }
+
+        });
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<String> borraLibro(Llibre llibre, String token) {
+        final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BorraLibro(token, llibre.getIdLlibre()).enqueue(new Callback<Registro>() {
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();
+                    mutableLiveData.setValue(respuesta);
+                }else{
+
+                    String respuesta= response.errorBody().toString();
+                    mutableLiveData.setValue(respuesta);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Borrar llibre incorrecto");
+
+            }
+
+        });
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<Llibre> buscaLibroId(Llibre llibre, String token) {
+        final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BuscaLibroId(token, llibre.getIdLlibre()).enqueue(new Callback<Llibre>() {
+            @Override
+            public void onResponse(Call<Llibre> call, Response<Llibre> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    /*Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();*/
+                    Llibre llibre= response.body();
+                    mutableLiveData.setValue(llibre);
+                }else{
+
+                    Llibre llibre= new Llibre();
+                    llibre.setTitulLlibre("Error");
+                    mutableLiveData.setValue(llibre);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Llibre> call, Throwable t) {
+                Log.e(TAG, "Buscar  llibre ID  incorrecto");
+
+            }
+
+        });
+        return mutableLiveData;
+    }
+
+    public MutableLiveData<Llibre> buscaLibroTitulo(Llibre llibre, String token) {
+        final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BuscaLibroTitulo(token, llibre.getTitulLlibre()).enqueue(new Callback<Llibre>() {
+            @Override
+            public void onResponse(Call<Llibre> call, Response<Llibre> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    /*Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();*/
+                    Llibre llibre= response.body();
+                    mutableLiveData.setValue(llibre);
+                }else{
+
+                    Llibre llibre= new Llibre();
+                    llibre.setTitulLlibre("Error");
+                    mutableLiveData.setValue(llibre);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Llibre> call, Throwable t) {
+                Log.e(TAG, "Buscar  llibre Titol  incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+
 }
 

@@ -15,16 +15,23 @@ import okhttp3.Response;
  */
 public class AuthenticationInterceptor implements Interceptor {
     private String authToken;
+    private String id;
 
     public AuthenticationInterceptor(String token) {
         this.authToken = token;
     }
+/*
+    public AuthenticationInterceptor(String token, String id) {
+        this.authToken = token;
+        this.id=id;
+    }*/
 
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request original = chain.request();
 
         Request.Builder builder = original.newBuilder()
                 .header("Authorization", "Bearer "+authToken);
+
 
         Request request = builder.build();
         return chain.proceed(request);

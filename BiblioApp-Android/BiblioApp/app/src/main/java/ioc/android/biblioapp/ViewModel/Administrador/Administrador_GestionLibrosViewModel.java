@@ -26,7 +26,36 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
     private MutableLiveData<Collection<Llibre>> mensaje;
     private BiblioAppRepo biblioAppRepo;
     private MutableLiveData<Collection<Llibre>> mutableLiveData;
-    private Llibre [] llibres;
+    private static Llibre [] llibres;
+
+    private static String tituloLibroDetalle;
+
+    public static void setTituloLibroDetalle(String nombreUsuarioDetalle1) {
+        tituloLibroDetalle = nombreUsuarioDetalle1;
+    }
+
+    public static String getTituloLibroDetalle() {
+        return tituloLibroDetalle;
+    }
+
+    public static Llibre[] getLlibres() {
+        return llibres;
+    }
+
+    public static Llibre conseguirLibroPorTitulo () {
+        Llibre libro = null;
+        Llibre[] listado= getLlibres();
+        String nombre= getTituloLibroDetalle();
+        for (int i=0; i<=listado.length-1;i++){
+
+            if (listado[i].getTitulLlibre().equalsIgnoreCase(nombre)){
+                libro=listado[i];
+            }
+
+        }
+
+        return libro;
+    }
 
     public Administrador_GestionLibrosViewModel() {
         mText = new MutableLiveData<>();

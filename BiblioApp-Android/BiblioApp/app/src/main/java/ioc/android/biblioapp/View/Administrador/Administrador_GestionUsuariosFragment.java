@@ -121,21 +121,23 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
 
 
         mRecyclerView = binding.listViewUsuaris;
-      //  mRecyclerView.getAdapter().p
 
-        //View v=mRecyclerView.getLayoutManager().findViewByPosition()
-                mRecyclerView.setOnClickListener(new View.OnClickListener() {
+        mRecyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.requestFocus();
-                int f=view.getId();
+                //view.requestFocus();
+                view.setActivated(true);
+
+               // view.setBackgroundColor(Color.RED);
+                int f = view.getId();
+
 
                 String nombre = mAdaptador.toString();
                 Log.d(getActivity().toString(), nombre);
 
-               // int mPosition = view.getSourceLayoutResId();
+                // int mPosition = view.getSourceLayoutResId();
                 // Use that to access the affected item in mWordList.
-               // String element = mListaUsuarios.get(mPosition);
+                // String element = mListaUsuarios.get(mPosition);
             }
         });
 

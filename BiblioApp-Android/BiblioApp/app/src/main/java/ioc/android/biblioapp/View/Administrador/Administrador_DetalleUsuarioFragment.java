@@ -68,6 +68,7 @@ public class Administrador_DetalleUsuarioFragment extends Fragment {
         mModificar= binding.botonModificar;
         mBorrar=binding.botonBorrar;
 
+
         mAdmin=false;
         binding.esAdmin.setOnClickListener(new View.OnClickListener() {//evento para el checkbox
             @Override
@@ -95,20 +96,60 @@ public class Administrador_DetalleUsuarioFragment extends Fragment {
                     mEmail.setText(usuari.getEmail());
                     mTelefon.setText(usuari.getTelefon());
                     mContraseña.setText(usuari.getContrasenya());
+                    usuari.setIdUsuari(user.getIdUsuari());
                 }
             }
 
         });
 
+        mModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                usuari.setNomUsuari(mNomUsuari.getText().toString());
+                usuari.setNom(mNom.getText().toString());
+                usuari.setCognoms(mCognoms.getText().toString());
+                usuari.setEmail(mEmail.getText().toString());
+                usuari.setTelefon(mTelefon.getText().toString());
+                usuari.setContrasenya(mContraseña.getText().toString());
 
 
 
+                administrador_gestionDetalleUsuarioViewModel.modificarUsuario(administrador_gestionDetalleUsuarioViewModel, getContext(), token, usuari).observe(getViewLifecycleOwner(), new Observer<Usuari>() {
+
+                    @Override
+                    public void onChanged(Usuari s) {
+                        mMensajeResultado.setVisibility(View.VISIBLE);
+                        mMensajeResultado.setText("Usuario modificado correctamente");
+
+                        Log.d("Modificar usuario", "Satisfactorio");
+
+                    }
+                });
+
+            }
+        });
+
+        mBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                administrador_gestionDetalleUsuarioViewModel.borrarUsuario(administrador_gestionDetalleUsuarioViewModel, getContext(), token, usuari).observe(getViewLifecycleOwner(), new Observer<String>() {
 
 
+                    @Override
+                    public void onChanged(String s) {
 
+                        mMensajeResultado.setVisibility(View.VISIBLE);
+                        mMensajeResultado.setText(s);
 
-
+                        Log.d("Modificar usuario", "Satisfactorio");
+                    }
+                });
+            }
+        });
 
         return root;
     }
+
 }

@@ -71,5 +71,28 @@ public class ServiceGenerator {
         return retrofit.create(BiblioAppCliente);
     }
 
+/*
+    public static <S> S createService(
+            Class<S> BiblioAppCliente, final String authToken, final String id) {
+
+        if (!TextUtils.isEmpty(authToken)) {
+            AuthenticationInterceptor interceptor =
+                    new AuthenticationInterceptor(authToken);
+
+            if (!httpClient.interceptors().contains(logging)) {
+                httpClient.addInterceptor(logging);
+            }
+
+            if (!httpClient.interceptors().contains(interceptor)) {
+                httpClient.addInterceptor(interceptor);
+
+                builder.client(httpClient.build());
+                retrofit = builder.build();
+            }
+        }
+        return retrofit.create(BiblioAppCliente);
+    }
+*/
+
 
 }

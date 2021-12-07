@@ -17,13 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionLibrosViewModel;
 
 public class AdaptadorListaLibros extends
         RecyclerView.Adapter<AdaptadorListaLibros.LibrosViewHolder>{
 
     private final LinkedList<String> mListaLibros;
     private LayoutInflater mInflater;
+    private int posicionClick, posicionAnterior=-1;
+    String elementAnterior=null;
+
 
     public AdaptadorListaLibros(Context context,
                                 LinkedList<String> mListaLibros) {
@@ -64,11 +67,41 @@ public class AdaptadorListaLibros extends
         }
         @Override
         public void onClick(View view) {
-            // Get the position of the item that was clicked.
+          /*  // Get the position of the item that was clicked.
             int mPosition = getLayoutPosition();
             // Use that to access the affected item in mWordList.
             String element = mListaLibros.get(mPosition);
-            Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);
+            Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);*/
+
+            // Get the position of the item that was clicked.
+            int mPosition = getLayoutPosition();
+
+            //posicionClick=getLayoutPosition();
+            // Use that to access the affected item in mWordList.
+
+            if(posicionAnterior==-1){
+                posicionAnterior=getLayoutPosition();
+                elementAnterior= mListaLibros.get(mPosition);
+            }else{
+                //elementAnterior= mListaUsuarios.get(posicionAnterior);
+                mListaLibros.set(posicionAnterior, elementAnterior);
+            }
+
+            String element = mListaLibros.get(mPosition);
+
+            Administrador_GestionLibrosViewModel.setTituloLibroDetalle(element);
+            elementAnterior=mListaLibros.get(mPosition);
+            mListaLibros.set(mPosition,"SELECCIONADO: "+element);
+
+            //  String elementAnterior= mListaUsuarios.get(posicionAnterior);
+            // mListaUsuarios.set(posicionAnterior, elementAnterior);
+
+            view.requestFocus();
+            posicionAnterior=mPosition;
+
+
+
+            mAdaptador.notifyDataSetChanged();
 
         }
     }

@@ -43,5 +43,10 @@
         android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_LibroFragment"
         android:label="fragment_administrador__detalle_libro"
         tools:layout="@layout/fragment_administrador__detalle_libro" />
+    <fragment
+        android:id="@+id/nav_admin_BuscarLibro"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_BuscarLibroFragment"
+        android:label="Cercar llibre"
+        tools:layout="@layout/fragment_administrador_buscar_libro" />
 
 </navigation>

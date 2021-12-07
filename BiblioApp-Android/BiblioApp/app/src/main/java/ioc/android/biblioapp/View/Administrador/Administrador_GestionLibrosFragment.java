@@ -63,7 +63,7 @@ public class Administrador_GestionLibrosFragment extends Fragment {
         token = b.getString("token"); //conseguimos el token
         mListaLibros = new LinkedList<>();
         mLista = new LinkedList<>();
-        //al iniciar el freagment, conseguimos un listado de libros
+        //al iniciar el fragment, conseguimos un listado de libros
         gestionLibrosViewModel.getListaLibros(gestionLibrosViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Collection>() {
             @Override
             public void onChanged(Collection libros) {

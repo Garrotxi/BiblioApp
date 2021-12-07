@@ -1,65 +1,134 @@
 package ioc.android.biblioapp.View.Administrador;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
-import ioc.android.biblioapp.R;
+import ioc.android.biblioapp.Model.Clases.Llibre;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionDetalleLibroViewModel;
+import ioc.android.biblioapp.databinding.FragmentAdministradorDetalleLibroBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Administrador_Detalle_LibroFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Administrador_Detalle_LibroFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Administrador_GestionDetalleLibroViewModel administrador_gestionDetalleLibroViewModel;
+    private FragmentAdministradorDetalleLibroBinding binding;
+    private String token;
+    private TextView mTitul, mData, mCopies, mIsbn, mDescripcio,mMensajeResultado;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Button mModificar, mBorrar;
+    private Llibre llibre = new Llibre();
 
     public Administrador_Detalle_LibroFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Administrador_Detalle_LibroFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Administrador_Detalle_LibroFragment newInstance(String param1, String param2) {
-        Administrador_Detalle_LibroFragment fragment = new Administrador_Detalle_LibroFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        if (getArguments() != null) {  }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_administrador__detalle__usuario, container, false);
+
+        administrador_gestionDetalleLibroViewModel =
+                new ViewModelProvider(this).get(Administrador_GestionDetalleLibroViewModel.class);
+
+        binding = FragmentAdministradorDetalleLibroBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        Bundle b = getActivity().getIntent().getExtras();
+        token = b.getString("token");
+
+
+        mTitul = binding.editTextTitul;
+        mData = binding.editTextData;
+        mCopies = binding.editTextCopies;
+        mIsbn = binding.editTextIsbn;
+        mDescripcio = binding.editTextDescripcio;
+
+        mMensajeResultado= binding.textViewMensaje;
+        mModificar= binding.botonModificar;
+        mBorrar=binding.botonBorrar;
+
+        administrador_gestionDetalleLibroViewModel.conseguirLibro(administrador_gestionDetalleLibroViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Llibre>() {
+            @Override
+            public void onChanged(Llibre book) {
+                if (book==null){
+                    Log.d(getActivity().toString(),"Libro no existe");
+                }else{
+                    llibre=book;
+                    mTitul.setText(book.getTitulLlibre());
+                    mData.setText(book.getDataPublicacio());
+                    mCopies.setText(book.getCopiesDisponibles());
+                    mIsbn.setText(book.getIsbn());
+                    mDescripcio.setText(book.getDescripcio());
+
+                    llibre.setIdLlibre(book.getIdLlibre());
+                }
+            }
+
+        });
+
+        mModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                llibre.setTitulLlibre(mTitul.getText().toString());
+                llibre.setDataPublicacio(mData.getText().toString());
+                llibre.setCopiesDisponibles(mCopies.getText().toString());
+                llibre.setIsbn(mIsbn.getText().toString());
+                llibre.setDescripcio(mDescripcio.getText().toString());
+
+
+
+                administrador_gestionDetalleLibroViewModel.modificarLibro(administrador_gestionDetalleLibroViewModel, getContext(), token, llibre).observe(getViewLifecycleOwner(), new Observer<Llibre>() {
+
+                    @Override
+                    public void onChanged(Llibre s) {
+                        mMensajeResultado.setVisibility(View.VISIBLE);
+                        mMensajeResultado.setText("Libro modificado correctamente");
+
+                        Log.d("Modificar libro", "Satisfactorio");
+
+                    }
+                });
+
+            }
+        });
+
+        mBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                administrador_gestionDetalleLibroViewModel.borrarLibro(administrador_gestionDetalleLibroViewModel, getContext(), token, llibre).observe(getViewLifecycleOwner(), new Observer<String>() {
+
+
+                    @Override
+                    public void onChanged(String s) {
+
+                        mMensajeResultado.setVisibility(View.VISIBLE);
+                        mMensajeResultado.setText(s);
+
+                        Log.d("Modificar libro", "Satisfactorio");
+                    }
+                });
+            }
+        });
+
+        return root;
     }
 }

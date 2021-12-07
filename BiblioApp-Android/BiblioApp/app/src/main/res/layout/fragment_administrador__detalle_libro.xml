@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Administrador.Administrador_DetalleUsuarioFragment">
+    tools:context=".View.Administrador.Administrador_Detalle_LibroFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Detalle libro" />
+        tools:context=".View.Administrador.Pantalla_Inicio_Administrador">
+
+        <TextView
+            android:id="@+id/textView_Titul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:text="Títul"
+            app:layout_constraintStart_toStartOf="@+id/textView_Data"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_Titul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Titul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_Titul" />
+
+        <TextView
+            android:id="@+id/textView_Data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="123dp"
+            android:text="Data"
+            app:layout_constraintStart_toStartOf="@+id/textView_Copies"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_Data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Data"
+            app:layout_constraintStart_toEndOf="@+id/textView_Data"
+            app:layout_constraintStart_toStartOf="@+id/editText_Titul" />
+
+        <TextView
+            android:id="@+id/textView_Copies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:text="Copies"
+            app:layout_constraintStart_toStartOf="@+id/textView_Isbn"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Data" />
+
+        <EditText
+            android:id="@+id/editText_Copies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Copies"
+            app:layout_constraintStart_toStartOf="@+id/editText_Data" />
+
+        <TextView
+            android:id="@+id/textView_Isbn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:text="ISBN"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Copies" />
+
+        <EditText
+            android:id="@+id/editText_Isbn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editText_Copies"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Copies" />
+
+        <TextView
+            android:id="@+id/textView_Descripcio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripció"
+            app:layout_constraintBaseline_toBaselineOf="@+id/editText_Descripcio"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_Descripcio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editText_Isbn"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Isbn" />
+
+        <TextView
+            android:id="@+id/textView_Mensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/boton_Modificar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Descripcio" />
+
+        <Button
+            android:id="@+id/boton_Modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="228dp"
+            android:layout_marginBottom="28dp"
+            android:onClick="Modificar"
+            android:text="Modificar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/boton_Borrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:onClick="Borrar"
+            android:text="Borrar"
+            app:layout_constraintBaseline_toBaselineOf="@+id/boton_Modificar"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

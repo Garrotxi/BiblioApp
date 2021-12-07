@@ -54,9 +54,6 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
        }
 
        return usuario;
-
-
-
     }
 
     /**
