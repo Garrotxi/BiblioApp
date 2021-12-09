@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @Autor Saúl López Díez-->
+<!-- Layout del fragmento del administrador que tendra listado de libros y boton para gestionarlos-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,55 +34,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_nuevo_libro"
-        android:textSize="10dp"
+        style="@style/Theme.BiblioApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:backgroundTint="@color/purple_500"
         android:onClick="nuevoLibro"
-        android:text="Nuevo Libro"
+        android:src="@drawable/ic_nuevo_libro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_ordenar_libros_asc"
         android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Ordenar ↑"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boton_nuevo_libro"
-        app:layout_constraintStart_toEndOf="@+id/boton_nuevo_libro" />
-    <Button
+        android:backgroundTint="@color/purple_500"
+        android:src="@drawable/ic_flecha_arriba"
+        app:layout_constraintBottom_toBottomOf="@id/boton_nuevo_libro"
+        app:layout_constraintLeft_toRightOf="@id/boton_nuevo_libro"/>
+    <ImageButton
         android:id="@+id/boton_ordenar_libros_desc"
         android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
         android:layout_marginStart="8dp"
-        android:text="Ordenar ↓"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boton_ordenar_libros_asc"
-        app:layout_constraintStart_toEndOf="@id/boton_ordenar_libros_asc" />
+        android:src="@drawable/ic_flecha_abajo"
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_libros_asc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_libros_asc"
+        />
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_modificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Modificar"
+        android:src="@drawable/ic_modificar"
+        android:backgroundTint="@color/purple_500"
         android:onClick="detalleLibro"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/boton_nuevo_libro"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_libros_desc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_libros_desc"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_buscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:backgroundTint="@color/purple_500"
         android:onClick="buscarLibro"
-        android:text="Buscar"
+        android:src="@drawable/ic_buscar"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/boton_ordenar_libros_asc"
-        app:layout_constraintStart_toEndOf="@+id/boton_modificar"/>
+        app:layout_constraintBottom_toBottomOf="@id/boton_modificar"
+        app:layout_constraintLeft_toRightOf="@id/boton_modificar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

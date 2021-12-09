@@ -6,16 +6,16 @@
 package ioc.android.biblioapp.Model.Clases;
 
 public class Autor {
-    private int id;
+    private String idAutor;
     private String nom;
     private String cognoms;
 
-    public int getId() {
-        return id;
+    public String getIdAutor() {
+        return idAutor;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAutor(String idAutor) {
+        this.idAutor = idAutor;
     }
 
     public String getNom() {

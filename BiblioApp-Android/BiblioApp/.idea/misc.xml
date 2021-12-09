@@ -40,12 +40,19 @@
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/p_rueba_drawer.xml" value="0.19739583333333333" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/p_usuario_drawer.xml" value="0.3546875" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA3 pruebas rev 02/app/src/main/res/menu/usuario_activity_main_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/activity_registro.xml" value="0.209375" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/app_bar_administrador_drawer.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/content_administrador_drawer.xml" value="0.3546875" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador__detalle__usuario.xml" value="0.209375" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador__detalle_autor.xml" value="0.3546875" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador__detalle_libro.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_autores.xml" value="0.35487232933819696" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_buscar_libro.xml" value="0.1801566579634465" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_libros.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_nuevo_autor.xml" value="0.3546875" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_nuevo_libro.xml" value="0.3546875" />
         <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/layout/fragment_administrador_usuarios.xml" value="0.3546875" />
+        <entry key="..\:/ProyectosAndroid/BiblioApp TEA4 rev00/app/src/main/res/menu/administrador_activity_main_drawer.xml" value="0.3546875" />
       </map>
     </option>
   </component>

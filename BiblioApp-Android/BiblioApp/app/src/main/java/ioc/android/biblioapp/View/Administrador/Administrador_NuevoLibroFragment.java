@@ -1,3 +1,8 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_NuevoLibroFragment con el fragment para crear un nuevo libro del Administrador
+ */
+
 package ioc.android.biblioapp.View.Administrador;
 
 import static ioc.android.biblioapp.ViewModel.Utilidades.Utilidades.conectividad;
@@ -30,19 +35,14 @@ public class Administrador_NuevoLibroFragment extends Fragment {
     private Llibre libro = new Llibre();
     private Administrador_NuevoLibroViewModel administrador_nuevoLibroViewModel = new Administrador_NuevoLibroViewModel();
 
-    public Administrador_NuevoLibroFragment() {
-        // Required empty public constructor
-    }
+    public Administrador_NuevoLibroFragment() { }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
         }
-
-
     }
 
     @Override
@@ -51,14 +51,13 @@ public class Administrador_NuevoLibroFragment extends Fragment {
         binding = FragmentAdministradorNuevoLibroBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         mTitulo = binding.editTextTitulo;
         mFecha = binding.editTextFecha;
         mCopias = binding.editTextCopias;
         mMensajeResultado = binding.textViewMensaje;
         mAñadir=binding.botonRegistro;
 
-        mAñadir.setOnClickListener(new View.OnClickListener() {
+        mAñadir.setOnClickListener(new View.OnClickListener() {//Añadir nuevo libro
             @Override
             public void onClick(View view) {
                 libro.setTitulLlibre(mTitulo.getText().toString());
@@ -103,12 +102,8 @@ public class Administrador_NuevoLibroFragment extends Fragment {
                         Toast.makeText(getContext(), "Sense conexio a internet", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
             }
         });
-
-
         return root;
     }
 }

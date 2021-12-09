@@ -1,3 +1,8 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_GestionDetalleLibroViewModel con el viewModel del detalle de un libro y metodos para modificar y eliminar
+ */
+
 package ioc.android.biblioapp.ViewModel.Administrador;
 
 import android.content.Context;
@@ -17,7 +22,6 @@ public class Administrador_GestionDetalleLibroViewModel extends ViewModel {
     private MutableLiveData<Llibre> mensaje;
     private BiblioAppRepo biblioAppRepo;
     private MutableLiveData<Llibre> mutableLiveData;
-
     private Llibre llibre;
 
 
@@ -26,33 +30,45 @@ public class Administrador_GestionDetalleLibroViewModel extends ViewModel {
         biblioAppRepo = new BiblioAppRepo();
     }
 
-
+    /**
+     *
+     * @param administrador_gestionDetalleLibroViewModel
+     * @param context
+     * @param token
+     * @return consigue el libro seleccionado de la lista guardada en el viewmodel de Administrador_GestionLibrosViewModel
+     */
     public LiveData<Llibre> conseguirLibro(Administrador_GestionDetalleLibroViewModel administrador_gestionDetalleLibroViewModel, Context context, String token) {
         mensaje = new MutableLiveData<>();
-        String titulo=Administrador_GestionLibrosViewModel.getTituloLibroDetalle();
         llibre=Administrador_GestionLibrosViewModel.conseguirLibroPorTitulo();
-
         mensaje.setValue(llibre);
         return mensaje;
     }
 
-
+    /**
+     *
+     * @param administrador_gestionDetalleLibroViewModel viewmodel
+     * @param context contexto del fragmento
+     * @param token token de seguridad
+     * @param llibre libro con datos a modificados
+     * @return libro modificado
+     */
     public LiveData<Llibre> modificarLibro(Administrador_GestionDetalleLibroViewModel administrador_gestionDetalleLibroViewModel, Context context, String token, Llibre llibre) {
-        //mText = new MutableLiveData<>();
         mensaje = new MutableLiveData<>();
         administrador_gestionDetalleLibroViewModel.modificarLibros(llibre, token).observe((LifecycleOwner) context, new Observer<Llibre>() {
-
             @Override
             public void onChanged(Llibre s) {
                 mensaje.setValue(s);
-
             }
         });
-
-
-
         return mensaje;
     }
+
+    /**
+     *
+     * @param llibre libro con datos a modificados
+     * @param token token de seguridad
+     * @return llamada a repositorio que devuelve resultado
+     */
 
     public LiveData<Llibre> modificarLibros(Llibre llibre, String token) {
         if (mutableLiveData==null) {
@@ -61,21 +77,31 @@ public class Administrador_GestionDetalleLibroViewModel extends ViewModel {
         return mutableLiveData;
     }
 
-    public LiveData<String> borrarLibro(Administrador_GestionDetalleLibroViewModel administrador_gestionDetalleUsuarioViewModel, Context context, String token, Llibre llibre) {
+    /**
+     *
+     * @param administrador_gestionDetalleLibroViewModel viewmodel
+     * @param context contexto del fragmento
+     * @param token token de seguridad
+     * @param llibre Libro a borrar
+     * @return mensaje de API
+     */
+    public LiveData<String> borrarLibro(Administrador_GestionDetalleLibroViewModel administrador_gestionDetalleLibroViewModel, Context context, String token, Llibre llibre) {
         mText = new MutableLiveData<>();
-        //mensaje = new MutableLiveData<>();
-        administrador_gestionDetalleUsuarioViewModel.borraBook(llibre, token).observe((LifecycleOwner) context, new Observer<String>() {
-
+        administrador_gestionDetalleLibroViewModel.borraBook(llibre, token).observe((LifecycleOwner) context, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 mText.setValue(s);
-
             }
         });
-
         return mText;
     }
 
+    /**
+     *
+     * @param llibre Libro a borrar
+     * @param token token de seguridad
+     * @return llamada a repositorio que devuelve resultado
+     */
     public LiveData<String> borraBook(Llibre llibre, String token) {
         if (mText2==null) {
             mText2 = biblioAppRepo.borraLibro(llibre, token);

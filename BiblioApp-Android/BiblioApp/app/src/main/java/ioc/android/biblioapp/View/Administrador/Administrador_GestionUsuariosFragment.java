@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,7 +39,8 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
     private AdaptadorListaUsuarios mAdaptador;
     private String token;
     private LinkedList<String> mListaUsuarios, mLista;
-    private Button mOrdenarUsuariosAsc, mOrdenarUsuariosDesc;
+    private ImageButton mOrdenarUsuariosAsc, mOrdenarUsuariosDesc;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -57,7 +58,6 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
             }
         });
 
-
         Bundle b = getActivity().getIntent().getExtras();
         token = b.getString("token");
         mListaUsuarios = new LinkedList<>();
@@ -66,22 +66,16 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
         gestionUsuariosViewModel.getListaUsuarios(gestionUsuariosViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Collection>() {
             @Override
             public void onChanged(Collection usuari) {
-
                 Iterator it = usuari.iterator();
-
                 while (it.hasNext()) {
-
                     Usuari u = (Usuari) it.next();
                     mLista.add(u.getNomUsuari());
                     mListaUsuarios.add(u.getNomUsuari());
-
                 }
-
                 mRecyclerView = binding.listViewUsuaris;
                 mAdaptador = new AdaptadorListaUsuarios(getContext(), mListaUsuarios);
                 mRecyclerView.setAdapter(mAdaptador);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
             }
         });
 
@@ -92,56 +86,37 @@ public class Administrador_GestionUsuariosFragment extends Fragment {
             public void onClick(View view) {
                 mListaUsuarios.clear();
                 Collections.sort(mLista);
-
                 mRecyclerView = binding.listViewUsuaris;
                 mAdaptador = new AdaptadorListaUsuarios(getContext(), mLista);
                 mRecyclerView.setAdapter(mAdaptador);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
             }
         });
 
         //listener del boton ordenar descendente
-
         mOrdenarUsuariosDesc = binding.botonOrdenarUsuariosDesc;
         mOrdenarUsuariosDesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mListaUsuarios.clear();
-
                 Collections.sort(mLista, Collections.reverseOrder());
-
                 mRecyclerView = binding.listViewUsuaris;
                 mAdaptador = new AdaptadorListaUsuarios(getContext(), mLista);
                 mRecyclerView.setAdapter(mAdaptador);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
             }
         });
 
-
         mRecyclerView = binding.listViewUsuaris;
-
         mRecyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //view.requestFocus();
                 view.setActivated(true);
-
-               // view.setBackgroundColor(Color.RED);
                 int f = view.getId();
-
-
                 String nombre = mAdaptador.toString();
                 Log.d(getActivity().toString(), nombre);
-
-                // int mPosition = view.getSourceLayoutResId();
-                // Use that to access the affected item in mWordList.
-                // String element = mListaUsuarios.get(mPosition);
             }
         });
-
-
         return root;
     }
 

@@ -41,19 +41,16 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
         return usuaris;
     }
 
-    public static Usuari conseguirUsuarioPorNombre () {
-       Usuari usuario = null;
-        Usuari[] listado= getUsuaris();
-        String nombre= getNombreUsuarioDetalle();
-       for (int i=0; i<=listado.length-1;i++){
-
-           if (listado[i].getNom().equalsIgnoreCase(nombre)){
-               usuario=listado[i];
-           }
-
-       }
-
-       return usuario;
+    public static Usuari conseguirUsuarioPorNombre() {
+        Usuari usuario = null;
+        Usuari[] listado = getUsuaris();
+        String nombre = getNombreUsuarioDetalle();
+        for (int i = 0; i <= listado.length - 1; i++) {
+            if (listado[i].getNomUsuari().equalsIgnoreCase(nombre)) {
+                usuario = listado[i];
+            }
+        }
+        return usuario;
     }
 
     /**
@@ -71,6 +68,13 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
         return mText;
     }
 
+    /**
+     *
+     * @param administrador_gestionUsuariosViewModel viewModel
+     * @param context contexto del fragmento
+     * @param token token de seguridad
+     * @return
+     */
     public LiveData<Collection<Usuari>> getListaUsuarios(Administrador_GestionUsuariosViewModel administrador_gestionUsuariosViewModel, Context context, String token) {
 
         mensaje = new MutableLiveData<>();
@@ -79,23 +83,19 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
             @Override
             public void onChanged(Collection usuari) {//con la respuesta
                 if (usuari != null) {//si no es null
-                    Collection<Usuari> u= new ArrayList<>();
-                    usuaris= new Usuari[usuari.size()];
+                    Collection<Usuari> u = new ArrayList<>();
+                    usuaris = new Usuari[usuari.size()];
                     Iterator it = usuari.iterator();
 
-                    int j=0;
-                    while (it.hasNext()){
-                        //usuaris.add((Usuari) it.next());
-
-                        usuaris[j]= (Usuari) it.next();
-                        Usuari prueba= usuaris[j];
+                    int j = 0;
+                    while (it.hasNext()) {
+                        usuaris[j] = (Usuari) it.next();
+                        Usuari prueba = usuaris[j];
                         u.add(prueba);
-                        j= j+1;
+                        j = j + 1;
                     }
-
                     mensaje.setValue(u);
-
-                }else {
+                } else {
                     mensaje.setValue(null);
                 }
             }
@@ -103,18 +103,14 @@ public class Administrador_GestionUsuariosViewModel extends ViewModel {
         return mensaje;
     }
 
-
     /**
      * @param
      * @return datos de la consulta al repositorio, una instancia de Usuari
      */
     public LiveData<Collection<Usuari>> ConseguirUsuariosRepositorio(String token) {
-
         if (mutableLiveData == null) {
             mutableLiveData = biblioAppRepo.pideUsuarios(token);
         }
         return mutableLiveData;
     }
-
-
 }

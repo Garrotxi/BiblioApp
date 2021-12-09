@@ -29,10 +29,8 @@ public class Usuario_GestionUsuariosFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         gestionUsuariosViewModel =
                 new ViewModelProvider(this).get(Usuario_GestionUsuariosViewModel.class);
-
         binding = FragmentAdministradorUsuariosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         final TextView textView = binding.textGallery;
         gestionUsuariosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

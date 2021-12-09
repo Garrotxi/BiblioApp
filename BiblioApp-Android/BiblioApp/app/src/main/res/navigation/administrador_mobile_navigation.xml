@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @Autor Saúl López Díez-->
+<!-- Layout Navigation del administrador-->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -48,5 +50,30 @@
         android:name="ioc.android.biblioapp.View.Administrador.Administrador_BuscarLibroFragment"
         android:label="Cercar llibre"
         tools:layout="@layout/fragment_administrador_buscar_libro" />
+    <fragment
+        android:id="@+id/nav_Admin_autores"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_AutoresFragment"
+        android:label="Autors"
+        tools:layout="@layout/fragment_administrador_autores" />
+    <fragment
+        android:id="@+id/nav_Admin_detalleAutor"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_AutorFragment"
+        android:label="Detalle autor"
+        tools:layout="@layout/fragment_administrador__detalle_autor" />
+    <fragment
+        android:id="@+id/nav_Admin_nuevoAutor"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoAutorFragment"
+        android:label="Nuevo autor"
+        tools:layout="@layout/fragment_administrador_nuevo_autor" />
+    <fragment
+        android:id="@+id/nav_Admin_categorias"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_CategoriasFragment"
+        android:label="fragment_administrador__categorias"
+        tools:layout="@layout/fragment_administrador__categorias" />
+    <fragment
+        android:id="@+id/nav_Admin_prestamos"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_PrestamosFragment"
+        android:label="fragment_administrador__prestamos"
+        tools:layout="@layout/fragment_administrador__prestamos" />
 
 </navigation>

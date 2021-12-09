@@ -67,46 +67,23 @@ public class AdaptadorListaLibros extends
         }
         @Override
         public void onClick(View view) {
-          /*  // Get the position of the item that was clicked.
+
             int mPosition = getLayoutPosition();
-            // Use that to access the affected item in mWordList.
-            String element = mListaLibros.get(mPosition);
-            Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);*/
-
-            // Get the position of the item that was clicked.
-            int mPosition = getLayoutPosition();
-
-            //posicionClick=getLayoutPosition();
-            // Use that to access the affected item in mWordList.
-
             if(posicionAnterior==-1){
                 posicionAnterior=getLayoutPosition();
                 elementAnterior= mListaLibros.get(mPosition);
             }else{
-                //elementAnterior= mListaUsuarios.get(posicionAnterior);
                 mListaLibros.set(posicionAnterior, elementAnterior);
             }
-
             String element = mListaLibros.get(mPosition);
-
             Administrador_GestionLibrosViewModel.setTituloLibroDetalle(element);
             elementAnterior=mListaLibros.get(mPosition);
             mListaLibros.set(mPosition,"SELECCIONADO: "+element);
-
-            //  String elementAnterior= mListaUsuarios.get(posicionAnterior);
-            // mListaUsuarios.set(posicionAnterior, elementAnterior);
-
             view.requestFocus();
             posicionAnterior=mPosition;
 
-
-
             mAdaptador.notifyDataSetChanged();
-
         }
     }
-
-
-
 
 }

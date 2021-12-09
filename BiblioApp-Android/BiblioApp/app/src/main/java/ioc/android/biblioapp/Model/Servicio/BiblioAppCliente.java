@@ -7,6 +7,7 @@ package ioc.android.biblioapp.Model.Servicio;
 
 import java.util.Collection;
 
+import ioc.android.biblioapp.Model.Clases.Autor;
 import ioc.android.biblioapp.Model.Clases.Llibre;
 import ioc.android.biblioapp.Model.Clases.Login;
 import ioc.android.biblioapp.Model.Clases.Registro;
@@ -33,10 +34,12 @@ public interface BiblioAppCliente {
     );
 
     @GET("/auth/llistaUsuaris")//llamada para conseguir lista de usuarios
-    Call<Collection<Usuari>> ListadoUsuarios(@Header("Authorization") String token);
+    Call<Collection<Usuari>> ListadoUsuarios(@Header("Authorization") String token
+    );
 
     @GET("/llibre/llistaLlibres")//llamada para conseguir lista de libros
-    Call<Collection<Llibre>> ListadoLibros(@Header("Authorization") String token);
+    Call<Collection<Llibre>> ListadoLibros(@Header("Authorization") String token
+    );
 
     @POST("/llibre/crearLlibre")//llamada para crear un libro
     Call<Registro> Registro(
@@ -44,35 +47,55 @@ public interface BiblioAppCliente {
     );
 
 
-    @PUT ("/auth/actualitzarUsuari/{id}")
+    @PUT ("/auth/actualitzarUsuari/{id}")//llamada para actualizar un usuario
     Call<Usuari> ModificaUsuarios(@Header("Authorization") String token,
                          @Path("id") String id,
                          @Body Usuari user
     );
 
-    @DELETE ("/auth/eliminarUsuari/{id}")
+    @DELETE ("/auth/eliminarUsuari/{id}")//llamada para eliminar un usuario
     Call <Registro> BorraUsuario(@Header("Authorization") String token,
                                      @Path("id") String id
     );
 
-    @PUT ("/llibre/actualizarLlibre/{id}")
+    @PUT ("/llibre/actualizarLlibre/{id}")//llamada para actualizar un libro
     Call<Llibre> ModificaLibros(@Header("Authorization") String token,
                                   @Path("id") String id,
                                   @Body Llibre book
     );
 
-    @DELETE ("/llibre/eliminarLlibre/{id}")
+    @DELETE ("/llibre/eliminarLlibre/{id}")//llamada para eliminar un libro
     Call <Registro> BorraLibro(@Header("Authorization") String token,
                                  @Path("id") String id
     );
 
-    @GET ("/llibre/detallLlibre/{id}")
+    @GET ("/llibre/detallLlibre/{id}")//llamada para conseguir un libro por su id
     Call <Llibre> BuscaLibroId(@Header("Authorization") String token,
                                @Path("id") String id
     );
-    @GET ("/llibre/detallTitul/{titol}")
+    @GET ("/llibre/detallTitul/{titol}")//llamada para conseguir un libro por su titulo
     Call <Llibre> BuscaLibroTitulo(@Header("Authorization") String token,
                                @Path("titol") String titol
+    );
+
+    @GET("/autor/llistaAutors")//llamada para conseguir lista de usuarios
+    Call<Collection<Autor>> ListadoAutores(@Header("Authorization") String token
+    );
+
+    @PUT ("/autor/actualizarAutor/{id}")//llamada para actualizar un autor
+    Call<Autor> ModificaAutores(@Header("Authorization") String token,
+                                @Path("id") String id,
+                                @Body Autor autor
+    );
+
+    @DELETE ("/autor/eliminarAutor/{id}")//llamada para eliminar un autor
+    Call <Registro> BorraAutor(@Header("Authorization") String token,
+                               @Path("id") String id
+    );
+
+    @POST("/autor/crearAutor")//llamada para crear un autor
+    Call<Registro> NuevoAutor(
+            @Body Autor registro
     );
 
 

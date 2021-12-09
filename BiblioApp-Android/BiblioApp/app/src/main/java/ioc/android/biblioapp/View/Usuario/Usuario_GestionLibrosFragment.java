@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +38,7 @@ public class Usuario_GestionLibrosFragment extends Fragment {
     private AdaptadorListaLibros mAdaptador;
     private String token;
     private LinkedList<String> mListaLibros, mLista;
-    Button mOrdenarLibrosAsc, mOrdenarLibrosDesc;
+    private ImageButton mOrdenarLibrosAsc, mOrdenarLibrosDesc;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,23 +58,18 @@ public class Usuario_GestionLibrosFragment extends Fragment {
 
         Bundle b = getActivity().getIntent().getExtras();
         token = b.getString("token");
-        //Log.d("token en fragment", token);
-         mListaLibros = new LinkedList<>();
+        mListaLibros = new LinkedList<>();
         mLista = new LinkedList<>();
+        //Conseguimos un listado de los  libros
         gestionLibrosViewModel.getListaLibros(gestionLibrosViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Collection>() {
             @Override
             public void onChanged(Collection libros) {
-
                 Iterator it = libros.iterator();
                 while (it.hasNext()) {
-                    Llibre l= (Llibre) it.next();
-
+                    Llibre l = (Llibre) it.next();
                     mLista.add(l.getTitulLlibre());
                     mListaLibros.add("Llibre: " + l.getTitulLlibre());
-
                 }
-
-
                 // Get a handle to the RecyclerView.
                 mRecyclerView = binding.listViewLibros;
                 // Create an adapter and supply the data to be displayed.
@@ -83,13 +78,11 @@ public class Usuario_GestionLibrosFragment extends Fragment {
                 mRecyclerView.setAdapter(mAdaptador);
                 // Give the RecyclerView a default layout manager.
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
             }
         });
 
-        mOrdenarLibrosAsc=binding.botonOrdenarLibrosAsc;
-
+        mOrdenarLibrosAsc = binding.botonOrdenarLibrosAsc;
+        //Ordenamos ascendentemente
         mOrdenarLibrosAsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,8 +98,8 @@ public class Usuario_GestionLibrosFragment extends Fragment {
             }
         });
 
-        mOrdenarLibrosDesc=binding.botonOrdenarLibrosDesc;
-
+        mOrdenarLibrosDesc = binding.botonOrdenarLibrosDesc;
+        //ordenamos descendentemente
         mOrdenarLibrosDesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,3 +1,7 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_NuevoLibroViewModel con el ViewModel de getion de nuevo libro
+ */
 package ioc.android.biblioapp.ViewModel.Administrador;
 
 import android.content.Context;
@@ -50,7 +54,6 @@ public class Administrador_NuevoLibroViewModel {
         });
         return mensaje;
     }
-
 
     /**
      *

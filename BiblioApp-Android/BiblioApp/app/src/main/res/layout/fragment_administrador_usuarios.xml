@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @Autor Saúl López Díez-->
+<!-- Layout del fragmento del administrador que tendra listado de usuarios y boton para gestionarlo-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,46 +34,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_nuevo_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:onClick="nuevoUsuario"
-        android:text="Nuevo Usuario"
+        android:src="@drawable/ic_nuevo_usuario"
+        android:backgroundTint="@color/purple_500"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_ordenar_usuarios_asc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Ordenar ↑"
+        android:src="@drawable/ic_flecha_arriba"
+        android:backgroundTint="@color/purple_500"
         android:textSize="10dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boton_nuevo_usuario"
-        app:layout_constraintStart_toEndOf="@+id/boton_nuevo_usuario" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/boton_nuevo_usuario"
+        app:layout_constraintLeft_toRightOf="@id/boton_nuevo_usuario"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_ordenar_usuarios_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Ordenar ↓"
+        android:src="@drawable/ic_flecha_abajo"
+        android:backgroundTint="@color/purple_500"
         android:textSize="10dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boton_nuevo_usuario"
-        app:layout_constraintStart_toEndOf="@id/boton_ordenar_usuarios_asc" />
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_usuarios_asc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_usuarios_asc"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/boton_modificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Modificar"
+        android:src="@drawable/ic_modificar"
+        android:backgroundTint="@color/purple_500"
         android:onClick="detalleUsuario"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/boton_nuevo_usuario"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_usuarios_desc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_usuarios_desc"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

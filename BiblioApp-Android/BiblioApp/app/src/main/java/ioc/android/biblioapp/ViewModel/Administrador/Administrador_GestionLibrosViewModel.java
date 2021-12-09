@@ -26,7 +26,7 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
     private MutableLiveData<Collection<Llibre>> mensaje;
     private BiblioAppRepo biblioAppRepo;
     private MutableLiveData<Collection<Llibre>> mutableLiveData;
-    private static Llibre [] llibres;
+    private static Llibre[] llibres;
 
     private static String tituloLibroDetalle;
 
@@ -42,18 +42,19 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
         return llibres;
     }
 
-    public static Llibre conseguirLibroPorTitulo () {
+    /**
+     *
+     * @return Pasa por el listado de libros y devuelve libro
+     */
+    public static Llibre conseguirLibroPorTitulo() {
         Llibre libro = null;
-        Llibre[] listado= getLlibres();
-        String nombre= getTituloLibroDetalle();
-        for (int i=0; i<=listado.length-1;i++){
-
-            if (listado[i].getTitulLlibre().equalsIgnoreCase(nombre)){
-                libro=listado[i];
+        Llibre[] listado = getLlibres();
+        String nombre = getTituloLibroDetalle();
+        for (int i = 0; i <= listado.length - 1; i++) {
+            if (listado[i].getTitulLlibre().equalsIgnoreCase(nombre)) {
+                libro = listado[i];
             }
-
         }
-
         return libro;
     }
 
@@ -67,32 +68,32 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
         return mText;
     }
 
+    /**
+     *
+     * @param administrador_gestionLibrosViewModel viewModel
+     * @param context Contexto del fragmento
+     * @param token token de seguridad
+     * @return devuelve listado con libros
+     */
     public LiveData<Collection<Llibre>> getListaLibros(Administrador_GestionLibrosViewModel administrador_gestionLibrosViewModel, Context context, String token) {
 
         mensaje = new MutableLiveData<>();
-
         administrador_gestionLibrosViewModel.ConseguirLibrosRepositorio(token).observe((LifecycleOwner) context, new Observer<Collection<Llibre>>() {//Generamos un observer a la espera de la consulta con el repositorio
             @Override
             public void onChanged(Collection llibre) {//con la respuesta
                 if (llibre != null) {//si no es null
-                    Collection<Llibre> u= new ArrayList<>();
-                    llibres= new Llibre[llibre.size()];
+                    Collection<Llibre> u = new ArrayList<>();
+                    llibres = new Llibre[llibre.size()];
                     Iterator it = llibre.iterator();
-
-                    int j=0;
-                    while (it.hasNext()){
-                        //usuaris.add((Usuari) it.next());
-
-                        llibres[j]= (Llibre) it.next();
-                        Llibre prueba= llibres[j];
+                    int j = 0;
+                    while (it.hasNext()) {
+                        llibres[j] = (Llibre) it.next();
+                        Llibre prueba = llibres[j];
                         u.add(prueba);
-                        j= j+1;
+                        j = j + 1;
                     }
-
                     mensaje.setValue(u);
-
-
-                }else{
+                } else {
                     mensaje.setValue(null);
                 }
             }
@@ -106,7 +107,6 @@ public class Administrador_GestionLibrosViewModel extends ViewModel {
      * @return datos de la consulta al repositorio, una instancia de Usuari
      */
     public LiveData<Collection<Llibre>> ConseguirLibrosRepositorio(String token) {
-
         if (mutableLiveData == null) {
             mutableLiveData = biblioAppRepo.pideLibros(token);
         }

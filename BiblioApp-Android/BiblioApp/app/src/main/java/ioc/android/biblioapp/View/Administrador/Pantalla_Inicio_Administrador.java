@@ -119,4 +119,13 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
         navController.navigate(R.id.nav_admin_BuscarLibro);
     }
 
+    public  void detalleAutor(View view) {
+        navController.navigate(R.id.nav_Admin_detalleAutor);
+    }
+    public  void nuevoAutor(View view) {
+        navController.navigate(R.id.nav_Admin_nuevoAutor);
+    }
+
+
+
 }

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_AutoresViewModel;
 import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 
 public class AdaptadorListaUsuarios extends
@@ -43,11 +44,8 @@ public class AdaptadorListaUsuarios extends
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorListaUsuarios.UsuariosViewHolder holder, int position) {
-
         String mCurrent = mListaUsuarios.get(position);
         holder.usuarioItemView.setText(mCurrent);
-
-
     }
 
     @Override
@@ -75,47 +73,28 @@ public class AdaptadorListaUsuarios extends
             super(itemView);
             usuarioItemView = itemView.findViewById(R.id.usuario);
             this.mAdaptador = adapter;
-
             itemView.setOnClickListener(this);
-
-
-           // itemView.requestFocus();
-
         }
 
 
         @Override
         public void onClick(View view) {
-            // Get the position of the item that was clicked.
+
             int mPosition = getLayoutPosition();
-
-            //posicionClick=getLayoutPosition();
-            // Use that to access the affected item in mWordList.
-
             if(posicionAnterior==-1){
                 posicionAnterior=getLayoutPosition();
                 elementAnterior= mListaUsuarios.get(mPosition);
             }else{
-                //elementAnterior= mListaUsuarios.get(posicionAnterior);
                 mListaUsuarios.set(posicionAnterior, elementAnterior);
             }
-
             String element = mListaUsuarios.get(mPosition);
-
             Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);
+            Administrador_AutoresViewModel.setNombreAutorDetalle(element);
             elementAnterior=mListaUsuarios.get(mPosition);
             mListaUsuarios.set(mPosition,"SELECCIONADO: "+element);
-
-          //  String elementAnterior= mListaUsuarios.get(posicionAnterior);
-           // mListaUsuarios.set(posicionAnterior, elementAnterior);
-
             view.requestFocus();
             posicionAnterior=mPosition;
-
-
-
             mAdaptador.notifyDataSetChanged();
-
         }
     }
 

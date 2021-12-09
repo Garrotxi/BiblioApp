@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @Autor Saúl López Díez-->
+<!-- Layout con el background del launcher-->
 <resources>
     <color name="ic_launcher_background">#FAFCFB</color>
 </resources>

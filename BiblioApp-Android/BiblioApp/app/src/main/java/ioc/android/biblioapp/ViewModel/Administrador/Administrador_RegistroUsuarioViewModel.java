@@ -1,3 +1,7 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_RegistroUsuarioViewModel con el ViewModel de getion de nuevo usuario
+ */
 package ioc.android.biblioapp.ViewModel.Administrador;
 
 import android.content.Context;
@@ -39,9 +43,7 @@ public class Administrador_RegistroUsuarioViewModel extends ViewModel {
             @Override
             public void onChanged(Registro registro) {
                 if (registro != null) {
-                    //Log.e("Registro_Activity", registro.getMessage());
                     mensaje.setValue(registro.getMissatge());
-                    //Toast.makeText(getApplicationContext(), mensaje.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("Registro_Activity", "Error en registro");
                     mensaje.setValue(null);

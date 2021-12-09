@@ -37,6 +37,13 @@ public class Usuario_GestionLibrosViewModel extends ViewModel {
         return mText;
     }
 
+    /**
+     *
+     * @param usuario_gestionLibrosViewModel viewmodel
+     * @param context contexto del fragmento
+     * @param token token de seguridad
+     * @return devuelve lista de libros
+     */
     public LiveData<Collection<Llibre>> getListaLibros(Usuario_GestionLibrosViewModel usuario_gestionLibrosViewModel, Context context, String token) {
 
         mensaje = new MutableLiveData<>();
@@ -46,8 +53,6 @@ public class Usuario_GestionLibrosViewModel extends ViewModel {
             public void onChanged(Collection llibre) {//con la respuesta
                 if (llibre != null) {//si no es null
                     mensaje.setValue(llibre);
-
-
                 }else{
                     mensaje.setValue(null);
                 }

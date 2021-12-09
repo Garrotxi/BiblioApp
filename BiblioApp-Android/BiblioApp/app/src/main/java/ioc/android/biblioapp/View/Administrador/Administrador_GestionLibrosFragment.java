@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,8 +26,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.Model.Clases.Llibre;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionLibrosViewModel;
 import ioc.android.biblioapp.ViewModel.Adapter.AdaptadorListaLibros;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionLibrosViewModel;
 import ioc.android.biblioapp.databinding.FragmentAdministradorLibrosBinding;
 
 public class Administrador_GestionLibrosFragment extends Fragment {
@@ -38,7 +38,7 @@ public class Administrador_GestionLibrosFragment extends Fragment {
     private AdaptadorListaLibros mAdaptador;
     private String token;
     private LinkedList<String> mListaLibros, mLista;
-    private Button mOrdenarLibrosAsc, mOrdenarLibrosDesc;
+    private ImageButton mOrdenarLibrosAsc, mOrdenarLibrosDesc;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,7 +49,6 @@ public class Administrador_GestionLibrosFragment extends Fragment {
         binding = FragmentAdministradorLibrosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         final TextView textView = binding.textSlideshow;
         gestionLibrosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -57,8 +56,6 @@ public class Administrador_GestionLibrosFragment extends Fragment {
                 textView.setText(s);
             }
         });
-
-
         Bundle b = getActivity().getIntent().getExtras();
         token = b.getString("token"); //conseguimos el token
         mListaLibros = new LinkedList<>();
@@ -71,7 +68,7 @@ public class Administrador_GestionLibrosFragment extends Fragment {
                 Iterator it = libros.iterator();
                 while (it.hasNext()) {
                     Llibre l = (Llibre) it.next();
-                    mLista.add( l.getTitulLlibre());
+                    mLista.add(l.getTitulLlibre());
                     mListaLibros.add(l.getTitulLlibre());
                 }
                 //gestionamos y actualizamos la vista cone el adapter del recycler view
@@ -108,11 +105,6 @@ public class Administrador_GestionLibrosFragment extends Fragment {
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
         });
-
-
-
-
-
         return root;
     }
 
@@ -121,5 +113,4 @@ public class Administrador_GestionLibrosFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

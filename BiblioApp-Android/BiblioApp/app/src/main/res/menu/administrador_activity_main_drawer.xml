@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @Autor Saúl López Díez-->
+<!-- Layout con los items del drawer del administrador-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
@@ -6,15 +8,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_Admin_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_Admin_usuarios"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_usuario"
             android:title="@string/menu_usuarios" />
         <item
             android:id="@+id/nav_Admin_libros"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_libro"
             android:title="@string/menu_libros" />
+        <item
+            android:id="@+id/nav_Admin_autores"
+            android:icon="@drawable/ic_autor"
+            android:title="Autors" />
+        <item
+            android:id="@+id/nav_Admin_categorias"
+            android:icon="@drawable/ic_categorias"
+            android:title="Categorias" />
+        <item
+            android:id="@+id/nav_Admin_prestamos"
+            android:icon="@drawable/ic_prestamo"
+            android:title="Prestecs" />
     </group>
 </menu>

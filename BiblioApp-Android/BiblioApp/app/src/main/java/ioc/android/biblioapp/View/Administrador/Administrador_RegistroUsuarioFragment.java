@@ -1,3 +1,7 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_RegistroUsuarioFragment con el fragment para crear un nuevo usuario del Administrador
+ */
 package ioc.android.biblioapp.View.Administrador;
 
 import static ioc.android.biblioapp.ViewModel.Utilidades.Utilidades.conectividad;
@@ -34,39 +38,26 @@ public class Administrador_RegistroUsuarioFragment extends Fragment {
 
 
 
-    public Administrador_RegistroUsuarioFragment() {
-        // Required empty public constructor
-    }
-
-
+    public Administrador_RegistroUsuarioFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
-
-
+        if (getArguments() != null) {        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_administrador__registro_usuario, container, false);
 
         binding = FragmentAdministradorRegistroUsuarioBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
         mNomUsuari = binding.editTextNomUsuari;
         mNom = binding.editTextNom;
         mCognoms = binding.editTextCognoms;
         mEmail = binding.editTextEmail;
         mTelefon = binding.editTextTelefon;
         mContraseña = binding.editTextContraseA;
-
         mMensajeResultado= binding.textViewMensaje;
         mRegistro= binding.botonRegistro;
 
@@ -148,19 +139,8 @@ public class Administrador_RegistroUsuarioFragment extends Fragment {
                         Toast.makeText(getContext(), "Sense conexio a internet", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-
-
-
-
-
             }
         });
-
-
-
-
         return root;
     }
 }

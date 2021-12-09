@@ -1,3 +1,8 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_BuscarLibroFragment con el fragment para buscar libros del Administrador
+ */
+
 package ioc.android.biblioapp.View.Administrador;
 
 import android.os.Bundle;
@@ -33,7 +38,6 @@ public class Administrador_BuscarLibroFragment extends Fragment {
 
 
     public Administrador_BuscarLibroFragment() {
-        // Required empty public constructor
     }
 
 
@@ -41,15 +45,12 @@ public class Administrador_BuscarLibroFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         administrador_gestionBuscarLibroViewModel =
                 new ViewModelProvider(this).get(Administrador_GestionBuscarLibroViewModel.class);
 
@@ -58,7 +59,6 @@ public class Administrador_BuscarLibroFragment extends Fragment {
 
         Bundle b = getActivity().getIntent().getExtras();
         token = b.getString("token");
-
 
         mTitul = binding.editTextTitul;
         mData = binding.editTextData;
@@ -74,7 +74,7 @@ public class Administrador_BuscarLibroFragment extends Fragment {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         mSpinner.setAdapter(adapter);
-        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//Spinner con el criterio por el que se realizara la busqueda
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 criterio = adapterView.getItemAtPosition(i).toString();
@@ -87,10 +87,9 @@ public class Administrador_BuscarLibroFragment extends Fragment {
             }
         });
 
-        mBuscar.setOnClickListener(new View.OnClickListener() {
+        mBuscar.setOnClickListener(new View.OnClickListener() {//Accion boton buscar
             @Override
             public void onClick(View view) {
-
                 mTitul.setText("");
                 mData.setText("");
                 mCopies.setText("");
@@ -99,29 +98,24 @@ public class Administrador_BuscarLibroFragment extends Fragment {
 
                 Utilidades.esconderTeclado(getContext(), view);
                 switch (criterio) {
-                    case ("Id"):
+                    case ("Id")://busqueda por Id
                         llibre.setIdLlibre(binding.editTextBusqueda.getText().toString());
-                        if(administrador_gestionBuscarLibroViewModel!=null) {
+                        if (administrador_gestionBuscarLibroViewModel != null) {
                             administrador_gestionBuscarLibroViewModel = new Administrador_GestionBuscarLibroViewModel();
                         }
                         administrador_gestionBuscarLibroViewModel.buscarLibroId(administrador_gestionBuscarLibroViewModel, getContext(), token, llibre).observe(getViewLifecycleOwner(), new Observer<Llibre>() {
 
                             @Override
                             public void onChanged(Llibre llibre1) {
-
                                 llibre = llibre1;
                                 mTitul.setText(llibre1.getTitulLlibre());
                                 mData.setText(llibre1.getDataPublicacio());
                                 mCopies.setText(llibre1.getCopiesDisponibles());
                                 mIsbn.setText(llibre1.getIsbn());
                                 mDescripcio.setText(llibre1.getDescripcio());
-
-                               /* mMensajeResultado.setVisibility(View.VISIBLE);
-                                mMensajeResultado.setText(s);
-*/
                                 Log.d("Buscar libro id", "Satisfactorio");
 
-                                if(llibre.getTitulLlibre().equalsIgnoreCase("Error")){
+                                if (llibre.getTitulLlibre().equalsIgnoreCase("Error")) {
                                     mMensajeResultado.setVisibility(View.VISIBLE);
                                     mMensajeResultado.setText("Llibre no trobat");
                                 }
@@ -129,27 +123,26 @@ public class Administrador_BuscarLibroFragment extends Fragment {
                         });
 
                         break;
-                    case ("Titul"):
+                    case ("Titul")://busqueda por titulo
                         llibre.setTitulLlibre(binding.editTextBusqueda.getText().toString());
-                        if(administrador_gestionBuscarLibroViewModel!=null){
-                            administrador_gestionBuscarLibroViewModel= new Administrador_GestionBuscarLibroViewModel();
+                        if (administrador_gestionBuscarLibroViewModel != null) {
+                            administrador_gestionBuscarLibroViewModel = new Administrador_GestionBuscarLibroViewModel();
                         }
                         administrador_gestionBuscarLibroViewModel.buscarLibroTitulo(administrador_gestionBuscarLibroViewModel, getContext(), token, llibre).observe(getViewLifecycleOwner(), new Observer<Llibre>() {
 
-
                             @Override
                             public void onChanged(Llibre llibre1) {
-
-                               /* mMensajeResultado.setVisibility(View.VISIBLE);
-                                mMensajeResultado.setText(s);*/
                                 llibre = llibre1;
                                 mTitul.setText(llibre1.getTitulLlibre());
                                 mData.setText(llibre1.getDataPublicacio());
                                 mCopies.setText(llibre1.getCopiesDisponibles());
                                 mIsbn.setText(llibre1.getIsbn());
                                 mDescripcio.setText(llibre1.getDescripcio());
-
                                 Log.d("Buscar libro titulo", "Satisfactorio");
+                                if (llibre.getTitulLlibre().equalsIgnoreCase("Error")) {
+                                    mMensajeResultado.setVisibility(View.VISIBLE);
+                                    mMensajeResultado.setText("Llibre no trobat");
+                                }
                             }
                         });
 
