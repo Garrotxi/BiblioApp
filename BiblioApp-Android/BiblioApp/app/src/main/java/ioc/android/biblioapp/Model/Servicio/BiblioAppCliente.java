@@ -8,8 +8,10 @@ package ioc.android.biblioapp.Model.Servicio;
 import java.util.Collection;
 
 import ioc.android.biblioapp.Model.Clases.Autor;
+import ioc.android.biblioapp.Model.Clases.Categoria;
 import ioc.android.biblioapp.Model.Clases.Llibre;
 import ioc.android.biblioapp.Model.Clases.Login;
+import ioc.android.biblioapp.Model.Clases.Prestec;
 import ioc.android.biblioapp.Model.Clases.Registro;
 import ioc.android.biblioapp.Model.Clases.Usuari;
 import retrofit2.Call;
@@ -78,7 +80,7 @@ public interface BiblioAppCliente {
                                @Path("titol") String titol
     );
 
-    @GET("/autor/llistaAutors")//llamada para conseguir lista de usuarios
+    @GET("/autor/llistaAutors")//llamada para conseguir lista de autores
     Call<Collection<Autor>> ListadoAutores(@Header("Authorization") String token
     );
 
@@ -96,6 +98,50 @@ public interface BiblioAppCliente {
     @POST("/autor/crearAutor")//llamada para crear un autor
     Call<Registro> NuevoAutor(
             @Body Autor registro
+    );
+
+    @GET("/prestec/llistaPrestecs")//llamada para conseguir lista de prestamos
+    Call<Collection<Prestec>> ListadoPrestecs(@Header("Authorization") String token
+    );
+
+    @POST("/prestec/crearPrestec")//llamada para crear un prestamo
+    Call<Registro> NouPrestec (@Body Prestec prestec
+    );
+
+    @PUT ("/prestec/actualizarPrestec/{id}")//llamada para actualizar un prestamo
+    Call<Prestec> ModificaPrestec(@Header("Authorization") String token,
+                                @Path("id") String id,
+                                @Body Prestec loan
+    );
+
+    @DELETE ("/prestec/eliminarPrestec/{id}")//llamada para eliminar un prestamo
+    Call <Registro> BorraPrestec(@Header("Authorization") String token,
+                               @Path("id") String id
+    );
+
+    @GET ("/prestec/detallPrestecId/{id}")//llamada para conseguir un prestamo por su id
+    Call <Prestec> BuscaPrestecId(@Header("Authorization") String token,
+                               @Path("id") String id
+    );
+
+    @GET("/categoria/llistaCategories")//llamada para conseguir lista de Categorias
+    Call<Collection<Categoria>> ListadoCategorias(@Header("Authorization") String token
+    );
+
+    @PUT ("/categoria/actualizarCategoria/{id}")//llamada para actualizar una Categoria
+    Call<Categoria> ModificaCategorias(@Header("Authorization") String token,
+                                @Path("id") String id,
+                                @Body Categoria categoria
+    );
+
+    @DELETE ("/categoria/eliminarCategoria/{id}")//llamada para eliminar una Categoria
+    Call <Registro> BorraCategoria(@Header("Authorization") String token,
+                               @Path("id") String id
+    );
+
+    @POST("/categoria/crearCategoria")//llamada para crear una Categoria
+    Call<Registro> NuevaCategoria(
+            @Body Categoria registro
     );
 
 

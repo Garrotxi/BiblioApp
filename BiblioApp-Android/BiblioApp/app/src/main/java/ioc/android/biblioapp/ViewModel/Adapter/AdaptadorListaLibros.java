@@ -18,6 +18,7 @@ import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
 import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionLibrosViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_PrestecViewModel;
 
 public class AdaptadorListaLibros extends
         RecyclerView.Adapter<AdaptadorListaLibros.LibrosViewHolder>{
@@ -77,6 +78,7 @@ public class AdaptadorListaLibros extends
             }
             String element = mListaLibros.get(mPosition);
             Administrador_GestionLibrosViewModel.setTituloLibroDetalle(element);
+            Administrador_PrestecViewModel.setIdPrestecDetalle(element);
             elementAnterior=mListaLibros.get(mPosition);
             mListaLibros.set(mPosition,"SELECCIONADO: "+element);
             view.requestFocus();

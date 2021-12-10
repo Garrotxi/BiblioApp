@@ -35,7 +35,6 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
     private NavController navController;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,14 +65,9 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        pantallaInicioAdministradorViewModel= new ViewModelProvider(this).get(PantallaInicioAdministradorViewModel.class);
-        token= getIntent().getExtras().getString("token");
+        pantallaInicioAdministradorViewModel = new ViewModelProvider(this).get(PantallaInicioAdministradorViewModel.class);
+        token = getIntent().getExtras().getString("token");
         pantallaInicioAdministradorViewModel.setToken(token);
-
-
-
-
-
 
 
     }
@@ -94,38 +88,53 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
 
 
     public void nuevoUsuario(View view) {
-       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
+        // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
         navController.navigate(R.id.nav_Admin_registroUsuario);
 
     }
 
     public void nuevoLibro(View view) {
-       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
-
+        // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_drawer);
         navController.navigate(R.id.nav_Admin_nuevoLibro);
     }
 
 
-
-    public  void detalleUsuario(View view) {
+    public void detalleUsuario(View view) {
         navController.navigate(R.id.nav_Admin_detalleUsuario);
 
     }
 
-    public  void detalleLibro(View view) {
+    public void detalleLibro(View view) {
         navController.navigate(R.id.nav_Admin_detalleLibro);
     }
-    public  void buscarLibro(View view) {
+
+    public void buscarLibro(View view) {
         navController.navigate(R.id.nav_admin_BuscarLibro);
     }
 
-    public  void detalleAutor(View view) {
+    public void detalleAutor(View view) {
         navController.navigate(R.id.nav_Admin_detalleAutor);
     }
-    public  void nuevoAutor(View view) {
+
+    public void nuevoAutor(View view) {
         navController.navigate(R.id.nav_Admin_nuevoAutor);
     }
 
+    public void nuevoPrestec(View view) { navController.navigate(R.id.nav_Admin_nuevoPrestec);
+    }
 
+    public void detallePrestec(View view) {
+        navController.navigate(R.id.nav_Admin_detallePrestec);
+    }
+
+    public void buscarPrestec(View view) {
+        navController.navigate(R.id.nav_admin_BuscarPrestec);
+    }
+
+    public void detalleCategoria(View view) {navController.navigate(R.id.nav_Admin_detalleCategoria);}
+
+    public void nuevaCategoria(View view) {
+        navController.navigate(R.id.nav_Admin_nuevaCategoria);
+    }
 
 }

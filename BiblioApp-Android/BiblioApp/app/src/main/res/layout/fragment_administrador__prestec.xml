@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- @Autor Saúl López Díez-->
-<!-- Layout del fragmento del administrador que tendra listado de categorias y boton para gestionarlo-->
+<!-- Layout del fragmento del administrador que tendra listado de prestamos y boton para gestionarlos-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Administrador.Administrador_CategoriasFragment">
+    tools:context=".View.Administrador.Administrador_PrestecFragment">
 
     <TextView
-        android:id="@+id/text_gallery"
+        android:id="@+id/text_slideshow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,55 +19,54 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.011" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listViewCategorias"
+        android:id="@+id/listViewLibros"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery" />
+        app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
 
     <ImageButton
-        android:id="@+id/boton_nueva_categoria"
+        android:id="@+id/boton_nuevo_prestamo"
+        style="@style/Theme.BiblioApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:onClick="nuevaCategoria"
-        android:src="@drawable/ic_nuevo_usuario"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/purple_500"
-        android:textSize="10dp"
+        android:onClick="nuevoPrestec"
+        android:src="@drawable/ic_nuevo_libro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/boton_ordenar_categorias_asc"
+        android:id="@+id/boton_ordenar_prestamos_asc"
+        android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:src="@drawable/ic_flecha_arriba"
         android:backgroundTint="@color/purple_500"
-        android:textSize="10dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/boton_nueva_categoria"
-        app:layout_constraintLeft_toRightOf="@id/boton_nueva_categoria"/>
-
+        android:src="@drawable/ic_flecha_arriba"
+        app:layout_constraintBottom_toBottomOf="@id/boton_nuevo_prestamo"
+        app:layout_constraintLeft_toRightOf="@id/boton_nuevo_prestamo"/>
     <ImageButton
-        android:id="@+id/boton_ordenar_categorias_desc"
+        android:id="@+id/boton_ordenar_prestamos_desc"
+        android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_abajo"
-        android:backgroundTint="@color/purple_500"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_categorias_asc"
-        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_categorias_asc"/>
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_prestamos_asc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_prestamos_asc"
+        />
 
     <ImageButton
         android:id="@+id/boton_modificar"
@@ -76,10 +75,20 @@
         android:layout_marginStart="16dp"
         android:src="@drawable/ic_modificar"
         android:backgroundTint="@color/purple_500"
-        android:onClick="detalleCategoria"
+        android:onClick="detallePrestec"
         android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_categorias_desc"
-        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_categorias_desc"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_prestamos_desc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_prestamos_desc"/>
 
+    <ImageButton
+        android:id="@+id/boton_buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/purple_500"
+        android:onClick="buscarPrestec"
+        android:src="@drawable/ic_buscar"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/boton_modificar"
+        app:layout_constraintLeft_toRightOf="@id/boton_modificar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

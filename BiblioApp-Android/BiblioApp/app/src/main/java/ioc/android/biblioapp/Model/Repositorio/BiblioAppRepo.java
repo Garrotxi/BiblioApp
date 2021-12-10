@@ -14,8 +14,10 @@ import java.io.IOException;
 import java.util.Collection;
 
 import ioc.android.biblioapp.Model.Clases.Autor;
+import ioc.android.biblioapp.Model.Clases.Categoria;
 import ioc.android.biblioapp.Model.Clases.Llibre;
 import ioc.android.biblioapp.Model.Clases.Login;
+import ioc.android.biblioapp.Model.Clases.Prestec;
 import ioc.android.biblioapp.Model.Clases.Registro;
 import ioc.android.biblioapp.Model.Clases.Usuari;
 import ioc.android.biblioapp.Model.Servicio.BiblioAppCliente;
@@ -578,5 +580,333 @@ public class BiblioAppRepo {
         });
         return mutableLiveData;
     }
+
+
+
+
+    /**
+     *
+     *
+     * @return mutableLiveData con la información devuelta por el API
+     * Si la conexión resulta correcta, conseguiremos un objeto Collection con los prestamos, en caso
+     * contrario, nos devolvera null
+     */
+    public MutableLiveData<Collection<Prestec>> pidePrestecs(String token) {
+        final MutableLiveData<Collection<Prestec>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ListadoPrestecs(token).enqueue(new Callback<Collection<Prestec>>() {//procesamos en segundo plano el metodo login del servicio
+            @Override
+            public void onResponse(Call<Collection<Prestec>> call, Response<Collection<Prestec>> response) {//si el correcto conseguimos un prestamo con la auth key
+                if (response.isSuccessful() && response.body() != null) {
+                    Collection prestecs;
+                    prestecs = response.body();
+                    mutableLiveData.setValue(prestecs);
+
+                } else {
+                    Log.e(TAG, "Error en BiblioAppREpo");
+                    mutableLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Collection<Prestec>> call, Throwable t) {//si falla la conexión
+                Log.e(TAG, "Error de conexion  en BiblioAppREpo");
+            }
+        });
+
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param prestec datos para realizar el registro
+     * @return registro objeto con el mensaje de la API
+     * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
+     * en caso contrario nos envia un mensaje de error
+     */
+    public MutableLiveData<Registro> añadePrestec(Prestec prestec, String token) {
+        final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.NouPrestec(prestec).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
+            Registro registro = new Registro();
+
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) { //si es correcto conseguimos una respuesta satisactoria, con informacion en body
+                if (response.isSuccessful() && response.body() != null) {
+                    //Log.d(TAG, response.body().getMessage());
+                    registro = response.body();
+                    mutableLiveData.setValue(registro);
+                } else {//si la respuesta no es satisfactoria, conseguimos el error del errorBody y generamos un objeto Registro_Activity
+                    try {
+                        String json = response.errorBody().string();
+                        Gson gson = new Gson();
+                        registro = gson.fromJson(json, Registro.class);
+                        mutableLiveData.setValue(registro);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d(TAG, "Error al crear prestamo");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Añadir prestamo incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param prestec Prestamo a modificar, con todos los atributos
+     * @param token
+     * @return Libro modificado
+     */
+
+    public MutableLiveData<Prestec> modificarPrestec(Prestec prestec, String token) {
+        final MutableLiveData<Prestec> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ModificaPrestec(token, prestec.getIdPrestec(), prestec).enqueue(new Callback<Prestec>() {
+            @Override
+            public void onResponse(Call<Prestec> call, Response<Prestec> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Prestec prestec1= response.body();
+                    mutableLiveData.setValue(prestec1);
+                }
+            }
+            @Override
+            public void onFailure(Call<Prestec> call, Throwable t) {
+                Log.e(TAG, "Modificar prestamo incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param prestec Prestamo a borrar
+     * @param token
+     * @return Mensaje retornado por API, satisfactorio o no
+     */
+
+    public MutableLiveData<String> borraPrestec(Prestec prestec, String token) {
+        final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BorraPrestec(token, prestec.getIdPrestec()).enqueue(new Callback<Registro>() {
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();
+                    mutableLiveData.setValue(respuesta);
+                }else{
+                    String respuesta= response.errorBody().toString();
+                    mutableLiveData.setValue(respuesta);
+                }
+            }
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Borrar prestec incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param prestec Prestamo con el unico atributo de su Id
+     * @param token
+     * @return Libro encontrado o el titulo con el texto error
+     */
+
+    public MutableLiveData<Prestec> buscaPrestecId(Prestec prestec, String token) {
+        final MutableLiveData<Prestec> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BuscaPrestecId(token, prestec.getIdPrestec()).enqueue(new Callback<Prestec>() {
+            @Override
+            public void onResponse(Call<Prestec> call, Response<Prestec> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Prestec prestec1= response.body();
+                    mutableLiveData.setValue(prestec1);
+                }else{
+                    Prestec prestec= new Prestec();
+                    prestec.setIdPrestec("Error");
+                    mutableLiveData.setValue(prestec);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Prestec> call, Throwable t) {
+                Log.e(TAG, "Buscar  prestec per  ID  incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     *
+     * @return mutableLiveData con la información devuelta por el API
+     * Si la conexión resulta correcta, conseguiremos un objeto Collection con los Categorias, en caso
+     * contrario, nos devolvera null
+     */
+    public MutableLiveData<Collection<Categoria>> pideCategorias(String token) {
+        final MutableLiveData<Collection<Categoria>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ListadoCategorias(token).enqueue(new Callback<Collection<Categoria>>() {//procesamos en segundo plano el metodo login del servicio
+            @Override
+            public void onResponse(Call<Collection<Categoria>> call, Response<Collection<Categoria>> response) {//si el correcto conseguimos un usuario con la auth key
+                if (response.isSuccessful() && response.body() != null) {
+                    Collection cat;
+                    cat = response.body();
+                    mutableLiveData.setValue(cat);
+
+                } else {
+                    Log.e(TAG, "Error en BiblioAppREpo");
+                    mutableLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Collection<Categoria>> call, Throwable t) {//si falla la conexión
+                Log.e(TAG, "Error de conexion  en BiblioAppREpo");
+            }
+        });
+
+        return mutableLiveData;
+    }
+
+
+    /**
+     *
+     * @param cat Categoria a modificar, con todos los atributos
+     * @param token
+     * @return Libro modificado
+     */
+
+    public MutableLiveData<Categoria> modificarCategoria(Categoria cat, String token) {
+        final MutableLiveData<Categoria> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.ModificaCategorias(token, cat.getIdCategoria(), cat).enqueue(new Callback<Categoria>() {
+            @Override
+            public void onResponse(Call<Categoria> call, Response<Categoria> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Categoria cat= response.body();
+                    mutableLiveData.setValue(cat);
+                }
+            }
+            @Override
+            public void onFailure(Call<Categoria> call, Throwable t) {
+                Log.e(TAG, "Modificar Categoria incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param categoria Categoria a borrar
+     * @param token
+     * @return Mensaje retornado por API, satisfactorio o no
+     */
+
+    public MutableLiveData<String> borraCategoria(Categoria categoria, String token) {
+        final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.BorraCategoria(token, categoria.getIdCategoria()).enqueue(new Callback<Registro>() {
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Registro r= new Registro();
+                    r=response.body();
+                    String respuesta= r.getMissatge();
+                    mutableLiveData.setValue(respuesta);
+                }else{
+                    String respuesta= response.errorBody().toString();
+                    mutableLiveData.setValue(respuesta);
+                }
+            }
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Borrar Categoria incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+    /**
+     *
+     * @param categoria datos para realizar el registro
+     * @return registro objeto con el mensaje de la API
+     * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
+     * en caso contrario nos envia un mensaje de error
+     */
+    public MutableLiveData<Registro> añadeCategoria(Categoria categoria, String token) {
+        final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+
+        biblioAppCliente.NuevaCategoria(categoria).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
+            Registro registro = new Registro();
+
+            @Override
+            public void onResponse(Call<Registro> call, Response<Registro> response) { //si es correcto conseguimos una respuesta satisactoria, con informacion en body
+                if (response.isSuccessful() && response.body() != null) {
+                    registro = response.body();
+                    mutableLiveData.setValue(registro);
+                } else {//si la respuesta no es satisfactoria, conseguimos el error del errorBody y generamos un objeto Registro_Activity
+                    try {
+                        String json = response.errorBody().string();
+                        Gson gson = new Gson();
+                        registro = gson.fromJson(json, Registro.class);
+                        mutableLiveData.setValue(registro);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d(TAG, "Error al crear Categoria");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registro> call, Throwable t) {
+                Log.e(TAG, "Añadir Categoria incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
 }
 

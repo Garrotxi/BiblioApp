@@ -31,4 +31,8 @@
         <item>Id</item>
         <item>Titul</item>
     </string-array>
+    <string-array name="prestec">
+        <item></item>
+        <item>Id</item>
+    </string-array>
 </resources>

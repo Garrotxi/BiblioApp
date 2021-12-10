@@ -66,14 +66,39 @@
         android:label="Nuevo autor"
         tools:layout="@layout/fragment_administrador_nuevo_autor" />
     <fragment
+        android:id="@+id/nav_Admin_prestamos"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_PrestecFragment"
+        android:label="fragment_administrador__prestamos"
+        tools:layout="@layout/fragment_administrador__prestec" />
+    <fragment
+        android:id="@+id/nav_Admin_nuevoPrestec"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoPrestecFragment"
+        android:label="Nou Prestec"
+        tools:layout="@layout/fragment_administrador_nuevo_prestec" />
+    <fragment
+        android:id="@+id/nav_Admin_detallePrestec"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_PrestecFragment"
+        android:label="Detall Prestec"
+        tools:layout="@layout/fragment_administrador__detalle_prestec" />
+    <fragment
+        android:id="@+id/nav_admin_BuscarPrestec"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_BuscarPrestecFragment"
+        android:label="Cercar prestec"
+        tools:layout="@layout/fragment_administrador_buscar_prestec" />
+    <fragment
         android:id="@+id/nav_Admin_categorias"
         android:name="ioc.android.biblioapp.View.Administrador.Administrador_CategoriasFragment"
-        android:label="fragment_administrador__categorias"
+        android:label="Categories"
         tools:layout="@layout/fragment_administrador__categorias" />
     <fragment
-        android:id="@+id/nav_Admin_prestamos"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_PrestamosFragment"
-        android:label="fragment_administrador__prestamos"
-        tools:layout="@layout/fragment_administrador__prestamos" />
+        android:id="@+id/nav_Admin_detalleCategoria"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_CategoriaFragment"
+        android:label="Detall categoria"
+        tools:layout="@layout/fragment_administrador__detalle_categoria" />
+    <fragment
+        android:id="@+id/nav_Admin_nuevaCategoria"
+        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevaCategoriaFragment"
+        android:label="Nova Categoria"
+        tools:layout="@layout/fragment_administrador_nueva_categoria" />
 
 </navigation>

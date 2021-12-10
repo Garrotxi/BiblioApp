@@ -1,65 +1,134 @@
+/**
+ * @Autor Saúl López Díez
+ * Clase Administrador_CategoriasFragment con el fragment para gestion de categorias del Administrador
+ */
+
+
 package ioc.android.biblioapp.View.Administrador;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import ioc.android.biblioapp.R;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Administrador_CategoriasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import ioc.android.biblioapp.Model.Clases.Categoria;
+import ioc.android.biblioapp.ViewModel.Adapter.AdaptadorListaUsuarios;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_CategoriasViewModel;
+import ioc.android.biblioapp.databinding.FragmentAdministradorCategoriasBinding;
+
+
 public class Administrador_CategoriasFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Administrador_CategoriasViewModel administrador_categoriasViewModel;
+    private FragmentAdministradorCategoriasBinding binding;
+    private RecyclerView mRecyclerView;
+    private AdaptadorListaUsuarios mAdaptador;
+    private String token;
+    private LinkedList<String> mListaCategorias, mLista;
+    private ImageButton mOrdenarCategoriasAsc, mOrdenarCategoriasDesc;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public Administrador_CategoriasFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Administrador_CategoriasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Administrador_CategoriasFragment newInstance(String param1, String param2) {
-        Administrador_CategoriasFragment fragment = new Administrador_CategoriasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    public Administrador_CategoriasFragment() { }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        if (getArguments() != null) {}
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_administrador__categorias, container, false);
+        administrador_categoriasViewModel =
+                new ViewModelProvider(this).get(Administrador_CategoriasViewModel.class);
+
+        binding = FragmentAdministradorCategoriasBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        final TextView textView = binding.textGallery;
+        administrador_categoriasViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
+            }
+        });
+
+        Bundle b = getActivity().getIntent().getExtras();
+        token = b.getString("token");
+        mListaCategorias = new LinkedList<>();
+        mLista = new LinkedList<>();
+        //al iniciar el freagment, conseguimos un listado de Categorias
+        administrador_categoriasViewModel.getListaCategorias(administrador_categoriasViewModel, getContext(), token).observe(getViewLifecycleOwner(), new Observer<Collection>() {
+            @Override
+            public void onChanged(Collection cat) {
+                Iterator it = cat.iterator();
+                while (it.hasNext()) {
+                    Categoria a = (Categoria) it.next();
+                    mLista.add(a.getNom());
+                    mListaCategorias.add(a.getNom());
+                }
+                mRecyclerView = binding.listViewCategorias;
+                mAdaptador = new AdaptadorListaUsuarios(getContext(), mListaCategorias);
+                mRecyclerView.setAdapter(mAdaptador);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
+
+        //listener del boton ordenar ascendente
+        mOrdenarCategoriasAsc = binding.botonOrdenarCategoriasAsc;
+        mOrdenarCategoriasAsc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListaCategorias.clear();
+                Collections.sort(mLista);
+                mRecyclerView = binding.listViewCategorias;
+                mAdaptador = new AdaptadorListaUsuarios(getContext(), mLista);
+                mRecyclerView.setAdapter(mAdaptador);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
+
+        //listener del boton ordenar descendente
+        mOrdenarCategoriasDesc = binding.botonOrdenarCategoriasDesc;
+        mOrdenarCategoriasDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListaCategorias.clear();
+                Collections.sort(mLista, Collections.reverseOrder());
+                mRecyclerView = binding.listViewCategorias;
+                mAdaptador = new AdaptadorListaUsuarios(getContext(), mLista);
+                mRecyclerView.setAdapter(mAdaptador);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
+
+        mRecyclerView = binding.listViewCategorias;
+        mRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.setActivated(true);
+                int f = view.getId();
+                String nombre = mAdaptador.toString();
+                Log.d(getActivity().toString(), nombre);
+            }
+        });
+        return root;
     }
 }

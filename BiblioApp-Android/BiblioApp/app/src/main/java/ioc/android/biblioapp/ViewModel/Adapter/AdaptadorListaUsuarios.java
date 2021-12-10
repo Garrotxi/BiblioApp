@@ -18,6 +18,7 @@ import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
 import ioc.android.biblioapp.ViewModel.Administrador.Administrador_AutoresViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Administrador_CategoriasViewModel;
 import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
 
 public class AdaptadorListaUsuarios extends
@@ -90,6 +91,7 @@ public class AdaptadorListaUsuarios extends
             String element = mListaUsuarios.get(mPosition);
             Administrador_GestionUsuariosViewModel.setNombreUsuarioDetalle(element);
             Administrador_AutoresViewModel.setNombreAutorDetalle(element);
+            Administrador_CategoriasViewModel.setNombreCategoriaDetalle(element);
             elementAnterior=mListaUsuarios.get(mPosition);
             mListaUsuarios.set(mPosition,"SELECCIONADO: "+element);
             view.requestFocus();
