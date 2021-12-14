@@ -41,7 +41,7 @@ public class RegistroViewModel  extends ViewModel {
      */
     public MutableLiveData<String> registroViewModel (Usuari usuari, Context context, RegistroViewModel registroViewModel){
         MutableLiveData <String>  mensaje = new MutableLiveData<>();
-        registroViewModel.conseguirRegistroRepositorio(usuari).observe((LifecycleOwner) context, new Observer<Registro>() {//Generamos un observer a la espera de la consulta con el repositorio
+        registroViewModel.conseguirRegistroRepositorio(usuari, context).observe((LifecycleOwner) context, new Observer<Registro>() {//Generamos un observer a la espera de la consulta con el repositorio
             @Override
             public void onChanged(Registro registro) {
                 if (registro != null) {
@@ -63,9 +63,9 @@ public class RegistroViewModel  extends ViewModel {
      * @param usuari daotso usario
      * @return datos de la consulta al repositorio, una instancia de Registro
      */
-    public LiveData<Registro> conseguirRegistroRepositorio(Usuari usuari) {
+    public LiveData<Registro> conseguirRegistroRepositorio(Usuari usuari, Context context) {
         if (mutableLiveData==null) {
-            mutableLiveData = biblioAppRepo.pideRegistro(usuari);
+            mutableLiveData = biblioAppRepo.pideRegistro(usuari, context);
         }
         return mutableLiveData;
     }

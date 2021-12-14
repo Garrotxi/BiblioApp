@@ -8,15 +8,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_User_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_User_usuarios"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_usuario"
             android:title="@string/menu_usuarios" />
         <item
             android:id="@+id/nav_User_libros"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_libro"
             android:title="@string/menu_libros" />
+        <item
+            android:id="@+id/nav_User_prestamos"
+            android:icon="@drawable/ic_prestamo"
+            android:title="Prestecs" />
     </group>
 </menu>

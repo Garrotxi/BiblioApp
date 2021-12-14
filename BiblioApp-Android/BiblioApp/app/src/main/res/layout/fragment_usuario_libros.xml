@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/text_slideshow2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -24,23 +24,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/boton_ordenar_libros_asc"
-        android:textSize="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Ordenar ↑"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listViewLibros"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_slideshow2" />
 
-    <Button
-        android:id="@+id/boton_ordenar_desc"
+    <ImageButton
+        android:id="@+id/boton_ordenar_libros_asc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gradient_splash"
+        android:src="@drawable/ic_flecha_arriba"
         android:textSize="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Ordenar ↓"
-        app:layout_constraintBaseline_toBaselineOf="@+id/boton_ordenar_libros_asc"
-        app:layout_constraintStart_toEndOf="@id/boton_ordenar_libros_asc" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <ImageButton
+        android:id="@+id/boton_ordenar_libros_desc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/gradient_splash"
+        android:src="@drawable/ic_flecha_abajo"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_libros_asc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_libros_asc" />
+
+    <ImageButton
+        android:id="@+id/boton_buscar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/gradient_splash"
+        android:onClick="buscarLibro"
+        android:src="@drawable/ic_buscar"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_libros_desc"
+        app:layout_constraintLeft_toRightOf="@id/boton_ordenar_libros_desc"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

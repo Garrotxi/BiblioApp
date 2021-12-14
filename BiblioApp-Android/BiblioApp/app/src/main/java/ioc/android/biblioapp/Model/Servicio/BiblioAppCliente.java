@@ -144,5 +144,10 @@ public interface BiblioAppCliente {
             @Body Categoria registro
     );
 
+    @GET ("/usuari/detallUsuari/{id}")//llamada para conseguir un libro por su id
+    Call <Usuari> BuscaUsuarioId(@Header("Authorization") String token,
+                               @Path("id") String id
+    );
+
 
 }

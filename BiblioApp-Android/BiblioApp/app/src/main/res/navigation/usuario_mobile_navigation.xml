@@ -26,4 +26,15 @@
         android:label="@string/menu_libros"
         tools:layout="@layout/fragment_usuario_libros" />
 
+    <fragment
+        android:id="@+id/nav_Admin_detalleLibro"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_Detalle_LibroFragment"
+        android:label="Detall Llibre"
+        tools:layout="@layout/fragment_administrador__detalle_libro" />
+    <fragment
+        android:id="@+id/nav_admin_BuscarLibro"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_BuscarLibroFragment"
+        android:label="Cercar llibre"
+        tools:layout="@layout/fragment_administrador_buscar_libro" />
+
 </navigation>

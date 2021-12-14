@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Administrador.Administrador_PrestecFragment">
+    tools:context=".View.Administrador.Prestamos.Administrador_PrestecFragment">
 
     <TextView
         android:id="@+id/text_slideshow"
@@ -37,10 +37,10 @@
     <ImageButton
         android:id="@+id/boton_nuevo_prestamo"
         style="@style/Theme.BiblioApp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:onClick="nuevoPrestec"
         android:src="@drawable/ic_nuevo_libro"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,19 +49,19 @@
     <ImageButton
         android:id="@+id/boton_ordenar_prestamos_asc"
         android:textSize="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:src="@drawable/ic_flecha_arriba"
         app:layout_constraintBottom_toBottomOf="@id/boton_nuevo_prestamo"
         app:layout_constraintLeft_toRightOf="@id/boton_nuevo_prestamo"/>
     <ImageButton
         android:id="@+id/boton_ordenar_prestamos_desc"
         android:textSize="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_500"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/gradient_splash"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_abajo"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_prestamos_asc"
@@ -70,11 +70,11 @@
 
     <ImageButton
         android:id="@+id/boton_modificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/ic_modificar"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:onClick="detallePrestec"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_prestamos_desc"
@@ -82,10 +82,10 @@
 
     <ImageButton
         android:id="@+id/boton_buscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:onClick="buscarPrestec"
         android:src="@drawable/ic_buscar"
         android:textSize="10dp"

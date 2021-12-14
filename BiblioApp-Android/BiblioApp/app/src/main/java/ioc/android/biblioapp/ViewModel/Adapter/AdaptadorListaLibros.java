@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionLibrosViewModel;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_PrestecViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Libros.Administrador_GestionLibrosViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Prestamos.Administrador_PrestecViewModel;
 
 public class AdaptadorListaLibros extends
         RecyclerView.Adapter<AdaptadorListaLibros.LibrosViewHolder>{

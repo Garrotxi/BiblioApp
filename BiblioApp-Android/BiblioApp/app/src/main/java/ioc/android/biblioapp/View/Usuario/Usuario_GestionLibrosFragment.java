@@ -28,12 +28,13 @@ import java.util.LinkedList;
 import ioc.android.biblioapp.Model.Clases.Llibre;
 import ioc.android.biblioapp.ViewModel.Adapter.AdaptadorListaLibros;
 import ioc.android.biblioapp.ViewModel.Usuario.Usuario_GestionLibrosViewModel;
-import ioc.android.biblioapp.databinding.FragmentAdministradorLibrosBinding;
+import ioc.android.biblioapp.databinding.FragmentUsuarioLibrosBinding;
 
 public class Usuario_GestionLibrosFragment extends Fragment {
 
     private Usuario_GestionLibrosViewModel gestionLibrosViewModel;
-    private FragmentAdministradorLibrosBinding binding;
+    //
+    private FragmentUsuarioLibrosBinding binding;
     private RecyclerView mRecyclerView;
     private AdaptadorListaLibros mAdaptador;
     private String token;
@@ -45,10 +46,10 @@ public class Usuario_GestionLibrosFragment extends Fragment {
         gestionLibrosViewModel =
                 new ViewModelProvider(this).get(Usuario_GestionLibrosViewModel.class);
 
-        binding = FragmentAdministradorLibrosBinding.inflate(inflater, container, false);
+        binding = FragmentUsuarioLibrosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
+        final TextView textView = binding.textSlideshow2;
         gestionLibrosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

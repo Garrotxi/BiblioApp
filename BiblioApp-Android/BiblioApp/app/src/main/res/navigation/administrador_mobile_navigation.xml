@@ -16,88 +16,88 @@
 
     <fragment
         android:id="@+id/nav_Admin_usuarios"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionUsuariosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Usuarios.Administrador_GestionUsuariosFragment"
         android:label="@string/menu_usuarios"
         tools:layout="@layout/fragment_administrador_usuarios" />
 
     <fragment
         android:id="@+id/nav_Admin_libros"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionLibrosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_GestionLibrosFragment"
         android:label="@string/menu_libros"
         tools:layout="@layout/fragment_administrador_libros" />
     <fragment
         android:id="@+id/nav_Admin_registroUsuario"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_RegistroUsuarioFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Usuarios.Administrador_RegistroUsuarioFragment"
         android:label="Nuevo Libro"
         tools:layout="@layout/fragment_administrador__registro_usuario" />
     <fragment
         android:id="@+id/nav_Admin_nuevoLibro"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoLibroFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_NuevoLibroFragment"
         android:label="Nuevo libro"
         tools:layout="@layout/fragment_administrador_nuevo_libro" />
     <fragment
         android:id="@+id/nav_Admin_detalleUsuario"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_DetalleUsuarioFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Usuarios.Administrador_DetalleUsuarioFragment"
         android:label="Detalle usuario"
         tools:layout="@layout/fragment_administrador__detalle__usuario" />
     <fragment
         android:id="@+id/nav_Admin_detalleLibro"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_LibroFragment"
-        android:label="fragment_administrador__detalle_libro"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_Detalle_LibroFragment"
+        android:label="Detall Llibre"
         tools:layout="@layout/fragment_administrador__detalle_libro" />
     <fragment
         android:id="@+id/nav_admin_BuscarLibro"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_BuscarLibroFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_BuscarLibroFragment"
         android:label="Cercar llibre"
         tools:layout="@layout/fragment_administrador_buscar_libro" />
     <fragment
         android:id="@+id/nav_Admin_autores"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_AutoresFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Autores.Administrador_AutoresFragment"
         android:label="Autors"
         tools:layout="@layout/fragment_administrador_autores" />
     <fragment
         android:id="@+id/nav_Admin_detalleAutor"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_AutorFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Autores.Administrador_Detalle_AutorFragment"
         android:label="Detalle autor"
         tools:layout="@layout/fragment_administrador__detalle_autor" />
     <fragment
         android:id="@+id/nav_Admin_nuevoAutor"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoAutorFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Autores.Administrador_NuevoAutorFragment"
         android:label="Nuevo autor"
         tools:layout="@layout/fragment_administrador_nuevo_autor" />
     <fragment
         android:id="@+id/nav_Admin_prestamos"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_PrestecFragment"
-        android:label="fragment_administrador__prestamos"
+        android:name="ioc.android.biblioapp.View.Administrador.Prestamos.Administrador_PrestecFragment"
+        android:label="Prestecs"
         tools:layout="@layout/fragment_administrador__prestec" />
     <fragment
         android:id="@+id/nav_Admin_nuevoPrestec"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevoPrestecFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Prestamos.Administrador_NuevoPrestecFragment"
         android:label="Nou Prestec"
         tools:layout="@layout/fragment_administrador_nuevo_prestec" />
     <fragment
         android:id="@+id/nav_Admin_detallePrestec"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_PrestecFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Prestamos.Administrador_Detalle_PrestecFragment"
         android:label="Detall Prestec"
         tools:layout="@layout/fragment_administrador__detalle_prestec" />
     <fragment
         android:id="@+id/nav_admin_BuscarPrestec"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_BuscarPrestecFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Prestamos.Administrador_BuscarPrestecFragment"
         android:label="Cercar prestec"
         tools:layout="@layout/fragment_administrador_buscar_prestec" />
     <fragment
         android:id="@+id/nav_Admin_categorias"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_CategoriasFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Categorias.Administrador_CategoriasFragment"
         android:label="Categories"
         tools:layout="@layout/fragment_administrador__categorias" />
     <fragment
         android:id="@+id/nav_Admin_detalleCategoria"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_Detalle_CategoriaFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Categorias.Administrador_Detalle_CategoriaFragment"
         android:label="Detall categoria"
         tools:layout="@layout/fragment_administrador__detalle_categoria" />
     <fragment
         android:id="@+id/nav_Admin_nuevaCategoria"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_NuevaCategoriaFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Categorias.Administrador_NuevaCategoriaFragment"
         android:label="Nova Categoria"
         tools:layout="@layout/fragment_administrador_nueva_categoria" />
 

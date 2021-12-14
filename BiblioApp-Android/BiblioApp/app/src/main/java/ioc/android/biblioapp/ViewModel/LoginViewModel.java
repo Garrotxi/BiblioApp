@@ -40,6 +40,10 @@ public class LoginViewModel extends ViewModel {
         return usuariActiu;
     }
 
+    public void setUsuariActiu(Usuari usuariActiu) {
+        this.usuariActiu = usuariActiu;
+    }
+
     /**
      * Constructor de LoginViewModel
      */
@@ -58,7 +62,7 @@ public class LoginViewModel extends ViewModel {
      */
     public MutableLiveData<List<String>> loginViewModel (Login login, Context context, LoginViewModel loginViewModel){
         MutableLiveData <List<String>>  mensaje = new MutableLiveData<>();
-        loginViewModel.ConseguirLoginRepositorio(login).observe((LifecycleOwner) context, new Observer<Usuari>() {//Generamos un observer a la espera de la consulta con el repositorio
+        loginViewModel.ConseguirLoginRepositorio(login, context).observe((LifecycleOwner) context, new Observer<Usuari>() {//Generamos un observer a la espera de la consulta con el repositorio
             @Override
             public void onChanged(Usuari usuari) {//con la respuesta
                 if (usuari != null) {//si no es null
@@ -76,6 +80,7 @@ public class LoginViewModel extends ViewModel {
 
                     }
                     valores.add(usuari.getToken());
+                    valores.add(usuari.getIdUsuari());
                     mensaje.setValue(valores);
                     usuariActiu=usuari;
 
@@ -93,10 +98,10 @@ public class LoginViewModel extends ViewModel {
      * @param login datos de login
      * @return datos de la consulta al repositorio, una instancia de Usuari
      */
-        public LiveData<Usuari> ConseguirLoginRepositorio(Login login) {
+        public LiveData<Usuari> ConseguirLoginRepositorio(Login login, Context context) {
 
         if (mutableLiveData==null) {
-            mutableLiveData = biblioAppRepo.pideLogin(login);
+            mutableLiveData = biblioAppRepo.pideLogin(login, context);
         }
         return mutableLiveData;
     }

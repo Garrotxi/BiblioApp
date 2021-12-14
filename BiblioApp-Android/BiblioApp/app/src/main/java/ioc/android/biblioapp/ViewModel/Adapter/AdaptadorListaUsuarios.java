@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 
 import ioc.android.biblioapp.R;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_AutoresViewModel;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_CategoriasViewModel;
-import ioc.android.biblioapp.ViewModel.Administrador.Administrador_GestionUsuariosViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Autores.Administrador_AutoresViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Categorias.Administrador_CategoriasViewModel;
+import ioc.android.biblioapp.ViewModel.Administrador.Usuarios.Administrador_GestionUsuariosViewModel;
 
 public class AdaptadorListaUsuarios extends
         RecyclerView.Adapter<AdaptadorListaUsuarios.UsuariosViewHolder> {

@@ -56,7 +56,7 @@ public class Pantalla_Inicio_Administrador extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_Admin_home, R.id.nav_Admin_usuarios, R.id.nav_Admin_libros)
+                R.id.nav_Admin_home, R.id.nav_Admin_usuarios, R.id.nav_Admin_libros,R.id.nav_Admin_autores, R.id.nav_Admin_categorias, R.id.nav_Admin_prestamos)
                 .setOpenableLayout(drawer)
                 .build();
 

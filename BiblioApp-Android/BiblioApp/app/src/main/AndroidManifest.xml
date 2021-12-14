@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioApp"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".View.Administrador.Pantalla_Inicio_Administrador"
             android:exported="false"

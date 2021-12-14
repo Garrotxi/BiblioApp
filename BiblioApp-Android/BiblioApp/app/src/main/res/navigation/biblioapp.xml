@@ -34,12 +34,12 @@
     </fragment>
     <fragment
         android:id="@+id/administrador_GestionLibrosFragment"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionLibrosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Libros.Administrador_GestionLibrosFragment"
         android:label="fragment_administrador_libros"
         tools:layout="@layout/fragment_administrador_libros" />
     <fragment
         android:id="@+id/administrador_GestionUsuariosFragment"
-        android:name="ioc.android.biblioapp.View.Administrador.Administrador_GestionUsuariosFragment"
+        android:name="ioc.android.biblioapp.View.Administrador.Usuarios.Administrador_GestionUsuariosFragment"
         android:label="fragment_administrador_usuarios"
         tools:layout="@layout/fragment_administrador_usuarios" />
     <activity

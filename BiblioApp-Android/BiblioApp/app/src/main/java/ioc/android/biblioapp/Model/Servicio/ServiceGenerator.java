@@ -6,6 +6,7 @@
 
 package ioc.android.biblioapp.Model.Servicio;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import okhttp3.OkHttpClient;
@@ -19,9 +20,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
 
 
-    private static final String BASE_URL = "http://10.0.2.2:9090";//direccion IP y puerto del ordenador donde esta API escuchando
+    //private static final String BASE_URL = "http://10.0.2.2:9090";//direccion IP y puerto del ordenador donde esta API escuchando
+    private static final String BASE_URL = "https://10.0.2.2:9090";//direccion IP y puerto del ordenador donde esta API escuchando
 
-    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();// cliente http
+    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
 
     private static Retrofit.Builder builder =//paramentros del retrofit
             new Retrofit.Builder()
@@ -59,18 +62,57 @@ public class ServiceGenerator {
 
             if (!httpClient.interceptors().contains(logging)) {
                 httpClient.addInterceptor(logging);
+                }
+
+            if (!httpClient.interceptors().contains(interceptor)) {
+                httpClient.addInterceptor(interceptor);
+                builder.client(httpClient.build());
+                retrofit = builder.build();
+            }
+        }
+
+        return retrofit.create(BiblioAppCliente);
+    }
+    /**
+     * @param BiblioAppCliente interfaz con los endpoint del API
+     * @param authToken        token autentificacion
+     * @param <S>              clase generica
+     *
+     * @return retrofit con interceptor para añadir token
+     */
+    /**
+     *
+     * @param BiblioAppCliente interfaz con los endpoint del API
+     * @param authToken token autentificacion
+     * @param context contexto
+     * @param <S> clase generica
+     * @return retrofit con interceptors para seguir en log comunciacion https, añadir token y comunicacion con SSL
+     */
+
+    public static <S> S createService(
+            Class<S> BiblioAppCliente, final String authToken, final Context context) {
+
+        if (!TextUtils.isEmpty(authToken)) {
+            AuthenticationInterceptor interceptor =
+                    new AuthenticationInterceptor(authToken);
+
+            if (!httpClient.interceptors().contains(logging)) {
+                httpClient.addInterceptor(logging);
             }
 
             if (!httpClient.interceptors().contains(interceptor)) {
                 httpClient.addInterceptor(interceptor);
 
+
+                httpClient.sslSocketFactory(SSLManager.getSSLCertifcation (context))
+                        .hostnameVerifier(new UnSafeHostnameVerifier())
+                        .build();
                 builder.client(httpClient.build());
                 retrofit = builder.build();
             }
         }
         return retrofit.create(BiblioAppCliente);
     }
-
 
 
 }

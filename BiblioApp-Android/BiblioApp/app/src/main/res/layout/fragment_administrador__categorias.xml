@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Administrador.Administrador_CategoriasFragment">
+    tools:context=".View.Administrador.Categorias.Administrador_CategoriasFragment">
 
     <TextView
         android:id="@+id/text_gallery"
@@ -36,48 +36,56 @@
 
     <ImageButton
         android:id="@+id/boton_nueva_categoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
+        android:background="@drawable/gradient_splash"
         android:onClick="nuevaCategoria"
         android:src="@drawable/ic_nuevo_usuario"
-        android:backgroundTint="@color/purple_500"
         android:textSize="10dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/boton_ordenar_categorias_asc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_arriba"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:textSize="10dp"
         android:textStyle="bold"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="@id/boton_nueva_categoria"
         app:layout_constraintLeft_toRightOf="@id/boton_nueva_categoria"/>
 
     <ImageButton
         android:id="@+id/boton_ordenar_categorias_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_abajo"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:textSize="10dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_categorias_asc"
         app:layout_constraintLeft_toRightOf="@id/boton_ordenar_categorias_asc"/>
 
     <ImageButton
         android:id="@+id/boton_modificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/ic_modificar"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:onClick="detalleCategoria"
         android:textSize="10dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_categorias_desc"
         app:layout_constraintLeft_toRightOf="@id/boton_ordenar_categorias_desc"
         />

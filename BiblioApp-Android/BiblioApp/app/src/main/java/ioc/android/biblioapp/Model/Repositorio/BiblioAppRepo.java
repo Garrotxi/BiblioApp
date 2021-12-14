@@ -4,6 +4,7 @@
  */
 package ioc.android.biblioapp.Model.Repositorio;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -33,6 +34,7 @@ public class BiblioAppRepo {
     private final String TAG = getClass().getSimpleName();
 
 
+
     /**
      * Constructor
      */
@@ -46,12 +48,13 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto de la clase Usuari, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Usuari> pideLogin(Login login) {
+    public MutableLiveData<Usuari> pideLogin(Login login, Context context) {
         final MutableLiveData<Usuari> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, "login");// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, "login", context);// Generamos el servicio
+               // ServiceGenerator.createService(BiblioAppCliente.class, "login");// Generamos el servicio
 
         biblioAppCliente.Login(login).enqueue(new Callback<Usuari>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -83,12 +86,12 @@ public class BiblioAppRepo {
      * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
      * en caso contrario nos envia un mensaje de error
      */
-    public MutableLiveData<Registro> pideRegistro(Usuari usuari) {
+    public MutableLiveData<Registro> pideRegistro(Usuari usuari, Context context) {
         final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, "registro");// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, "registro", context);// Generamos el servicio
 
         biblioAppCliente.Registro(usuari).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
             Registro registro = new Registro();
@@ -128,12 +131,12 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto Collection con los usuarios, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Collection<Usuari>> pideUsuarios(String token) {
+    public MutableLiveData<Collection<Usuari>> pideUsuarios(String token, Context context) {
         final MutableLiveData<Collection<Usuari>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ListadoUsuarios(token).enqueue(new Callback<Collection<Usuari>>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -166,12 +169,12 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto Collection con los libros, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Collection<Llibre>> pideLibros(String token) {
+    public MutableLiveData<Collection<Llibre>> pideLibros(String token, Context context) {
         final MutableLiveData<Collection<Llibre>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ListadoLibros(token).enqueue(new Callback<Collection<Llibre>>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -203,12 +206,12 @@ public class BiblioAppRepo {
      * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
      * en caso contrario nos envia un mensaje de error
      */
-    public MutableLiveData<Registro> añadeLibro(Llibre libro, String token) {
+    public MutableLiveData<Registro> añadeLibro(Llibre libro, String token, Context context) {
         final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.Registro(libro).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
             Registro registro = new Registro();
@@ -247,12 +250,12 @@ public class BiblioAppRepo {
      * @param token
      * @return Usuario modificado
      */
-    public MutableLiveData<Usuari> modificarUsuario(Usuari usuari, String token) {
+    public MutableLiveData<Usuari> modificarUsuario(Usuari usuari, String token, Context context) {
         final MutableLiveData<Usuari> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ModificaUsuarios(token, usuari.getIdUsuari(), usuari).enqueue(new Callback<Usuari>() {
             @Override
@@ -277,11 +280,11 @@ public class BiblioAppRepo {
      * @param token
      * @return Mensaje retornado por API, satisfactorio o no
      */
-    public MutableLiveData<String> borraUsuario(Usuari usuari, String token) {
+    public MutableLiveData<String> borraUsuario(Usuari usuari, String token, Context context) {
         final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token,context);// Generamos el servicio
 
         biblioAppCliente.BorraUsuario(token, usuari.getIdUsuari()).enqueue(new Callback<Registro>() {
             @Override
@@ -312,11 +315,11 @@ public class BiblioAppRepo {
      * @return Libro modificado
      */
 
-    public MutableLiveData<Llibre> modificarLlibre(Llibre llibre, String token) {
+    public MutableLiveData<Llibre> modificarLlibre(Llibre llibre, String token, Context context) {
         final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ModificaLibros(token, llibre.getIdLlibre(), llibre).enqueue(new Callback<Llibre>() {
             @Override
@@ -341,11 +344,11 @@ public class BiblioAppRepo {
      * @return Mensaje retornado por API, satisfactorio o no
      */
 
-    public MutableLiveData<String> borraLibro(Llibre llibre, String token) {
+    public MutableLiveData<String> borraLibro(Llibre llibre, String token, Context context) {
         final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BorraLibro(token, llibre.getIdLlibre()).enqueue(new Callback<Registro>() {
             @Override
@@ -375,11 +378,11 @@ public class BiblioAppRepo {
      * @return Libro encontrado o el titulo con el texto error
      */
 
-    public MutableLiveData<Llibre> buscaLibroId(Llibre llibre, String token) {
+    public MutableLiveData<Llibre> buscaLibroId(Llibre llibre, String token, Context context) {
         final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BuscaLibroId(token, llibre.getIdLlibre()).enqueue(new Callback<Llibre>() {
             @Override
@@ -409,11 +412,11 @@ public class BiblioAppRepo {
      * @return Libro encontrado o el titulo con el texto error
      */
 
-    public MutableLiveData<Llibre> buscaLibroTitulo(Llibre llibre, String token) {
+    public MutableLiveData<Llibre> buscaLibroTitulo(Llibre llibre, String token, Context context) {
         final MutableLiveData<Llibre> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BuscaLibroTitulo(token, llibre.getTitulLlibre()).enqueue(new Callback<Llibre>() {
             @Override
@@ -442,12 +445,12 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto Collection con los autores, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Collection<Autor>> pideAutores(String token) {
+    public MutableLiveData<Collection<Autor>> pideAutores(String token, Context context) {
         final MutableLiveData<Collection<Autor>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ListadoAutores(token).enqueue(new Callback<Collection<Autor>>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -480,11 +483,11 @@ public class BiblioAppRepo {
      * @return Libro modificado
      */
 
-    public MutableLiveData<Autor> modificarAutor(Autor autor, String token) {
+    public MutableLiveData<Autor> modificarAutor(Autor autor, String token, Context context) {
         final MutableLiveData<Autor> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token,context);// Generamos el servicio
 
         biblioAppCliente.ModificaAutores(token, autor.getIdAutor(), autor).enqueue(new Callback<Autor>() {
             @Override
@@ -509,11 +512,11 @@ public class BiblioAppRepo {
      * @return Mensaje retornado por API, satisfactorio o no
      */
 
-    public MutableLiveData<String> borraAutor(Autor autor, String token) {
+    public MutableLiveData<String> borraAutor(Autor autor, String token, Context context) {
         final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token,context);// Generamos el servicio
 
         biblioAppCliente.BorraAutor(token, autor.getIdAutor()).enqueue(new Callback<Registro>() {
             @Override
@@ -543,12 +546,12 @@ public class BiblioAppRepo {
      * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
      * en caso contrario nos envia un mensaje de error
      */
-    public MutableLiveData<Registro> añadeAutor(Autor autor, String token) {
+    public MutableLiveData<Registro> añadeAutor(Autor autor, String token, Context context) {
         final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token,context);// Generamos el servicio
 
         biblioAppCliente.NuevoAutor(autor).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
             Registro registro = new Registro();
@@ -591,12 +594,12 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto Collection con los prestamos, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Collection<Prestec>> pidePrestecs(String token) {
+    public MutableLiveData<Collection<Prestec>> pidePrestecs(String token, Context context) {
         final MutableLiveData<Collection<Prestec>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ListadoPrestecs(token).enqueue(new Callback<Collection<Prestec>>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -628,12 +631,12 @@ public class BiblioAppRepo {
      * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
      * en caso contrario nos envia un mensaje de error
      */
-    public MutableLiveData<Registro> añadePrestec(Prestec prestec, String token) {
+    public MutableLiveData<Registro> añadePrestec(Prestec prestec, String token, Context context) {
         final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.NouPrestec(prestec).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
             Registro registro = new Registro();
@@ -673,11 +676,11 @@ public class BiblioAppRepo {
      * @return Libro modificado
      */
 
-    public MutableLiveData<Prestec> modificarPrestec(Prestec prestec, String token) {
+    public MutableLiveData<Prestec> modificarPrestec(Prestec prestec, String token, Context context) {
         final MutableLiveData<Prestec> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ModificaPrestec(token, prestec.getIdPrestec(), prestec).enqueue(new Callback<Prestec>() {
             @Override
@@ -702,11 +705,11 @@ public class BiblioAppRepo {
      * @return Mensaje retornado por API, satisfactorio o no
      */
 
-    public MutableLiveData<String> borraPrestec(Prestec prestec, String token) {
+    public MutableLiveData<String> borraPrestec(Prestec prestec, String token, Context context) {
         final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BorraPrestec(token, prestec.getIdPrestec()).enqueue(new Callback<Registro>() {
             @Override
@@ -736,11 +739,11 @@ public class BiblioAppRepo {
      * @return Libro encontrado o el titulo con el texto error
      */
 
-    public MutableLiveData<Prestec> buscaPrestecId(Prestec prestec, String token) {
+    public MutableLiveData<Prestec> buscaPrestecId(Prestec prestec, String token, Context context) {
         final MutableLiveData<Prestec> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BuscaPrestecId(token, prestec.getIdPrestec()).enqueue(new Callback<Prestec>() {
             @Override
@@ -770,12 +773,12 @@ public class BiblioAppRepo {
      * Si la conexión resulta correcta, conseguiremos un objeto Collection con los Categorias, en caso
      * contrario, nos devolvera null
      */
-    public MutableLiveData<Collection<Categoria>> pideCategorias(String token) {
+    public MutableLiveData<Collection<Categoria>> pideCategorias(String token, Context context) {
         final MutableLiveData<Collection<Categoria>> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ListadoCategorias(token).enqueue(new Callback<Collection<Categoria>>() {//procesamos en segundo plano el metodo login del servicio
             @Override
@@ -808,11 +811,11 @@ public class BiblioAppRepo {
      * @return Libro modificado
      */
 
-    public MutableLiveData<Categoria> modificarCategoria(Categoria cat, String token) {
+    public MutableLiveData<Categoria> modificarCategoria(Categoria cat, String token, Context context) {
         final MutableLiveData<Categoria> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.ModificaCategorias(token, cat.getIdCategoria(), cat).enqueue(new Callback<Categoria>() {
             @Override
@@ -837,11 +840,11 @@ public class BiblioAppRepo {
      * @return Mensaje retornado por API, satisfactorio o no
      */
 
-    public MutableLiveData<String> borraCategoria(Categoria categoria, String token) {
+    public MutableLiveData<String> borraCategoria(Categoria categoria, String token, Context context) {
         final MutableLiveData<String> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.BorraCategoria(token, categoria.getIdCategoria()).enqueue(new Callback<Registro>() {
             @Override
@@ -871,12 +874,12 @@ public class BiblioAppRepo {
      * Si el registro es correcto nos devuelve un mensaje diciendo que se ha registrado,
      * en caso contrario nos envia un mensaje de error
      */
-    public MutableLiveData<Registro> añadeCategoria(Categoria categoria, String token) {
+    public MutableLiveData<Registro> añadeCategoria(Categoria categoria, String token, Context context) {
         final MutableLiveData<Registro> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
 
 
         BiblioAppCliente biblioAppCliente =
-                ServiceGenerator.createService(BiblioAppCliente.class, token);// Generamos el servicio
+                ServiceGenerator.createService(BiblioAppCliente.class, token, context);// Generamos el servicio
 
         biblioAppCliente.NuevaCategoria(categoria).enqueue(new Callback<Registro>() {//procesamos en segundo plano el metodo Registro_Activity del servicio
             Registro registro = new Registro();
@@ -903,6 +906,41 @@ public class BiblioAppRepo {
             @Override
             public void onFailure(Call<Registro> call, Throwable t) {
                 Log.e(TAG, "Añadir Categoria incorrecto");
+            }
+        });
+        return mutableLiveData;
+    }
+
+
+    /**
+     *
+     * @param usuari Libro con el unico atributo de su Id
+     * @param token
+     * @return Libro encontrado o el titulo con el texto error
+     */
+
+    public MutableLiveData<Usuari> buscaUsuarioId(Usuari usuari, String token, Context context) {
+        final MutableLiveData<Usuari> mutableLiveData = new MutableLiveData<>();//para capturar informacion variable
+
+        BiblioAppCliente biblioAppCliente =
+                ServiceGenerator.createService(BiblioAppCliente.class, token,context);// Generamos el servicio
+
+        biblioAppCliente.BuscaUsuarioId(token, usuari.getIdUsuari()).enqueue(new Callback<Usuari>() {
+            @Override
+            public void onResponse(Call<Usuari> call, Response<Usuari> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Usuari usuari1= response.body();
+                    mutableLiveData.setValue(usuari1);
+                }else{
+                    Usuari usuari1= new Usuari();
+                    usuari1.setIdUsuari("Error");
+                    mutableLiveData.setValue(usuari1);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Usuari> call, Throwable t) {
+                Log.e(TAG, "Buscar  usuario ID  incorrecto");
             }
         });
         return mutableLiveData;

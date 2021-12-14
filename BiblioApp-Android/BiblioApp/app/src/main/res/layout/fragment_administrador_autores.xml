@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Administrador.Administrador_AutoresFragment">
+    tools:context=".View.Administrador.Autores.Administrador_AutoresFragment">
 
     <TextView
         android:id="@+id/text_gallery"
@@ -36,23 +36,23 @@
 
     <ImageButton
         android:id="@+id/boton_nuevo_autor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:onClick="nuevoAutor"
         android:src="@drawable/ic_nuevo_usuario"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/boton_ordenar_autores_asc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_arriba"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:textSize="10dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/boton_nuevo_autor"
@@ -60,22 +60,22 @@
 
     <ImageButton
         android:id="@+id/boton_ordenar_autores_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_flecha_abajo"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_autores_asc"
         app:layout_constraintLeft_toRightOf="@id/boton_ordenar_autores_asc"/>
 
     <ImageButton
         android:id="@+id/boton_modificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/ic_modificar"
-        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/gradient_splash"
         android:onClick="detalleAutor"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@id/boton_ordenar_autores_desc"

@@ -1,24 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- @Autor Saúl López Díez-->
-<!-- Layout del fragmento del usuario con sus datos-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Layout del fragmento del usuario con el detalle sus daros usuario y capacidad de modificarlos-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Usuario.Usuario_GestionUsuariosFragment">
 
-    <TextView
-        android:id="@+id/text_gallery2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        tools:context=".View.Usuario.Pantalla_Inicio_Usuario">
+
+        <TextView
+            android:id="@+id/textView_NomUsuari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:text="Nom d'usuari"
+            app:layout_constraintStart_toStartOf="@+id/textView_Nom"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_NomUsuari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_NomUsuari"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_NomUsuari" />
+
+        <TextView
+            android:id="@+id/textView_Nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="123dp"
+            android:text="Nom"
+            app:layout_constraintStart_toStartOf="@+id/textView_Cognoms"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_Nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Nom"
+            app:layout_constraintStart_toEndOf="@+id/textView_Nom"
+            app:layout_constraintStart_toStartOf="@+id/editText_NomUsuari" />
+
+        <TextView
+            android:id="@+id/textView_Cognoms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:text="Cognoms"
+            app:layout_constraintStart_toStartOf="@+id/textView_Email"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Nom" />
+
+        <EditText
+            android:id="@+id/editText_Cognoms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Cognoms"
+            app:layout_constraintStart_toStartOf="@+id/editText_Nom" />
+
+        <TextView
+            android:id="@+id/textView_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:text="Email"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_Email"
+            app:layout_constraintStart_toStartOf="@+id/textView_Telefon" />
+
+        <EditText
+            android:id="@+id/editText_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editText_Cognoms"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Cognoms" />
+
+        <TextView
+            android:id="@+id/textView_Telefon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="Telefòn"
+            app:layout_constraintStart_toStartOf="@+id/textView_Contraseña"
+            app:layout_constraintTop_toTopOf="@+id/editText_Telefon" />
+
+        <EditText
+            android:id="@+id/editText_Telefon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editText_Email"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Email" />
+
+        <TextView
+            android:id="@+id/textView_Contraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="11dp"
+            android:text="Contrasenya"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_Contraseña"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_Contraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/editText_Telefon"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Telefon" />
+
+
+
+        <TextView
+            android:id="@+id/textView_Mensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/boton_Modificar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_Contraseña" />
+
+        <Button
+            android:id="@+id/boton_Modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="138dp"
+            android:layout_marginBottom="28dp"
+            android:onClick="Modificar"
+            android:text="Modificar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

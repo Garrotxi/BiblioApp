@@ -48,7 +48,7 @@ public class Usuario_GestionLibrosViewModel extends ViewModel {
 
         mensaje = new MutableLiveData<>();
 
-        usuario_gestionLibrosViewModel.ConseguirLibrosRepositorio(token).observe((LifecycleOwner) context, new Observer<Collection<Llibre>>() {//Generamos un observer a la espera de la consulta con el repositorio
+        usuario_gestionLibrosViewModel.ConseguirLibrosRepositorio(token, context).observe((LifecycleOwner) context, new Observer<Collection<Llibre>>() {//Generamos un observer a la espera de la consulta con el repositorio
             @Override
             public void onChanged(Collection llibre) {//con la respuesta
                 if (llibre != null) {//si no es null
@@ -66,10 +66,10 @@ public class Usuario_GestionLibrosViewModel extends ViewModel {
      * @param
      * @return datos de la consulta al repositorio, una instancia de Usuari
      */
-    public LiveData<Collection<Llibre>> ConseguirLibrosRepositorio(String token) {
+    public LiveData<Collection<Llibre>> ConseguirLibrosRepositorio(String token, Context context) {
 
         if (mutableLiveData == null) {
-            mutableLiveData = biblioAppRepo.pideLibros(token);
+            mutableLiveData = biblioAppRepo.pideLibros(token, context);
         }
         return mutableLiveData;
     }

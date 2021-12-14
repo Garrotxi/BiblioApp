@@ -83,6 +83,7 @@ public class Login_Activity extends AppCompatActivity {
                         } else {
                             Intent intent = new Intent(Login_Activity.this, Pantalla_Inicio_Usuario.class);
                             intent.putExtra("token",strings.get(1));
+                            intent.putExtra("id", strings.get(2));
                             getWindow().setExitTransition(new Explode());
                             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(Login_Activity.this).toBundle());
                         }

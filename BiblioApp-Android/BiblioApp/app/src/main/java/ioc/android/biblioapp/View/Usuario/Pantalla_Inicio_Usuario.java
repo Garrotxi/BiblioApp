@@ -21,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 
+import ioc.android.biblioapp.Model.Clases.Usuari;
 import ioc.android.biblioapp.R;
 import ioc.android.biblioapp.View.Login_Activity;
 import ioc.android.biblioapp.ViewModel.Usuario.PantallaInicioUsuarioViewModel;
@@ -31,7 +32,8 @@ public class Pantalla_Inicio_Usuario extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPantallaInicioUsuarioBinding binding;
     private PantallaInicioUsuarioViewModel pantallaInicioUsuarioViewModel;
-
+    private NavController navController;
+    private Usuari usuari;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,12 +60,14 @@ public class Pantalla_Inicio_Usuario extends AppCompatActivity {
                 .build();
 
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_usuario_drawer);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_usuario_drawer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
         pantallaInicioUsuarioViewModel= new ViewModelProvider(this).get(PantallaInicioUsuarioViewModel.class);
         String token= getIntent().getExtras().getString("token");
+        usuari=new Usuari();
+        usuari.setIdUsuari(getIntent().getExtras().getString("id"));
         pantallaInicioUsuarioViewModel.setToken(token);
     }
 
@@ -79,5 +83,13 @@ public class Pantalla_Inicio_Usuario extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_usuario_drawer);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void detalleLibro(View view) {
+        navController.navigate(R.id.nav_Admin_detalleLibro);
+    }
+
+    public void buscarLibro(View view) {
+        navController.navigate(R.id.nav_admin_BuscarLibro);
     }
 }
