@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "de2a7326-a843-4d8d-b123-dd6479af2f2e",
+		"_postman_id": "ebf66358-7f63-4199-b08c-c6f8c1f33815",
 		"name": "Test biblioapp collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -37,12 +37,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/registrarUsuari",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/registrarUsuari",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"registrarUsuari"
@@ -79,12 +79,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/login",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/login",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"login"
@@ -121,12 +121,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/registrarUsuari",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/registrarUsuari",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"registrarUsuari"
@@ -156,7 +156,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTY3NzQ1NywiZXhwIjoxNjM5NzIwNjU3fQ.0c9gVX-FzKfIz4Yvf0bj5HJHMbNDxSr1YeZnYOo2YEFM2I3K1Vv36wgrgnvmbeORqEkPlB98z9FQCVYRdKlv_w",
 									"type": "string"
 								}
 							]
@@ -168,12 +168,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/eliminarUsuari/2",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/eliminarUsuari/2",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"eliminarUsuari",
@@ -212,12 +212,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/auth/llistaUsuaris",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/llistaUsuaris",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"llistaUsuaris"
@@ -254,12 +254,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/login",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/login",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"login"
@@ -306,16 +306,50 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/actualitzarUsuari/2",
-							"protocol": "http",
+							"raw": "https://localhost:9090/auth/actualitzarUsuari/2",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"auth",
 								"actualitzarUsuari",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalls usuari by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:9090/auth/detallUsuari/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"detallUsuari",
+								"1"
 							]
 						}
 					},
@@ -355,12 +389,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/llibre/llistaLlibres",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/llistaLlibres",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"llistaLlibres"
@@ -410,12 +444,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/detallLlibre/4",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/detallLlibre/4",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"detallLlibre",
@@ -454,12 +488,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/llibre/detallTitul/TestBook2",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/detallTitul/TestBook2",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"detallTitul",
@@ -498,12 +532,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/llibre/eliminarLlibre/3",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/eliminarLlibre/3",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"eliminarLlibre",
@@ -551,12 +585,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/crearLlibre",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/crearLlibre",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"crearLlibre"
@@ -603,12 +637,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/llibre/actualizarLlibre/3",
-							"protocol": "http",
+							"raw": "https://localhost:9090/llibre/actualizarLlibre/3",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"llibre",
 								"actualizarLlibre",
@@ -652,12 +686,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/autor/llistaAutors",
-							"protocol": "http",
+							"raw": "https://localhost:9090/autor/llistaAutors",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"autor",
 								"llistaAutors"
@@ -704,12 +738,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/autor/crearAutor",
-							"protocol": "http",
+							"raw": "https://localhost:9090/autor/crearAutor",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"autor",
 								"crearAutor"
@@ -756,12 +790,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/autor/actualizarAutor/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/autor/actualizarAutor/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"autor",
 								"actualizarAutor",
@@ -804,12 +838,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/autor/eliminarAutor/2",
-							"protocol": "http",
+							"raw": "https://localhost:9090/autor/eliminarAutor/2",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"autor",
 								"eliminarAutor",
@@ -835,12 +869,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/autor/detallAutor/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/autor/detallAutor/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"autor",
 								"detallAutor",
@@ -893,12 +927,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/prestec/crearPrestec",
-							"protocol": "http",
+							"raw": "https://localhost:9090/prestec/crearPrestec",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"prestec",
 								"crearPrestec"
@@ -936,12 +970,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/prestec/llistaPrestecs",
-							"protocol": "http",
+							"raw": "https://localhost:9090/prestec/llistaPrestecs",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"prestec",
 								"llistaPrestecs"
@@ -979,12 +1013,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/prestec/detallPrestecId/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/prestec/detallPrestecId/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"prestec",
 								"detallPrestecId",
@@ -1032,12 +1066,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/prestec/actualizarPrestec/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/prestec/actualizarPrestec/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"prestec",
 								"actualizarPrestec",
@@ -1076,12 +1110,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/prestec/eliminarPrestec/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/prestec/eliminarPrestec/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"prestec",
 								"eliminarPrestec",
@@ -1134,12 +1168,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/categoria/crearCategoria",
-							"protocol": "http",
+							"raw": "https://localhost:9090/categoria/crearCategoria",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"categoria",
 								"crearCategoria"
@@ -1177,12 +1211,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/categoria/llistaCategories",
-							"protocol": "http",
+							"raw": "https://localhost:9090/categoria/llistaCategories",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"categoria",
 								"llistaCategories"
@@ -1220,12 +1254,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/categoria/detallCategoria/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/categoria/detallCategoria/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"categoria",
 								"detallCategoria",
@@ -1273,12 +1307,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/categoria/actualizarCategoria/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/categoria/actualizarCategoria/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"categoria",
 								"actualizarCategoria",
@@ -1317,12 +1351,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/categoria/eliminarCategoria/1",
-							"protocol": "http",
+							"raw": "https://localhost:9090/categoria/eliminarCategoria/1",
+							"protocol": "https",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9090",
 							"path": [
 								"categoria",
 								"eliminarCategoria",

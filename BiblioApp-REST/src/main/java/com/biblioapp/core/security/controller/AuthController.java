@@ -112,6 +112,14 @@ public class AuthController {
         return new ResponseEntity<>(usuaris, HttpStatus.OK);
     }
 
+    @GetMapping("/detallUsuari/{idUsuari}")
+    public ResponseEntity<Usuari> usuariById(@PathVariable("idUsuari") int idUsuari) {
+        if (!usuariService.existsByIdUsuari(idUsuari))
+            return new ResponseEntity(new Missatge("No existeix l'usuari"), HttpStatus.NOT_FOUND);
+        Usuari usuari = usuariService.getUsuari(idUsuari).get();
+        return new ResponseEntity(usuari, HttpStatus.OK);
+    }
+
     @PutMapping("/actualitzarUsuari/{idUsuari}")
     public ResponseEntity<?> actualitzarUsuaris(@PathVariable("idUsuari") int idUsuari,
                                                 @RequestBody UsuariDTO usuariDTO){
