@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `biblioapp` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
+CREATE DATABASE  IF NOT EXISTS `biblioapp` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `biblioapp`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
@@ -18,6 +18,52 @@ USE `biblioapp`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `autor`
+--
+
+DROP TABLE IF EXISTS `autor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `autor` (
+  `id_autor` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_autor`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `autor`
+--
+
+LOCK TABLES `autor` WRITE;
+/*!40000 ALTER TABLE `autor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `autor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categories` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `llibres`
 --
 
@@ -27,11 +73,13 @@ DROP TABLE IF EXISTS `llibres`;
 CREATE TABLE `llibres` (
   `id_llibre` int(11) NOT NULL AUTO_INCREMENT,
   `copies_disponibles` int(11) DEFAULT NULL,
-  `data_publicacio` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `titul` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `data_publicacio` varchar(255) DEFAULT NULL,
+  `descripcio` varchar(255) DEFAULT NULL,
+  `isbn` varchar(255) DEFAULT NULL,
+  `titul` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_llibre`),
   KEY `idx_llibre_idllibre` (`id_llibre`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +88,35 @@ CREATE TABLE `llibres` (
 
 LOCK TABLES `llibres` WRITE;
 /*!40000 ALTER TABLE `llibres` DISABLE KEYS */;
+INSERT INTO `llibres` VALUES (1,4,'10/09/21','descripcio testbook 11','123456789isbn','TestBook11');
 /*!40000 ALTER TABLE `llibres` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `prestecs`
+--
+
+DROP TABLE IF EXISTS `prestecs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `prestecs` (
+  `id_prestec` int(11) NOT NULL AUTO_INCREMENT,
+  `data_devolucio` varchar(255) DEFAULT NULL,
+  `data_devolucio_prevista` varchar(255) DEFAULT NULL,
+  `data_prestec` varchar(255) NOT NULL,
+  `id_llibre` int(11) NOT NULL,
+  `id_usuari` int(11) NOT NULL,
+  PRIMARY KEY (`id_prestec`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `prestecs`
+--
+
+LOCK TABLES `prestecs` WRITE;
+/*!40000 ALTER TABLE `prestecs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prestecs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -52,9 +128,9 @@ DROP TABLE IF EXISTS `rols`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rols` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rol_nom` varchar(255) COLLATE utf8_bin NOT NULL,
+  `rol_nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +139,7 @@ CREATE TABLE `rols` (
 
 LOCK TABLES `rols` WRITE;
 /*!40000 ALTER TABLE `rols` DISABLE KEYS */;
+INSERT INTO `rols` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
 /*!40000 ALTER TABLE `rols` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,14 +152,14 @@ DROP TABLE IF EXISTS `usuari`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuari` (
   `id_usuari` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) COLLATE utf8_bin NOT NULL,
-  `nom_usuari` varchar(255) COLLATE utf8_bin NOT NULL,
-  `email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `contrasenya` varchar(255) COLLATE utf8_bin NOT NULL,
-  `cognoms` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `telefon` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cognoms` varchar(255) DEFAULT NULL,
+  `contrasenya` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `nom_usuari` varchar(255) NOT NULL,
+  `telefon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_usuari`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,6 +168,7 @@ CREATE TABLE `usuari` (
 
 LOCK TABLES `usuari` WRITE;
 /*!40000 ALTER TABLE `usuari` DISABLE KEYS */;
+INSERT INTO `usuari` VALUES (1,'test_cognom_admin1','$2a$10$DO9w5iXmFLulcBtm5XmAFO3ixTZGAQ172LM.QdByhrGVUAxIJl3wS','test_admin1@ioc.cat','test_admin1','test_admin1','+34 666 666 666');
 /*!40000 ALTER TABLE `usuari` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,9 +182,9 @@ DROP TABLE IF EXISTS `usuari_rol`;
 CREATE TABLE `usuari_rol` (
   `id_usuari` int(11) NOT NULL,
   `rol_id` int(11) NOT NULL,
-  PRIMARY KEY (`id_usuari`,`rol_id`),
-  KEY `FKhk3fnrrrnu0opmfvcm2cssbaa` (`rol_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  KEY `FKhk3fnrrrnu0opmfvcm2cssbaa` (`rol_id`),
+  KEY `FK63s7x24avk2cwyrvcy35xqrk7` (`id_usuari`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +193,7 @@ CREATE TABLE `usuari_rol` (
 
 LOCK TABLES `usuari_rol` WRITE;
 /*!40000 ALTER TABLE `usuari_rol` DISABLE KEYS */;
+INSERT INTO `usuari_rol` VALUES (1,2),(1,1);
 /*!40000 ALTER TABLE `usuari_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-23 19:09:02
+-- Dump completed on 2021-12-17 18:22:21
