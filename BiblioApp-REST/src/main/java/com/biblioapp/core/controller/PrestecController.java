@@ -40,26 +40,7 @@ public class PrestecController {
         Prestec prestec = prestecService.getPrestec(idPrestec).get();
         return new ResponseEntity(prestec, HttpStatus.OK);
     }
-
-/*
-    //S'ha de cambiar a llista similar a FindAllById
-    @GetMapping("detallPrestecIdUsuari/{idUsuari}")
-    public ResponseEntity<List<Prestec>> prestecByIdUsuari(@PathVariable("idUsuari") int idUsuari) {
-        if (!prestecService.existsByIdLlibre(idUsuari))
-            return new ResponseEntity(new Missatge("No existeix el prestec per Id usuari"), HttpStatus.NOT_FOUND);
-        Prestec prestec = prestecService.getByIdUsuari(idUsuari).get();
-        return new ResponseEntity(prestec, HttpStatus.OK);
-    }
-
-    @GetMapping("detallPrestecIdLlibre/{idLlibre}")
-    public ResponseEntity<Prestec> prestecByIdLlibre(@PathVariable("idLlibre") int idLlibre) {
-        if (!prestecService.existsByIdLlibre(idLlibre))
-            return new ResponseEntity(new Missatge("No existeix el prestec per Id llibre"), HttpStatus.NOT_FOUND);
-        Prestec prestec = prestecService.getByIdLlibre(idLlibre).get();
-        return new ResponseEntity(prestec, HttpStatus.OK);
-    }
-*/
-
+    
     @PostMapping("/crearPrestec")
     public ResponseEntity<?> crearPrestec(@RequestBody PrestecDTO prestecDTO) {
         if(prestecDTO.getIdUsuari() == 0 || prestecDTO.getIdLlibre() == 0)
