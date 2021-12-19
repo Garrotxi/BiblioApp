@@ -50,7 +50,7 @@ public class CategoriaController {
             return new ResponseEntity(new Missatge("El nom de la categoria es obligatori"), HttpStatus.BAD_REQUEST);
 
         if(categoriaService.existsByNomCategoria(categoriaDTO.getNomCategoria()))
-            return new ResponseEntity(new Missatge("Ja existeix una categoria amb aquest titul"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Missatge("Ja existeix una categoria amb aquest nom"), HttpStatus.BAD_REQUEST);
 
         Categoria categoria = new Categoria(categoriaDTO.getNomCategoria());
         categoriaService.saveCategoria(categoria);
