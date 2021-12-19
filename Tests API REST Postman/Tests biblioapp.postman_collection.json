@@ -156,7 +156,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTY3NzQ1NywiZXhwIjoxNjM5NzIwNjU3fQ.0c9gVX-FzKfIz4Yvf0bj5HJHMbNDxSr1YeZnYOo2YEFM2I3K1Vv36wgrgnvmbeORqEkPlB98z9FQCVYRdKlv_w",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkxODI5MCwiZXhwIjoxNjM5OTYxNDkwfQ.1Ja6PSBxL4BpogYLzbVhvS1pQYP3f4xyGqy435aXfHxctUHkHfQrFt35mk3nAggZN5uV1hltO96IsRp32sDplg",
 									"type": "string"
 								}
 							]
@@ -168,7 +168,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://localhost:9090/auth/eliminarUsuari/2",
+							"raw": "https://localhost:9090/auth/eliminarUsuari/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -177,7 +177,7 @@
 							"path": [
 								"auth",
 								"eliminarUsuari",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -204,7 +204,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkxODI5MCwiZXhwIjoxNjM5OTYxNDkwfQ.1Ja6PSBxL4BpogYLzbVhvS1pQYP3f4xyGqy435aXfHxctUHkHfQrFt35mk3nAggZN5uV1hltO96IsRp32sDplg",
 									"type": "string"
 								}
 							]
@@ -381,7 +381,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMxMzMxMSwiZXhwIjoxNjM4MzU2NTExfQ.NB1MyssLBGZZjIuny8eDl4UXsSfHxlegzv6MYU77asjzF2ssya_ZZjXWp3W9ZeZkL0G_2zQL9Zc2TjRkDGKqtA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
 									"type": "string"
 								}
 							]
@@ -568,7 +568,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMxMzMxMSwiZXhwIjoxNjM4MzU2NTExfQ.NB1MyssLBGZZjIuny8eDl4UXsSfHxlegzv6MYU77asjzF2ssya_ZZjXWp3W9ZeZkL0G_2zQL9Zc2TjRkDGKqtA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
 									"type": "string"
 								}
 							]
@@ -577,7 +577,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulLlibre\":\"TestBook11\",\r\n    \"dataPublicacio\":\"10/09/21\",\r\n    \"copiesDisponibles\":\"4\",\r\n    \"isbn\":\"123456789isbn\",\r\n    \"descripcio\":\"descripcio testbook 11\"\r\n}\r\n",
+							"raw": "{\r\n    \"titulLlibre\":\"TestBook3\",\r\n    \"idAutor\":\"1\",\r\n    \"idCategoria\":\"1\",\r\n    \"dataPublicacio\":\"10/09/21\",\r\n    \"copiesDisponibles\":\"4\",\r\n    \"isbn\":\"123456789isbn\",\r\n    \"descripcio\":\"descripcio testbook 2\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -620,7 +620,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzNzY4OTQ5MywiZXhwIjoxNjM3NzMyNjkzfQ.1ZhVDHUFzjTlsNZ1wAKBjKSG2LPQD2p8cPGYK22-K5rhPAA4u6y8y1WWZAqczvnrpzd-jhDrUdN4zOfMig_VLg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
 									"type": "string"
 								}
 							]
@@ -629,7 +629,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"titulLlibre\": \"TestBook3_Modificat\",\r\n        \"dataPublicacio\": \"2021-09-10\",\r\n        \"copiesDisponibles\": 7\r\n    }",
+							"raw": "    {\r\n        \"titulLlibre\": \"TestBook3_Modificat\",\r\n        \"idAutor\":\"1\",\r\n        \"idCategoria\":\"1\",\r\n        \"dataPublicacio\": \"2021-09-10\",\r\n        \"copiesDisponibles\": 7\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -637,7 +637,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:9090/llibre/actualizarLlibre/3",
+							"raw": "https://localhost:9090/llibre/actualizarLlibre/12",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -646,7 +646,7 @@
 							"path": [
 								"llibre",
 								"actualizarLlibre",
-								"3"
+								"12"
 							]
 						}
 					},
@@ -721,7 +721,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNTQ5MywiZXhwIjoxNjM4MzQ4NjkzfQ.aInR4Pk4lRlqUZc88A11lKhnCEiAl4FDQZA4PXPbfwuiRA81fakHL0q7C6-C-3ZeaLXw4-Shm51z4dunexoH2A",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMTEwNywiZXhwIjoxNjM5OTc0MzA3fQ.LbQbVAwVZg8tQquyzDOchF1At198BqfVYj3bUIo34SUtQmf5i5B1jYYDF0ytgHtrBs1VUmzWnQUT6bTM9SFuhg",
 									"type": "string"
 								}
 							]
@@ -730,7 +730,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"raw": "{\r\n    \"nom\":\"DEFAULT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1151,7 +1151,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMTEwNywiZXhwIjoxNjM5OTc0MzA3fQ.LbQbVAwVZg8tQquyzDOchF1At198BqfVYj3bUIo34SUtQmf5i5B1jYYDF0ytgHtrBs1VUmzWnQUT6bTM9SFuhg",
 									"type": "string"
 								}
 							]
@@ -1160,7 +1160,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomCategoria\":\"Acció\"\r\n}",
+							"raw": "{\r\n    \"nomCategoria\":\"DEFAULT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
