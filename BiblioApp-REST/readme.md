@@ -13,6 +13,7 @@
   * Username: `root`
   * Password: `password`
 - Carregar el DUMP de la base de dades anomenat `biblioapp.sql`
+- Executar script sql localizat en `..\Database\inicialitzacio_autors_i_categories.sql` que conte la categoria per defecte i l'autor per defecte necesaris per a poder afegir llibres
 
 ###2. Creació de certificats autosignats per a la seguretat HTTPS
 

@@ -28,8 +28,18 @@ CREATE TABLE `autor` (
   `id_autor` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_autor`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `autor`
+--
+
+LOCK TABLES `autor` WRITE;
+/*!40000 ALTER TABLE `autor` DISABLE KEYS */;
+INSERT INTO `autor` VALUES (1,'DEFAULT');
+/*!40000 ALTER TABLE `autor` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `categories`
@@ -42,8 +52,18 @@ CREATE TABLE `categories` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'DEFAULT');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `llibres`
@@ -67,8 +87,17 @@ CREATE TABLE `llibres` (
   KEY `fk_idCategoria_idx` (`id_categoria`),
   CONSTRAINT `fk_idAutor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_idCategoria` FOREIGN KEY (`id_categoria`) REFERENCES `categories` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `llibres`
+--
+
+LOCK TABLES `llibres` WRITE;
+/*!40000 ALTER TABLE `llibres` DISABLE KEYS */;
+/*!40000 ALTER TABLE `llibres` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `prestecs`
@@ -93,6 +122,15 @@ CREATE TABLE `prestecs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `prestecs`
+--
+
+LOCK TABLES `prestecs` WRITE;
+/*!40000 ALTER TABLE `prestecs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prestecs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rols`
 --
 
@@ -105,6 +143,16 @@ CREATE TABLE `rols` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rols`
+--
+
+LOCK TABLES `rols` WRITE;
+/*!40000 ALTER TABLE `rols` DISABLE KEYS */;
+INSERT INTO `rols` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
+/*!40000 ALTER TABLE `rols` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuari`
@@ -126,6 +174,16 @@ CREATE TABLE `usuari` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `usuari`
+--
+
+LOCK TABLES `usuari` WRITE;
+/*!40000 ALTER TABLE `usuari` DISABLE KEYS */;
+INSERT INTO `usuari` VALUES (1,'test_cognom_admin1','$2a$10$DO9w5iXmFLulcBtm5XmAFO3ixTZGAQ172LM.QdByhrGVUAxIJl3wS','test_admin1@ioc.cat','test_admin1','test_admin1','+34 666 666 666'),(4,'roige','$2a$10$ZSZ0kaPyYmt3YGue9wMG5uxubpPJ.9k6urMhQeSeXV2n83OL0k.SC','lluis@mail.com','lluis antoni','lluis','9399923467');
+/*!40000 ALTER TABLE `usuari` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuari_rol`
 --
 
@@ -141,6 +199,16 @@ CREATE TABLE `usuari_rol` (
   CONSTRAINT `FKhk3fnrrrnu0opmfvcm2cssbaa` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuari_rol`
+--
+
+LOCK TABLES `usuari_rol` WRITE;
+/*!40000 ALTER TABLE `usuari_rol` DISABLE KEYS */;
+INSERT INTO `usuari_rol` VALUES (1,2),(1,1),(4,2);
+/*!40000 ALTER TABLE `usuari_rol` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping events for database 'biblioapp'
@@ -159,4 +227,4 @@ CREATE TABLE `usuari_rol` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-19 17:23:52
+-- Dump completed on 2021-12-19 17:41:59
