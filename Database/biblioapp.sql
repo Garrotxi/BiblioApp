@@ -28,17 +28,8 @@ CREATE TABLE `autor` (
   `id_autor` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_autor`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `autor`
---
-
-LOCK TABLES `autor` WRITE;
-/*!40000 ALTER TABLE `autor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `autor` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `categories`
@@ -51,17 +42,8 @@ CREATE TABLE `categories` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `categories`
---
-
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `llibres`
@@ -77,20 +59,14 @@ CREATE TABLE `llibres` (
   `descripcio` varchar(255) DEFAULT NULL,
   `isbn` varchar(255) DEFAULT NULL,
   `titul` varchar(255) DEFAULT NULL,
+  `id_autor` int(11) DEFAULT NULL,
+  `id_categoria` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_llibre`),
-  KEY `idx_llibre_idllibre` (`id_llibre`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `idx_llibre_idllibre` (`id_llibre`),
+  KEY `fk_idAutor_idx` (`id_autor`),
+  KEY `fk_idCategoria_idx` (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `llibres`
---
-
-LOCK TABLES `llibres` WRITE;
-/*!40000 ALTER TABLE `llibres` DISABLE KEYS */;
-INSERT INTO `llibres` VALUES (1,4,'10/09/21','descripcio testbook 11','123456789isbn','TestBook11');
-/*!40000 ALTER TABLE `llibres` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `prestecs`
@@ -106,18 +82,13 @@ CREATE TABLE `prestecs` (
   `data_prestec` varchar(255) NOT NULL,
   `id_llibre` int(11) NOT NULL,
   `id_usuari` int(11) NOT NULL,
-  PRIMARY KEY (`id_prestec`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_prestec`),
+  KEY `fk_idUsuari_idx` (`id_usuari`),
+  KEY `fk_idLlibre_idx` (`id_llibre`),
+  CONSTRAINT `fk_idLlibre` FOREIGN KEY (`id_llibre`) REFERENCES `llibres` (`id_llibre`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `fk_idUsuari` FOREIGN KEY (`id_usuari`) REFERENCES `usuari` (`id_usuari`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `prestecs`
---
-
-LOCK TABLES `prestecs` WRITE;
-/*!40000 ALTER TABLE `prestecs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `prestecs` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `rols`
@@ -130,18 +101,8 @@ CREATE TABLE `rols` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rol_nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rols`
---
-
-LOCK TABLES `rols` WRITE;
-/*!40000 ALTER TABLE `rols` DISABLE KEYS */;
-INSERT INTO `rols` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
-/*!40000 ALTER TABLE `rols` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuari`
@@ -159,18 +120,8 @@ CREATE TABLE `usuari` (
   `nom_usuari` varchar(255) NOT NULL,
   `telefon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_usuari`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuari`
---
-
-LOCK TABLES `usuari` WRITE;
-/*!40000 ALTER TABLE `usuari` DISABLE KEYS */;
-INSERT INTO `usuari` VALUES (1,'test_cognom_admin1','$2a$10$DO9w5iXmFLulcBtm5XmAFO3ixTZGAQ172LM.QdByhrGVUAxIJl3wS','test_admin1@ioc.cat','test_admin1','test_admin1','+34 666 666 666');
-/*!40000 ALTER TABLE `usuari` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuari_rol`
@@ -184,18 +135,8 @@ CREATE TABLE `usuari_rol` (
   `rol_id` int(11) NOT NULL,
   KEY `FKhk3fnrrrnu0opmfvcm2cssbaa` (`rol_id`),
   KEY `FK63s7x24avk2cwyrvcy35xqrk7` (`id_usuari`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuari_rol`
---
-
-LOCK TABLES `usuari_rol` WRITE;
-/*!40000 ALTER TABLE `usuari_rol` DISABLE KEYS */;
-INSERT INTO `usuari_rol` VALUES (1,2),(1,1);
-/*!40000 ALTER TABLE `usuari_rol` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping events for database 'biblioapp'
@@ -214,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 18:22:21
+-- Dump completed on 2021-12-19 17:16:09
