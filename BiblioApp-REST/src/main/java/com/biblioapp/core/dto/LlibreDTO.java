@@ -12,6 +12,9 @@ import javax.validation.constraints.NotBlank;
 public class LlibreDTO {
     @NotBlank
     private String titulLlibre;
+
+    private int idAutor;
+    private int idCategoria;
     private String dataPublicacio;
     private int copiesDisponibles;
     private String isbn;
@@ -20,7 +23,9 @@ public class LlibreDTO {
     public LlibreDTO() {
     }
 
-    public LlibreDTO(String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
+    public LlibreDTO(int idAutor, int idCategoria, String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
+        this.idAutor = idAutor;
+        this.idCategoria = idCategoria;
         this.titulLlibre = titulLlibre;
         this.dataPublicacio =dataPublicacio;
         this.copiesDisponibles = copiesDisponibles;
@@ -66,5 +71,21 @@ public class LlibreDTO {
 
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
+    }
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 }

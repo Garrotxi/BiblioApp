@@ -13,6 +13,11 @@ public class Llibre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLlibre;
+
+    @Column(name="idAutor")
+    private int idAutor;
+    @Column(name="idCategoria")
+    private int idCategoria;
     @Column(name="titul")
     private String titulLlibre;
     @Column(name="data_publicacio")
@@ -27,7 +32,9 @@ public class Llibre {
     public Llibre() {
     }
 
-    public Llibre(String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
+    public Llibre(int idAutor, int idCategoria, String titulLlibre, String dataPublicacio, int copiesDisponibles, String isbn, String descripcio){
+        this.idAutor = idAutor;
+        this.idCategoria = idCategoria;
         this.titulLlibre = titulLlibre;
         this.dataPublicacio =dataPublicacio;
         this.copiesDisponibles = copiesDisponibles;
@@ -81,5 +88,21 @@ public class Llibre {
 
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
+    }
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 }

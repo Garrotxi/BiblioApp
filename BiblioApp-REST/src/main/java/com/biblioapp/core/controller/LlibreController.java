@@ -29,7 +29,7 @@ public class LlibreController {
     @GetMapping("/llistaLlibres")
     public ResponseEntity<List<Llibre>> llistaLlibre(){
         List<Llibre> llibres = llibreService.llistaLlibres();
-        return new ResponseEntity<List<Llibre>>(llibres, HttpStatus.OK);
+        return new ResponseEntity<>(llibres, HttpStatus.OK);
     }
 
     @GetMapping("/detallLlibre/{idLlibre}")
@@ -62,7 +62,8 @@ public class LlibreController {
         if(llibreService.existsByTitulLlibre(llibreDTO.getTitulLlibre()))
             return new ResponseEntity(new Missatge("Ja existeix un llibre amb aquest titul"), HttpStatus.BAD_REQUEST);
 
-        Llibre llibre = new Llibre(llibreDTO.getTitulLlibre(), llibreDTO.getDataPublicacio(), llibreDTO.getCopiesDisponibles(), llibreDTO.getIsbn(), llibreDTO.getDescripcio());
+        Llibre llibre = new Llibre(llibreDTO.getIdAutor(), llibreDTO.getIdCategoria(), llibreDTO.getTitulLlibre(),
+                llibreDTO.getDataPublicacio(), llibreDTO.getCopiesDisponibles(), llibreDTO.getIsbn(), llibreDTO.getDescripcio());
         llibreService.saveLlibre(llibre);
         return new ResponseEntity(new Missatge("Llibre enregistrat"), HttpStatus.OK);
     }
@@ -84,8 +85,13 @@ public class LlibreController {
 
 
         Llibre llibre = llibreService.getLlibre(idLlibre).get();
+        llibre.setIdAutor(llibreDTO.getIdAutor());
+        llibre.setIdCategoria(llibreDTO.getIdCategoria());
         llibre.setTitulLlibre(llibreDTO.getTitulLlibre());
+        llibre.setDataPublicacio(llibreDTO.getDataPublicacio());
         llibre.setCopiesDisponibles(llibreDTO.getCopiesDisponibles());
+        llibre.setIsbn(llibreDTO.getIsbn());
+        llibre.setDescripcio(llibreDTO.getDescripcio());
         llibreService.saveLlibre(llibre);
         return new ResponseEntity(new Missatge("Llibre actualitzat"), HttpStatus.OK);
     }

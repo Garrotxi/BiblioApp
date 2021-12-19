@@ -28,7 +28,7 @@ CREATE TABLE `autor` (
   `id_autor` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_autor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `categories` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,9 @@ CREATE TABLE `llibres` (
   PRIMARY KEY (`id_llibre`),
   KEY `idx_llibre_idllibre` (`id_llibre`),
   KEY `fk_idAutor_idx` (`id_autor`),
-  KEY `fk_idCategoria_idx` (`id_categoria`)
+  KEY `fk_idCategoria_idx` (`id_categoria`),
+  CONSTRAINT `fk_idAutor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_idCategoria` FOREIGN KEY (`id_categoria`) REFERENCES `categories` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,7 +87,7 @@ CREATE TABLE `prestecs` (
   PRIMARY KEY (`id_prestec`),
   KEY `fk_idUsuari_idx` (`id_usuari`),
   KEY `fk_idLlibre_idx` (`id_llibre`),
-  CONSTRAINT `fk_idLlibre` FOREIGN KEY (`id_llibre`) REFERENCES `llibres` (`id_llibre`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `fk_idLlibre` FOREIGN KEY (`id_llibre`) REFERENCES `llibres` (`id_llibre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_idUsuari` FOREIGN KEY (`id_usuari`) REFERENCES `usuari` (`id_usuari`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -134,7 +136,9 @@ CREATE TABLE `usuari_rol` (
   `id_usuari` int(11) NOT NULL,
   `rol_id` int(11) NOT NULL,
   KEY `FKhk3fnrrrnu0opmfvcm2cssbaa` (`rol_id`),
-  KEY `FK63s7x24avk2cwyrvcy35xqrk7` (`id_usuari`)
+  KEY `FK63s7x24avk2cwyrvcy35xqrk7` (`id_usuari`),
+  CONSTRAINT `FK63s7x24avk2cwyrvcy35xqrk7` FOREIGN KEY (`id_usuari`) REFERENCES `usuari` (`id_usuari`),
+  CONSTRAINT `FKhk3fnrrrnu0opmfvcm2cssbaa` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,4 +159,4 @@ CREATE TABLE `usuari_rol` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-19 17:16:09
+-- Dump completed on 2021-12-19 17:23:52
