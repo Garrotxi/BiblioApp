@@ -337,10 +337,20 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:9090/auth/detallUsuari/1",
+							"raw": "https://localhost:9090/auth/detallUsuari/4",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -349,7 +359,7 @@
 							"path": [
 								"auth",
 								"detallUsuari",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -381,7 +391,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -568,7 +578,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMjczNCwiZXhwIjoxNjQwMTQ1OTM0fQ.QmpAuLBgSpOFOfYLFCFjA8gQlhkMPtsBEB3Y8B9cfzqnrwRxT7ybnYGm5Y19hHRf728TeakpRAO5uOKU5Kp0Cw",
 									"type": "string"
 								}
 							]
@@ -577,7 +587,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulLlibre\":\"TestBook3\",\r\n    \"idAutor\":\"1\",\r\n    \"idCategoria\":\"1\",\r\n    \"dataPublicacio\":\"10/09/21\",\r\n    \"copiesDisponibles\":\"4\",\r\n    \"isbn\":\"123456789isbn\",\r\n    \"descripcio\":\"descripcio testbook 2\"\r\n}\r\n",
+							"raw": "{\r\n    \"titulLlibre\":\"Manual Biblioapp\",\r\n    \"idAutor\":\"2\",\r\n    \"idCategoria\":\"2\",\r\n    \"dataPublicacio\":\"21/12/2021\",\r\n    \"copiesDisponibles\":\"1\",\r\n    \"isbn\":\"N/A\",\r\n    \"descripcio\":\"Manual biblioApp\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -678,7 +688,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNDg1NSwiZXhwIjoxNjM4MzQ4MDU1fQ.053Szg_m3HBtGvL6Z6RL1uwimrZ29q_dnBgz2RYvH2OIT5c78Am4hFFRxlbDUia8JHOH3hy8WK2Eor2UeLDoFA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMjI0OSwiZXhwIjoxNjM5OTc1NDQ5fQ.mSf5lzuhTUB2sEi2LfB6oM7gcuEQH5TE1E3-FnzqMJvxezR0ZCJfELrduZmXN_RsMGM33kDGddU9fNxwUekTug",
 									"type": "string"
 								}
 							]
@@ -730,7 +740,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nom\":\"DEFAULT\"\r\n}",
+							"raw": "{\r\n    \"nom\":\"Test Autor 1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -773,7 +783,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjAwNiwiZXhwIjoxNjM4MzQ5MjA2fQ.w379nVAFqMS_P3UTOcTj3FF4qupVWkgd_JfzU3jUh3CDkkowitSmCOVCwSwsw-fOt_HSc1E8QetlXFLVum8e0g",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwNTAyMiwiZXhwIjoxNjQwMTQ4MjIyfQ.sK6sL7OaR5SSCijTOlgMrFBPg7hyiNjrE4g1WHCrTd9P_W66mSJ0WwtWUrOUugX2z6FS_E-O0O7Z1ZHuauP2Pw",
 									"type": "string"
 								}
 							]
@@ -782,7 +792,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nom\":\"Autor2\"\r\n}",
+							"raw": "{\r\n    \"nom\":\"Pablo\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -790,7 +800,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:9090/autor/actualizarAutor/1",
+							"raw": "https://localhost:9090/autor/actualizarAutor/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -799,7 +809,7 @@
 							"path": [
 								"autor",
 								"actualizarAutor",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -855,13 +865,26 @@
 				},
 				{
 					"name": "Detall Autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODMwNjM2MCwiZXhwIjoxNjM4MzQ5NTYwfQ.yq-3geYvhwzAlWGEhKVv_NI3_2TMxMk0fru1iI091Hal_lBmfH6S3Vwkk9P9pF8PIrRlPs7v-_2V1iNVPl8Zdg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwNTAyMiwiZXhwIjoxNjQwMTQ4MjIyfQ.sK6sL7OaR5SSCijTOlgMrFBPg7hyiNjrE4g1WHCrTd9P_W66mSJ0WwtWUrOUugX2z6FS_E-O0O7Z1ZHuauP2Pw",
 									"type": "string"
 								}
 							]
@@ -869,7 +892,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:9090/autor/detallAutor/1",
+							"raw": "https://localhost:9090/autor/detallAutor/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -878,7 +901,7 @@
 							"path": [
 								"autor",
 								"detallAutor",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -910,7 +933,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMjczNCwiZXhwIjoxNjQwMTQ1OTM0fQ.QmpAuLBgSpOFOfYLFCFjA8gQlhkMPtsBEB3Y8B9cfzqnrwRxT7ybnYGm5Y19hHRf728TeakpRAO5uOKU5Kp0Cw",
 									"type": "string"
 								}
 							]
@@ -919,7 +942,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idUsuari\":\"2\",\r\n    \"idLlibre\":\"1\",\r\n    \"dataPrestec\":\"2/12/2021\",\r\n    \"dataDevolucioPrevista\":\"16/12/2021\",\r\n    \"dataDevolucio\":\"\"\r\n}",
+							"raw": "{\r\n    \"idUsuari\":\"4\",\r\n    \"idLlibre\":\"14\",\r\n    \"dataPrestec\":\"21/12/2021\",\r\n    \"dataDevolucioPrevista\":\"29/12/2021\",\r\n    \"dataDevolucio\":\"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -962,7 +985,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -1005,7 +1028,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -1013,7 +1036,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:9090/prestec/detallPrestecId/1",
+							"raw": "https://localhost:9090/prestec/detallPrestecId/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1022,7 +1045,7 @@
 							"path": [
 								"prestec",
 								"detallPrestecId",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -1049,7 +1072,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -1058,7 +1081,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idUsuari\": 2,\r\n    \"idLlibre\": 1,\r\n    \"dataPrestec\": \"3/12/2021\",\r\n    \"dataDevolucioPrevista\": \"17/12/2021\",\r\n    \"dataDevolucio\": \"\"\r\n}",
+							"raw": "{\r\n    \"idUsuari\": 4,\r\n    \"idLlibre\": 14,\r\n    \"dataPrestec\": \"21/12/2021\",\r\n    \"dataDevolucioPrevista\": \"10/12/2022\",\r\n    \"dataDevolucio\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1066,7 +1089,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:9090/prestec/actualizarPrestec/1",
+							"raw": "https://localhost:9090/prestec/actualizarPrestec/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1075,7 +1098,7 @@
 							"path": [
 								"prestec",
 								"actualizarPrestec",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -1102,7 +1125,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODQ3NjA4MiwiZXhwIjoxNjM4NTE5MjgyfQ.xRcn8Ygc013HbhlGngm8wkeqje2W5bSEOq1Q3COcjj4NKxlawPPN3C31ubQFQvtiXoZ9AzT0zyvSqqjQcFxodw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -1110,7 +1133,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:9090/prestec/eliminarPrestec/1",
+							"raw": "https://localhost:9090/prestec/eliminarPrestec/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1119,7 +1142,7 @@
 							"path": [
 								"prestec",
 								"eliminarPrestec",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -1151,7 +1174,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzOTkzMTEwNywiZXhwIjoxNjM5OTc0MzA3fQ.LbQbVAwVZg8tQquyzDOchF1At198BqfVYj3bUIo34SUtQmf5i5B1jYYDF0ytgHtrBs1VUmzWnQUT6bTM9SFuhg",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
@@ -1160,7 +1183,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomCategoria\":\"DEFAULT\"\r\n}",
+							"raw": "{\r\n    \"nomCategoria\":\"Manuals\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1203,7 +1226,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTYzODYzOTAyMywiZXhwIjoxNjM4NjgyMjIzfQ.uv8E2XpzGMPI16aht2OyG7cVeXACvDOFUB7q54N5J8ZftY3ZHORtz_8dM_fWRMcislkOWwCJbneGYLt8bLSsww",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0X2FkbWluMSIsImlhdCI6MTY0MDEwMzI0NiwiZXhwIjoxNjQwMTQ2NDQ2fQ.r7R_p3LpkiLTlJYgkb8thNG_L2t4Aqb4nmfjJW3f6bv1MRcY1BpzpZE_vJ_ofu6QxiBIC0ion2V2Fq_5D8rPxQ",
 									"type": "string"
 								}
 							]
